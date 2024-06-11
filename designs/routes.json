@@ -1,0 +1,31 @@
+{
+    "routes": [
+        {
+            "path": "landing",
+            "component": "landingComponent"
+        },
+        {
+            "path": "notifications",
+            "component": "notificationsComponent"
+        },
+        {
+            "path": "login",
+            "component": "loginComponent"
+        },
+        {
+            "path": "page-not-found",
+            "component": "page_not_foundComponent"
+        },
+        {
+            "path": "''",
+            "redirectTo": "/login",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "",
+            "redirectTo": "page-not-found"
+        }
+    ]
+}

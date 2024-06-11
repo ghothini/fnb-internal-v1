@@ -1,0 +1,22 @@
+<div fxLayout="column wrap" class="relative" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
+  <div *ngIf="page.showSpinner" class="spinner-login absolute">
+    <mat-spinner></mat-spinner>
+  </div><mat-toolbar class="tool-bar"><img imgSrc="Web/Images/fnb-logo.webp" class="fnb-logo-img"></mat-toolbar>
+  <h1 class="no-margin f-weight-400">
+    Login</h1><img imgSrc="Web/Images/fnb-icon.png">
+  <div fxLayout="column wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [formGroup]="page.loginFormGroup">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><label class="f-weight-100">
+        Email Address</label>
+      <div class="relative">
+        <input class="input-field" type="text" required formControlName="email"><small *ngIf="page.loginFormGroup.get(&apos;email&apos;)?.hasError(&apos;required&apos;) &amp;&amp; page.loginFormGroup.get(&apos;email&apos;)?.touched" class="err-msg color-red absolute">This field is <strong>required</strong></small><small *ngIf="page.loginFormGroup.get(&apos;email&apos;)?.hasError(&apos;pattern&apos;) &amp;&amp; page.loginFormGroup.get(&apos;email&apos;)?.touched" class="err-msg color-red absolute">Enter a <strong>valid</strong> email address</small>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><label class="f-weight-100">
+        Password</label>
+      <div class="relative">
+        <input class="input-field" required formControlName="password" type="password"><small *ngIf="page.loginFormGroup.get(&apos;password&apos;)?.hasError(&apos;required&apos;) &amp;&amp; page.loginFormGroup.get(&apos;password&apos;)?.touched" class="err-msg color-red absolute">This field is <strong>required</strong></small>
+      </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="login-btn" (click)="submit()">continue</button></div>
+  </div>
+</div>

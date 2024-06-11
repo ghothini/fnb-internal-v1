@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "198708922040",
+    "project_id": "fcm-testing-46461",
+    "storage_bucket": "fcm-testing-46461.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198708922040:android:e356ca176e00fe0576964d",
+        "android_client_info": {
+          "package_name": "co.neutrinos_delivery.fnb_internal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnlKv0TD_mznRC80EOw7v0hRRoxUfuvRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

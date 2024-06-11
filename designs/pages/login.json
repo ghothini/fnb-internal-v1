@@ -1,0 +1,814 @@
+[
+    {
+        "id": "sd_WjJFTOb7Jd75UvxG",
+        "type": "tab",
+        "createdDate": "2024-06-02T13:31:17.408Z",
+        "label": "login",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "loginComponent"
+    },
+    {
+        "id": "sd_067EIhPzoj00TD8n",
+        "type": "OnInit",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_067EIhPzoj00TD8n",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_TjkPVEbAriVxUGU8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "loginComponent"
+    },
+    {
+        "id": "sd_TjkPVEbAriVxUGU8",
+        "type": "PageVariables",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "loginFormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "showSpinner",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            }
+        ],
+        "functionName": "sd_TjkPVEbAriVxUGU8",
+        "category": "Function",
+        "x": 145,
+        "y": 40,
+        "wires": [
+            [
+                "sd_TU8awjf02zDKU8bg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_1yeMLJsBJrcc4YOB",
+        "type": "PageStart",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Submit",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 45,
+        "y": 200,
+        "wires": [
+            [
+                "sd_PwxrdKb0sVoffo0H"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "loginComponent"
+    },
+    {
+        "id": "sd_TU8awjf02zDKU8bg",
+        "type": "UseDependency",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_TU8awjf02zDKU8bg",
+        "category": "Function",
+        "x": 245,
+        "y": 40,
+        "wires": [
+            [
+                "sd_CUlFVbunbCXqDqNf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_CUlFVbunbCXqDqNf",
+        "type": "Script",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.loginFormGroup = new FormGroup({\n    email: new FormControl('',[Validators.required,Validators.pattern(/^[^\\s@]+@([^\\s@.,]+\\.)+[^\\s@.,]{2,}$/)]),\n    password: new FormControl('',Validators.required)\n})",
+        "functionName": "sd_CUlFVbunbCXqDqNf",
+        "category": "Function",
+        "x": 345,
+        "y": 40,
+        "wires": [
+            [
+                "sd_Y6zVDo16uck2PP68"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_PwxrdKb0sVoffo0H",
+        "type": "PageSwitch",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "loginFormGroup.invalid",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.loginFormGroup.invalid",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_PwxrdKb0sVoffo0H",
+        "category": "Function",
+        "x": 145,
+        "y": 200,
+        "wires": [
+            [
+                "sd_uV7TrG1ga2apU9My"
+            ],
+            [
+                "sd_sXae2vqreNGEKqG9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_uV7TrG1ga2apU9My",
+        "type": "SnackBar",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "All input fields are required!"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_uV7TrG1ga2apU9My",
+        "category": "General",
+        "x": 285,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Y6zVDo16uck2PP68",
+        "type": "Environment",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_Y6zVDo16uck2PP68",
+        "category": "General",
+        "x": 445,
+        "y": 40,
+        "wires": [
+            [
+                "sd_EfI2MVEk466TDqUC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_EfI2MVEk466TDqUC",
+        "type": "Script",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/add-admin';\nbh.body = {\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"123\"\n}",
+        "functionName": "sd_EfI2MVEk466TDqUC",
+        "category": "Function",
+        "x": 545,
+        "y": 40,
+        "wires": [
+            [
+                "sd_KAXopNbB1Yf1ZfJu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_KAXopNbB1Yf1ZfJu",
+        "type": "HttpRequest",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_KAXopNbB1Yf1ZfJu",
+        "category": "HTTP",
+        "x": 645,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_sXae2vqreNGEKqG9",
+        "type": "Script",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/login';\npage.showSpinner = true;",
+        "functionName": "sd_sXae2vqreNGEKqG9",
+        "category": "Function",
+        "x": 225,
+        "y": 240,
+        "wires": [
+            [
+                "sd_VlcmZhae8kiUq4TB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_9l3AQWs4nBxeUT5w",
+        "type": "PageSwitch",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "result.emailNotFound",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.result.emailNotFound",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_9l3AQWs4nBxeUT5w",
+        "category": "Function",
+        "x": 465,
+        "y": 240,
+        "wires": [
+            [
+                "sd_xEHgD3DfzwOE0qzl"
+            ],
+            [
+                "sd_ADwlOiJAslaM32mM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xEHgD3DfzwOE0qzl",
+        "type": "SnackBar",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Account does not exist!"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_xEHgD3DfzwOE0qzl",
+        "category": "General",
+        "x": 605,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_2yA4pVSr3wRZuG29",
+        "type": "Script",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;",
+        "functionName": "sd_2yA4pVSr3wRZuG29",
+        "category": "Function",
+        "x": 385,
+        "y": 240,
+        "wires": [
+            [
+                "sd_9l3AQWs4nBxeUT5w"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_MlzINw8msRwsijIQ",
+        "type": "Script",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;",
+        "functionName": "sd_MlzINw8msRwsijIQ",
+        "category": "Function",
+        "x": 825,
+        "y": 320,
+        "wires": [
+            [
+                "sd_yK3GsYxe0N0zq5lv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_yK3GsYxe0N0zq5lv",
+        "type": "Storage",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUser"
+        },
+        "value": {
+            "type": "this.page",
+            "value": "result"
+        },
+        "resultMapping": {},
+        "functionName": "sd_yK3GsYxe0N0zq5lv",
+        "category": "Storage",
+        "x": 905,
+        "y": 320,
+        "wires": [
+            [
+                "sd_cfzcqunrH59twmRL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_S74xH2ANvdGxxW9y",
+        "type": "SnackBar",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Logged in successfully!"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_S74xH2ANvdGxxW9y",
+        "category": "General",
+        "x": 1065,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_cfzcqunrH59twmRL",
+        "type": "Navigation",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/landing",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "sd_cfzcqunrH59twmRL",
+        "category": "Navigation",
+        "x": 985,
+        "y": 320,
+        "wires": [
+            [
+                "sd_S74xH2ANvdGxxW9y"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Z6nSCrNUjFcxLZJ8",
+        "type": "PageCallService",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Authenticate login using JWT",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ojOOkGOzPuNgge52",
+            "type": "tab",
+            "createdDate": "2024-06-03T10:47:04.502Z",
+            "label": "auth",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_G33L0zNhU8SAOH44",
+            "flowName": "processLoginResults"
+        },
+        "inputVariables": [
+            {
+                "key": "loginResults",
+                "map": true,
+                "valueType": "this.page",
+                "value": "result"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/auth",
+        "startName": "processLoginResults",
+        "inputParams": [
+            "this.page.result"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "authenticateLoginUsingJwt",
+        "category": "General",
+        "x": 725,
+        "y": 320,
+        "wires": [
+            [
+                "sd_MlzINw8msRwsijIQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_JjKay8h1XaKGCsUv",
+        "type": "PageSwitch",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "invalidPassword",
+        "propertyType": "bh",
+        "propertyGv": "bh.invalidPassword",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_JjKay8h1XaKGCsUv",
+        "category": "Function",
+        "x": 625,
+        "y": 320,
+        "wires": [
+            [
+                "sd_QVHlwl1jc2GXv7CF"
+            ],
+            [
+                "sd_Z6nSCrNUjFcxLZJ8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_VlcmZhae8kiUq4TB",
+        "type": "HttpRequest",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "this.page.loginFormGroup.value",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "loginFormGroup.value"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_VlcmZhae8kiUq4TB",
+        "category": "HTTP",
+        "x": 305,
+        "y": 240,
+        "wires": [
+            [
+                "sd_2yA4pVSr3wRZuG29"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_QVHlwl1jc2GXv7CF",
+        "type": "SnackBar",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Email and password combination is incorrect!"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_QVHlwl1jc2GXv7CF",
+        "category": "General",
+        "x": 765,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ADwlOiJAslaM32mM",
+        "type": "Script",
+        "z": "sd_WjJFTOb7Jd75UvxG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(page.result.message){\n    bh.invalidPassword = true;\n} else {\n    bh.invalidPassword = false;\n}",
+        "functionName": "sd_ADwlOiJAslaM32mM",
+        "category": "Function",
+        "x": 525,
+        "y": 320,
+        "wires": [
+            [
+                "sd_JjKay8h1XaKGCsUv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "loginComponent",
+        "generated": true
+    }
+]

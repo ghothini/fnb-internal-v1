@@ -1,0 +1,308 @@
+[
+    {
+        "id": "sd_QUVdBhOXQEQtMvMn",
+        "type": "tab",
+        "createdDate": "2024-05-27T20:19:52.409Z",
+        "label": "confirmation",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "confirmationComponent"
+    },
+    {
+        "id": "sd_Jn1Pp7cB7BzsVPK8",
+        "type": "OnInit",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_Jn1Pp7cB7BzsVPK8",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_Is3XtPezsDeG8gII"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "confirmationComponent"
+    },
+    {
+        "id": "sd_Is3XtPezsDeG8gII",
+        "type": "PageVariables",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "confirmationEmail",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "confirmationField",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{email: ''}"
+                }
+            },
+            {
+                "textIp": "actionConfirmed",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "isDeclingApplication",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            }
+        ],
+        "functionName": "sd_Is3XtPezsDeG8gII",
+        "category": "Function",
+        "x": 145,
+        "y": 40,
+        "wires": [
+            [
+                "sd_xuAmsqteH2y0XvWg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "confirmationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xuAmsqteH2y0XvWg",
+        "type": "GetDialogData",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "bh.dialogData",
+        "functionName": "sd_xuAmsqteH2y0XvWg",
+        "category": "Dialog",
+        "x": 245,
+        "y": 40,
+        "wires": [
+            [
+                "sd_BXbMER2GStQ41VsC"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "bh",
+                "value": "dialogData",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "confirmationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_BXbMER2GStQ41VsC",
+        "type": "Script",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.dialogData.isDeclingApplication) {\n    page.isDeclingApplication = true;\n} else {\n    page.confirmationEmail = bh.dialogData.email;\n}",
+        "functionName": "sd_BXbMER2GStQ41VsC",
+        "category": "Function",
+        "x": 345,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "confirmationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_JmP54qCMvENeTrhd",
+        "type": "PageStart",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "confirmAction",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "confirmAction",
+        "category": "General",
+        "x": 65,
+        "y": 240,
+        "wires": [
+            [
+                "sd_O8X7XezzrdxNwaDm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "confirmationComponent"
+    },
+    {
+        "id": "sd_O8X7XezzrdxNwaDm",
+        "type": "Script",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (page.isDeclingApplication) {\n    // Decline application\n    if (page.confirmationField.email.trim()) {\n        page.actionConfirmed = page.confirmationField.email;\n    } else {\n        page.actionConfirmed = false;\n    }\n\n} else {\n    // Application to bin\n    if (page.confirmationField.email === page.confirmationEmail) {\n        page.actionConfirmed = true;\n    } else {\n        page.actionConfirmed = false;\n    }\n}",
+        "functionName": "sd_O8X7XezzrdxNwaDm",
+        "category": "Function",
+        "x": 165,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "confirmationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_e6dFX6ZYKZthl31k",
+        "type": "CloseDialog",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.actionConfirmed",
+        "functionName": "sd_e6dFX6ZYKZthl31k",
+        "category": "Dialog",
+        "x": 165,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "actionConfirmed",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "confirmationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_IK8OhSLt6qnk4kjm",
+        "type": "PageStart",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeDialog",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeDialog",
+        "category": "General",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_ZyfGFaJ6OOLd54Vh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "confirmationComponent"
+    },
+    {
+        "id": "sd_b4gJZwGTMMOVmX71",
+        "type": "CloseDialog",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.actionConfirmed",
+        "functionName": "sd_b4gJZwGTMMOVmX71",
+        "category": "Dialog",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "actionConfirmed",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "confirmationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ZyfGFaJ6OOLd54Vh",
+        "type": "Script",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.actionConfirmed = false;",
+        "functionName": "sd_ZyfGFaJ6OOLd54Vh",
+        "category": "Function",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "sd_b4gJZwGTMMOVmX71"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "confirmationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Tkk53wM8NG90F1Ye",
+        "type": "PageStart",
+        "z": "sd_QUVdBhOXQEQtMvMn",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "actionConfirmed",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "actionConfirmed",
+        "category": "General",
+        "x": 65,
+        "y": 340,
+        "wires": [
+            [
+                "sd_e6dFX6ZYKZthl31k"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "confirmationComponent"
+    }
+]

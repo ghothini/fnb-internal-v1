@@ -1,0 +1,45 @@
+<div fxLayout="column wrap" class="relative padding" fxLayoutAlign="start stretch" [fxShow]="true"><mat-icon class="pointer color-black absolute" title="Go Back" (click)="goBack()">arrow_back</mat-icon>
+  <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="f-size-large margin-left-2em">
+        <b>Notifications</b>
+      </div>
+      <p class="color-light-brown no-margin">
+        You have {{page.notificationsCount}} unread notifications
+      </p>
+    </div>
+    <p (click)="markAllNotificationsRead()" class="pointer border-radius-7px color-orange bg-light-green padding-05em">
+      Mark all as read</p>
+  </div>
+  <h2 *ngIf="page.notifications.length  &lt; 1" class="color-orange">
+    You&apos;re all caught up! Check back later for new notifications</h2>
+  <div fxLayout="column wrap" class="padding" fxLayoutGap=".7em" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" class="pointer bg-light-green border-radius-7px notification" fxFlex="100%" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true" *ngFor="let notification of page.notifications" [class.read-notification]="notification.read" (dblclick)="markNotificationRead(notification)">
+      <div fxLayout="row wrap" class="relative" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div *ngIf="!notification.read" class="absolute radius-round attension-notification">
+        </div><mat-icon class="icon-xxx-large">person_alert</mat-icon>
+      </div>
+      <div fxLayout="row wrap" class="flex-1" fxLayoutAlign="space-between stretch" [fxShow]="true">
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+          <p class="f-weight-500 no-margin">
+            {{notification.title}}
+          </p>
+          <p class="f-size-small no-margin">
+            {{notification.message}}
+          </p>
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="1.5em" fxLayoutAlign="start center" [fxShow]="true">
+          <div *ngIf="!notification.read" class="color-white new-notif">
+            NEW</div>
+          <div *ngIf="notification.read">
+            {{notification.createdDate}}
+          </div>
+          <div fxLayout="row wrap" class="bg-lighter-green pointer border-radius-7px padding-05em" fxLayoutGap=".2em" fxLayoutAlign="start center" [fxShow]="true" (click)="deleteNotifications(notification)"><mat-icon>delete</mat-icon>
+            <div class="color-orange">
+              Delete</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

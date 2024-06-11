@@ -1,0 +1,408 @@
+[
+    {
+        "id": "sd_kAy5Bsm5JnaFapnP",
+        "type": "tab",
+        "createdDate": "2024-05-22T09:11:32.620Z",
+        "label": "documents",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "documentsComponent"
+    },
+    {
+        "id": "sd_QSUIq8cWbo4kbEZw",
+        "type": "OnInit",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_QSUIq8cWbo4kbEZw",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 40,
+        "wires": [
+            [
+                "sd_JLnZRKp9vdtYOKhX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "documentsComponent"
+    },
+    {
+        "id": "sd_eydr5vbtKQNw0zr4",
+        "type": "PageVariables",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "idDocument",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "paySlipDocument",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_eydr5vbtKQNw0zr4",
+        "category": "Function",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_zd3wtPpEE4qzWbWF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_JLnZRKp9vdtYOKhX",
+        "type": "UseDependency",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "NgxMatFileInputModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular-material-components/file-input",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_JLnZRKp9vdtYOKhX",
+        "category": "Function",
+        "x": 185,
+        "y": 40,
+        "wires": [
+            [
+                "sd_eydr5vbtKQNw0zr4"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_zd3wtPpEE4qzWbWF",
+        "type": "GetDialogData",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "this.page.result",
+        "functionName": "sd_zd3wtPpEE4qzWbWF",
+        "category": "Dialog",
+        "x": 385,
+        "y": 40,
+        "wires": [
+            [
+                "sd_z8qo1z1rTcAqivnB"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "this.page",
+                "value": "result",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_z8qo1z1rTcAqivnB",
+        "type": "Script",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.idDocument = page.result.idDocument;\npage.paySlipDocument = page.result.paySlipDocument;",
+        "functionName": "sd_z8qo1z1rTcAqivnB",
+        "category": "Function",
+        "x": 485,
+        "y": 40,
+        "wires": [
+            [
+                "sd_Er0v7AchoqEYqvNM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Er0v7AchoqEYqvNM",
+        "type": "Log",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "this.page.idDocument",
+        "functionName": "sd_Er0v7AchoqEYqvNM",
+        "category": "General",
+        "x": 585,
+        "y": 40,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "this.page",
+                "value": "idDocument",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_8vZHPTw2ogWRsNgO",
+        "type": "PageStart",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "close",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "close",
+        "category": "General",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_bgp5jANal3ujnCLc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "documentsComponent"
+    },
+    {
+        "id": "sd_bgp5jANal3ujnCLc",
+        "type": "CloseDialog",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "\"closed\"",
+        "functionName": "sd_bgp5jANal3ujnCLc",
+        "category": "Dialog",
+        "x": 165,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "str",
+                "value": "closed",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_8StyUlyJhxXr7GUq",
+        "type": "PageStart",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "viewDocument",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "file",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "viewDocument",
+        "category": "General",
+        "x": 65,
+        "y": 240,
+        "wires": [
+            [
+                "sd_tHzlBp2QsQe8dM8B"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "documentsComponent"
+    },
+    {
+        "id": "sd_tHzlBp2QsQe8dM8B",
+        "type": "Environment",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_tHzlBp2QsQe8dM8B",
+        "category": "General",
+        "x": 165,
+        "y": 240,
+        "wires": [
+            [
+                "sd_BPzjTy9FApg7wHXv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_BPzjTy9FApg7wHXv",
+        "type": "Script",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + `/download-file/${bh.input.file}`;",
+        "functionName": "sd_BPzjTy9FApg7wHXv",
+        "category": "Function",
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "sd_KO6iwAlwjsbqDz7A"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_KO6iwAlwjsbqDz7A",
+        "type": "HttpRequest",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Fetch file",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "fetchFile",
+        "category": "HTTP",
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "sd_5M6PniZ7a68EiluA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_5M6PniZ7a68EiluA",
+        "type": "Log",
+        "z": "sd_kAy5Bsm5JnaFapnP",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "this.page.result",
+        "functionName": "sd_5M6PniZ7a68EiluA",
+        "category": "General",
+        "x": 460,
+        "y": 240,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "this.page",
+                "value": "result",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "documentsComponent",
+        "generated": true
+    }
+]

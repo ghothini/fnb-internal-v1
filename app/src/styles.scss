@@ -1,0 +1,346 @@
+/*Importing default angular material css theme. */
+
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "nDefaults.scss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+$orange: #fa9d1e;
+$light-green: #eef9f3;
+$lighter-green: #f8fff9;
+$light-brown: #7d7d7d;
+$light-red: #4fc581;
+$light-pink: #c3c3d7;
+$gray: gray;
+
+// Colors
+
+.color-white {
+    color: white;
+}
+
+.color-black {
+    color: black !important;
+}
+
+.color-orange {
+    color: $orange;
+}
+
+.color-red {
+    color: red !important;
+}
+
+.color-light-brown {
+    color: $light-brown;
+}
+
+.bg-light-green {
+    background-color: $light-green;
+}
+
+.bg-lighter-green {
+    background-color: $lighter-green;
+}
+
+.padding {
+    padding: 1em;
+}
+
+.padding-05em {
+    padding: .5em;
+}
+
+.padding-right {
+    padding: 0em 1em .5em 1em;
+}
+
+// flex 
+.flex-1 {
+    flex: 1;
+}
+
+.flex {
+    display: flex;
+}
+
+.a-center {
+    align-items: center;
+}
+
+
+// Spaces
+
+.full-dvh {
+    height: 100dvh;
+}
+
+.no-wrap {
+    flex-wrap: nowrap !important;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.gap-05em {
+    gap: .5em;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.margin-3px {
+    margin: 3px;
+}
+
+.margin-top-1em {
+    margin-top: 1em;
+}
+
+.margin-top-2em {
+    margin-top: 2em;
+}
+
+.margin-left-2em {
+    margin-left: 2em;
+}
+
+.outline-none {
+        &:focus {
+            outline: none;
+        }
+}
+
+.radius-round {
+    border-radius: 50%;
+}
+
+.border-radius-7px {
+    border-radius: 7px;
+}
+
+.border-1px {
+    border: 1px solid !important;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+// Fonts
+
+.text-center {
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.font-weight-400 {
+    font-weight: 400;
+}
+
+// Uncommon
+
+.bin-img {
+    width: 32px;
+}
+
+.fnb-logo-img {
+    width: 50px;
+}
+
+.login-btn {
+    border-radius: 15px !important;
+    width: 150px;
+    background-color: black;
+    color: white;
+    height: 30px
+}
+
+.tool-bar {
+    background-color: white !important;
+    height: 64px;
+    border-bottom: 1px solid $gray;
+    border-top: 1px solid $gray;
+}
+
+.mat-button {
+        line-height: 28px !important; 
+}
+
+.input-field {
+    background-color: #f5f5f5;
+    border-radius: 35px !important;
+    border: solid 1px #C4D2D7;
+    height: 50px;
+    width: 35em !important;
+    padding-left: 1.5em !important;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.err-msg {
+    top: 34px;
+    left: 19px;
+}
+
+.spinner {
+    right: calc(50% - 52px);
+    top: calc(50% - 22px);
+}
+
+.spinner-login {
+    top: calc(50% - 37px);
+    left: calc(50% - 50px);
+}
+
+.notification-count {
+    height: 15px;
+    width: 15px;
+    background-color: $orange;
+    top: 21px;
+    left: 10px;
+}
+
+.notification {
+    height: 60px;
+    padding: .5em 1em .5em 1em;
+}
+
+.read-notification {
+    background-color: white !important;
+    border: 1px solid $light-pink !important;
+}
+
+.cards-container {
+    .overview-card {
+    border-radius: 7px;
+    border: 1px solid;
+    padding-bottom: 1.2em;
+}
+
+}
+
+.close-btn {
+    right: -14px;
+    top: -12px;
+}
+
+.font-11px {
+    font-size: 11px;
+}
+
+.f-weight-500 {
+    font-weight: 500;
+}
+
+.f-weight-400 {
+    font-weight: 400;
+}
+
+.f-weight-100 {
+    font-weight: 100;
+}
+
+.f-size-small {
+    font-size: small;
+}
+
+.f-size-large {
+    font-size: large;
+}
+
+.attension-notification {
+    height: 8px;
+    width: 8px;
+    background-color: $light-red;
+    top: 2px;
+    left: 24px;
+}
+
+.new-notif {
+    background-color: $light-red;
+    padding: .3em;
+    border-radius: 4px;
+}
+
+.confirmInput {
+    padding: 8px;
+    width: 254px;
+    border-radius: 7px;
+    border: 1px solid $light-pink;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.action-hover {
+    &:hover {
+       color: $orange;
+    }
+}
+
+.applications-search {
+    width: 234px;
+    margin-left: 1.5em;
+}
+
+// 
+.icon-xxx-large {
+    height: unset !important; 
+    font-size: xx-large !important;
+}
+
+// Material
+
+th.mat-header-cell {
+    font-size: 16px !important;
+}
+
+.mat-icon {
+    color: $orange;
+}
+
+// Material 
+
+// .mat-dialog-container {
+//     padding: 0 !important;
+// }
+
+// Responsive
+
+@media only screen and (max-width: 778px) {
+  .cards-container {
+      gap: .7em;
+      .overview-card {
+          margin-right: 0px !important;
+      }
+  }
+
+  .table-width-fix {
+      width: 187% !important;
+  }
+
+  .error-applications-message {
+      margin-top: 0em !important;
+  }
+
+}

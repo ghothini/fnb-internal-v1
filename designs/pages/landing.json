@@ -1,0 +1,2839 @@
+[
+    {
+        "id": "sd_W0YjnaImoswbPIPG",
+        "type": "tab",
+        "createdDate": "2024-05-21T09:07:40.400Z",
+        "label": "landing",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_0waufxsguIs33RX9",
+        "type": "OnInit",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_0waufxsguIs33RX9",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_XqeYPgbpYKVgKo5j"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_Ti7TFNc8x4TYLPgB",
+        "type": "PageVariables",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "overviewCards",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "applicationsDatasource",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "searchValue",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "''"
+                }
+            },
+            {
+                "textIp": "backupapplicationsDatasource",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "showSpinner",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "tempPassword",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "notificationsCount",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "0"
+                }
+            },
+            {
+                "textIp": "binApplicationsCount",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "0"
+                }
+            },
+            {
+                "textIp": "totalApplications",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "0"
+                }
+            },
+            {
+                "textIp": "currentPageIndex",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_Ti7TFNc8x4TYLPgB",
+        "category": "Function",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_ZktKQLIVolBWuIqe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_aKHtEN9phj9uy2Bs",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/get-users';",
+        "functionName": "sd_aKHtEN9phj9uy2Bs",
+        "category": "Function",
+        "x": 525,
+        "y": 160,
+        "wires": [
+            [
+                "sd_a3bbSntskuCoDbcA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_XqeYPgbpYKVgKo5j",
+        "type": "UseDependency",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatMenuModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "searchValue",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ssdUrl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/menu",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_XqeYPgbpYKVgKo5j",
+        "category": "Function",
+        "x": 165,
+        "y": 40,
+        "wires": [
+            [
+                "sd_Ti7TFNc8x4TYLPgB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_6GVAxn4AayNmyQyt",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "searchTable",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "searchTable",
+        "category": "General",
+        "x": 65,
+        "y": 160,
+        "wires": [
+            [
+                "sd_yzhir2BQSs2Qq9uU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_yzhir2BQSs2Qq9uU",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const searchResults = [];\npage.backupapplicationsDatasource.forEach(row => {\n    if (row.title.toLowerCase().includes(page.searchValue) || row.surname.toLowerCase().includes(page.searchValue)) {\n        searchResults.push(row)\n    } else if (row.email.toLowerCase().includes(page.searchValue.toString())) {\n        searchResults.push(row);\n    } else if (row.status.toLowerCase().includes(page.searchValue.toString())) {\n        searchResults.push(row);\n    }\n    // To add for date\n})\npage.applicationsDatasource = searchResults;",
+        "functionName": "sd_yzhir2BQSs2Qq9uU",
+        "category": "Function",
+        "x": 185,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_6R42INIMU8iNSVdy",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "declineApplication",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "status",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "application",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "declineApplication",
+        "category": "General",
+        "x": 45,
+        "y": 280,
+        "wires": [
+            [
+                "sd_dFoGYYqd79Z2OeuM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_a3bbSntskuCoDbcA",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Get all applications",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "getAllApplications",
+        "category": "HTTP",
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "sd_eYmRFoR6hl5KBA4C"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_eYmRFoR6hl5KBA4C",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// Exclude admin account\npage.result = page.result.filter((account) => account.email !== 'admin@gmail.com');\npage.applicationsDatasource = page.result.reverse();\npage.backupapplicationsDatasource = page.applicationsDatasource;\npage.totalApplications = page.applicationsDatasource.length;\npage.notificationsApplications = page.result.filter(application => application.status === 'Pending').length",
+        "functionName": "sd_eYmRFoR6hl5KBA4C",
+        "category": "Function",
+        "x": 765,
+        "y": 160,
+        "wires": [
+            [
+                "sd_p7mp53wBL17LrHmi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_BouGGqdUz4IZ6FO3",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "approveApplication",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "status",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "application",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "approveApplication",
+        "category": "General",
+        "x": 85,
+        "y": 400,
+        "wires": [
+            [
+                "sd_nlmsQp0FW3D9QpMT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_dmlo884nqgA6Ez7J",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Save and Send declined email",
+        "method": "put",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.application",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "application"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "saveAndSendDeclinedEmail",
+        "category": "HTTP",
+        "x": 605,
+        "y": 260,
+        "wires": [
+            [
+                "sd_rXXuZLY9jf2DoJnx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ybdb4P2kH06c5jot",
+        "type": "SnackBar",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Application declined successfully!"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_ybdb4P2kH06c5jot",
+        "category": "General",
+        "x": 845,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rXXuZLY9jf2DoJnx",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;",
+        "functionName": "sd_rXXuZLY9jf2DoJnx",
+        "category": "Function",
+        "x": 725,
+        "y": 260,
+        "wires": [
+            [
+                "sd_ybdb4P2kH06c5jot"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_nlmsQp0FW3D9QpMT",
+        "type": "Environment",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_nlmsQp0FW3D9QpMT",
+        "category": "General",
+        "x": 205,
+        "y": 400,
+        "wires": [
+            [
+                "sd_BmLPs1p5pq3yKZG3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_NdO7oF7j5pDSeGMA",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Save and Send approved email",
+        "method": "put",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.application",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "application"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "saveAndSendApprovedEmail",
+        "category": "HTTP",
+        "x": 525,
+        "y": 400,
+        "wires": [
+            [
+                "sd_zELNJANGTQK0MrII"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Tv9eNsR7rNobQYNe",
+        "type": "SnackBar",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Application approved successfully!"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_Tv9eNsR7rNobQYNe",
+        "category": "General",
+        "x": 925,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Ab5PFpPCWXLqFdqv",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;",
+        "functionName": "sd_Ab5PFpPCWXLqFdqv",
+        "category": "Function",
+        "x": 845,
+        "y": 400,
+        "wires": [
+            [
+                "sd_Tv9eNsR7rNobQYNe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_DzPesJxUP2XvFcFy",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "deleteApplication",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "application",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "deleteApplication",
+        "category": "General",
+        "x": 65,
+        "y": 620,
+        "wires": [
+            [
+                "sd_od4kGVV5pwgVzQ0D"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_CymERuJGmaEDgl2i",
+        "type": "Environment",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_CymERuJGmaEDgl2i",
+        "category": "General",
+        "x": 465,
+        "y": 600,
+        "wires": [
+            [
+                "sd_a813v9ru7lcb8Qhy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_akQV9EcVDrGkugA3",
+        "type": "PageSwitch",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "result",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.result",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_akQV9EcVDrGkugA3",
+        "category": "Function",
+        "x": 365,
+        "y": 620,
+        "wires": [
+            [
+                "sd_CymERuJGmaEDgl2i"
+            ],
+            [
+                "sd_PBkEkyrWSpq6lwx3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_PBkEkyrWSpq6lwx3",
+        "type": "SnackBar",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Action cancelled."
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_PBkEkyrWSpq6lwx3",
+        "category": "General",
+        "x": 445,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_vVzMnCClFIW3xRnO",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Remove account application",
+        "method": "delete",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.application",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "application"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "removeAccountApplication",
+        "category": "HTTP",
+        "x": 865,
+        "y": 580,
+        "wires": [
+            [
+                "sd_xbLfg6DxNlzJhD1Q"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_a813v9ru7lcb8Qhy",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/add-to-bin';\npage.showSpinner = true;",
+        "functionName": "sd_a813v9ru7lcb8Qhy",
+        "category": "Function",
+        "x": 565,
+        "y": 580,
+        "wires": [
+            [
+                "sd_k9G9nnL71HioDzv9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xbLfg6DxNlzJhD1Q",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;\n",
+        "functionName": "sd_xbLfg6DxNlzJhD1Q",
+        "category": "Function",
+        "x": 965,
+        "y": 580,
+        "wires": [
+            [
+                "sd_qG8LRGuP4bDGoPJc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_zUktgDhtzfiJRYbT",
+        "type": "SnackBar",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Application deleted successfully!"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_zUktgDhtzfiJRYbT",
+        "category": "General",
+        "x": 1265,
+        "y": 580,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_tIYrijY8PLWPXslR",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Refresh all applications",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "refreshAllApplications",
+        "category": "General",
+        "x": 325,
+        "y": 160,
+        "wires": [
+            [
+                "sd_fmBYJ9KcKXEXShMn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_ZktKQLIVolBWuIqe",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.overviewCards = [\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',\n        label: 'Easy PAYU',\n        amt: '0',\n    },\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',\n        label: 'Easy Smart',\n        amt: '0'\n    },\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDAQ1/card.png?v=3.14.0',\n        label: 'Aspire',\n        amt: '0'\n    }\n]",
+        "functionName": "sd_ZktKQLIVolBWuIqe",
+        "category": "Function",
+        "x": 385,
+        "y": 40,
+        "wires": [
+            [
+                "sd_uMOfoPWt0gcE0NfI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_fmBYJ9KcKXEXShMn",
+        "type": "Environment",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_fmBYJ9KcKXEXShMn",
+        "category": "General",
+        "x": 425,
+        "y": 160,
+        "wires": [
+            [
+                "sd_aKHtEN9phj9uy2Bs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_uMOfoPWt0gcE0NfI",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_tIYrijY8PLWPXslR",
+            "flowName": "refreshAllApplications"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "refreshAllApplications",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_uMOfoPWt0gcE0NfI",
+        "category": "General",
+        "x": 485,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_qG8LRGuP4bDGoPJc",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_tIYrijY8PLWPXslR",
+            "flowName": "refreshAllApplications"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "refreshAllApplications",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_qG8LRGuP4bDGoPJc",
+        "category": "General",
+        "x": 1065,
+        "y": 580,
+        "wires": [
+            [
+                "sd_bWzG5UwtssgN9fKy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_K0w4uyZ4DwckOIr5",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/decline';\nbh.input.application.status = bh.input.status;\nbh.input.application['reason'] = page.result;\nbh.input.application.collection = 'users';\npage.showSpinner = true;",
+        "functionName": "sd_K0w4uyZ4DwckOIr5",
+        "category": "Function",
+        "x": 485,
+        "y": 240,
+        "wires": [
+            [
+                "sd_dmlo884nqgA6Ez7J"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Bjkg5W4WsFY6el6C",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Generate Temp Password",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "generateTempPassword",
+        "category": "General",
+        "x": 85,
+        "y": 520,
+        "wires": [
+            [
+                "sd_qPD3rEcugGRS2Q8H"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_BmLPs1p5pq3yKZG3",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_Bjkg5W4WsFY6el6C",
+            "flowName": "generateTempPassword"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "generateTempPassword",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_BmLPs1p5pq3yKZG3",
+        "category": "General",
+        "x": 305,
+        "y": 400,
+        "wires": [
+            [
+                "sd_2CgpR3NbQ7PSHY0M"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_qPD3rEcugGRS2Q8H",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let unique:any = new Date().getTime().toString();\nunique = unique.split('');\npage.tempPassword = `${unique[unique.length - 1]}${unique[unique.length - 2]}${unique[unique.length - 3]}${unique[unique.length - 4]}`;\n",
+        "functionName": "sd_qPD3rEcugGRS2Q8H",
+        "category": "Function",
+        "x": 205,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_p7mp53wBL17LrHmi",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_5klZ6yucalBUxgpr",
+            "flowName": "determineUnreadNotifications"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "determineUnreadNotifications",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_p7mp53wBL17LrHmi",
+        "category": "General",
+        "x": 865,
+        "y": 160,
+        "wires": [
+            [
+                "sd_F5zkDCn8LvkHqS0p"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_5YKnINQj7eWzJord",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/get-notifications';",
+        "functionName": "sd_5YKnINQj7eWzJord",
+        "category": "Function",
+        "x": 285,
+        "y": 780,
+        "wires": [
+            [
+                "sd_hu3MFyLaGY1b8Fu5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_hu3MFyLaGY1b8Fu5",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Get all notifications",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "getAllNotifications",
+        "category": "HTTP",
+        "x": 380,
+        "y": 780,
+        "wires": [
+            [
+                "sd_rxvIufPBBu448fMM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rxvIufPBBu448fMM",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// Determine all unread\npage.notificationsCount = 0;\npage.result.forEach((notification) => {\n    if(!notification.read){\n        page.notificationsCount++;\n    }\n})",
+        "functionName": "sd_rxvIufPBBu448fMM",
+        "category": "Function",
+        "x": 485,
+        "y": 780,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_5klZ6yucalBUxgpr",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Determine Unread Notifications",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "determineUnreadNotifications",
+        "category": "General",
+        "x": 65,
+        "y": 780,
+        "wires": [
+            [
+                "sd_Cylkuf1GL6PQ3lvf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_Cylkuf1GL6PQ3lvf",
+        "type": "Environment",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_Cylkuf1GL6PQ3lvf",
+        "category": "General",
+        "x": 185,
+        "y": 780,
+        "wires": [
+            [
+                "sd_5YKnINQj7eWzJord"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_G3kwCgVkEdSlEPGZ",
+        "type": "OpenDialog",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_QUVdBhOXQEQtMvMn",
+            "label": "confirmation"
+        },
+        "relativePath": "app/components/confirmation",
+        "data": "bh.dialogData",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": false,
+        "height": "\"\"",
+        "maxHeight": "\"\"",
+        "minHeight": "this.page",
+        "width": "\"400px\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page.result",
+        "functionName": "sd_G3kwCgVkEdSlEPGZ",
+        "category": "Dialog",
+        "x": 265,
+        "y": 620,
+        "wires": [
+            [],
+            [
+                "sd_akQV9EcVDrGkugA3"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh",
+                "value": "dialogData",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "bool",
+                "value": "false",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "400px",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "result",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_od4kGVV5pwgVzQ0D",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.dialogData = {\n    ...bh.input.application,\n    isDeclingApplication: false\n}",
+        "functionName": "sd_od4kGVV5pwgVzQ0D",
+        "category": "Function",
+        "x": 165,
+        "y": 620,
+        "wires": [
+            [
+                "sd_G3kwCgVkEdSlEPGZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_RjBtZjPwU2fzeTju",
+        "type": "OpenDialog",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_QUVdBhOXQEQtMvMn",
+            "label": "confirmation"
+        },
+        "relativePath": "app/components/confirmation",
+        "data": "bh.dialogData",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": false,
+        "height": "\"\"",
+        "maxHeight": "\"\"",
+        "minHeight": "this.page",
+        "width": "\"400px\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page.result",
+        "functionName": "sd_RjBtZjPwU2fzeTju",
+        "category": "Dialog",
+        "x": 245,
+        "y": 280,
+        "wires": [
+            [],
+            [
+                "sd_OXFrVCOtdeCVHvqs"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh",
+                "value": "dialogData",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "bool",
+                "value": "false",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "400px",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "result",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_dFoGYYqd79Z2OeuM",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.dialogData = {\n    ...bh.input.application,\n    isDeclingApplication: true\n}",
+        "functionName": "sd_dFoGYYqd79Z2OeuM",
+        "category": "Function",
+        "x": 145,
+        "y": 280,
+        "wires": [
+            [
+                "sd_RjBtZjPwU2fzeTju"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_OXFrVCOtdeCVHvqs",
+        "type": "PageSwitch",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "result",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.result",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_OXFrVCOtdeCVHvqs",
+        "category": "Function",
+        "x": 345,
+        "y": 280,
+        "wires": [
+            [
+                "sd_K0w4uyZ4DwckOIr5"
+            ],
+            [
+                "sd_xUsp4ELIGY08kmmJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xUsp4ELIGY08kmmJ",
+        "type": "SnackBar",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Action cancelled."
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_xUsp4ELIGY08kmmJ",
+        "category": "General",
+        "x": 485,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_2CgpR3NbQ7PSHY0M",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.application['password'] = page.tempPassword;\nbh.url = page.ssdUrl + '/approve';\nbh.input.application.status = bh.input.status;\npage.showSpinner = true;",
+        "functionName": "sd_2CgpR3NbQ7PSHY0M",
+        "category": "Function",
+        "x": 405,
+        "y": 400,
+        "wires": [
+            [
+                "sd_NdO7oF7j5pDSeGMA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_0qREdHHWHiVtwU8s",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Save default limits",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "saveDefaultLimits",
+        "category": "HTTP",
+        "x": 745,
+        "y": 400,
+        "wires": [
+            [
+                "sd_Ab5PFpPCWXLqFdqv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_zELNJANGTQK0MrII",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/add-limits';\nbh.body = {\n    \"_id\": new Date().getTime(),\n    \"email\": bh.input.application.email,\n    \"basicWithdrawal\": 3000\n}",
+        "functionName": "sd_zELNJANGTQK0MrII",
+        "category": "Function",
+        "x": 645,
+        "y": 400,
+        "wires": [
+            [
+                "sd_0qREdHHWHiVtwU8s"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_k9G9nnL71HioDzv9",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Add application to bin",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.application",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "application"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "addApplicationToBin",
+        "category": "HTTP",
+        "x": 665,
+        "y": 580,
+        "wires": [
+            [
+                "sd_YAIVoXkYIAEITXcI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_YAIVoXkYIAEITXcI",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/delete';\nbh.input.application['collection'] = 'users';",
+        "functionName": "sd_YAIVoXkYIAEITXcI",
+        "category": "Function",
+        "x": 765,
+        "y": 580,
+        "wires": [
+            [
+                "sd_vVzMnCClFIW3xRnO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_947JKs6lwGaxKOU4",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdUrl + '/get-bin';",
+        "functionName": "sd_947JKs6lwGaxKOU4",
+        "category": "Function",
+        "x": 165,
+        "y": 900,
+        "wires": [
+            [
+                "sd_dBXcVjqk9xEQyCjX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_dBXcVjqk9xEQyCjX",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Get all bin applications",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "getAllBinApplications",
+        "category": "HTTP",
+        "x": 285,
+        "y": 900,
+        "wires": [
+            [
+                "sd_qXHqVSsLbrnAMGaf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_qXHqVSsLbrnAMGaf",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.binApplicationsCount = page.result.length;",
+        "functionName": "sd_qXHqVSsLbrnAMGaf",
+        "category": "Function",
+        "x": 405,
+        "y": 900,
+        "wires": [
+            [
+                "sd_tPNA98U1fBT66LOz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_G6QEVTk7GiXzrAqy",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Reresh bin applications",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "rereshBinApplications",
+        "category": "General",
+        "x": 65,
+        "y": 900,
+        "wires": [
+            [
+                "sd_947JKs6lwGaxKOU4"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_tPNA98U1fBT66LOz",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_5klZ6yucalBUxgpr",
+            "flowName": "determineUnreadNotifications"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "determineUnreadNotifications",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_tPNA98U1fBT66LOz",
+        "category": "General",
+        "x": 505,
+        "y": 900,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_F5zkDCn8LvkHqS0p",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_G6QEVTk7GiXzrAqy",
+            "flowName": "rereshBinApplications"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "rereshBinApplications",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_F5zkDCn8LvkHqS0p",
+        "category": "General",
+        "x": 985,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_bWzG5UwtssgN9fKy",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_G6QEVTk7GiXzrAqy",
+            "flowName": "rereshBinApplications"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "rereshBinApplications",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_bWzG5UwtssgN9fKy",
+        "category": "General",
+        "x": 1165,
+        "y": 580,
+        "wires": [
+            [
+                "sd_zUktgDhtzfiJRYbT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_EmFJF0a4C8NC16Xd",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Open Bin",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openBin",
+        "category": "General",
+        "x": 65,
+        "y": 1020,
+        "wires": [
+            [
+                "sd_tjJiACCFL9p8lfHD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_howTFM4FU1etuxSu",
+        "type": "SnackBar",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "bh",
+            "value": "message"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_howTFM4FU1etuxSu",
+        "category": "General",
+        "x": 265,
+        "y": 1020,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_tjJiACCFL9p8lfHD",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.message = `${page.binApplicationsCount} applications in bin`",
+        "functionName": "sd_tjJiACCFL9p8lfHD",
+        "category": "Function",
+        "x": 165,
+        "y": 1020,
+        "wires": [
+            [
+                "sd_howTFM4FU1etuxSu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_OLy0tufC8SclMH2S",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "On page change",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "ev",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onPageChange",
+        "category": "General",
+        "x": 65,
+        "y": 1140,
+        "wires": [
+            [
+                "sd_OUlvWeCKx2ckKzYm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_OUlvWeCKx2ckKzYm",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.currentPageIndex = bh.input.ev.pageIndex;",
+        "functionName": "sd_OUlvWeCKx2ckKzYm",
+        "category": "Function",
+        "x": 165,
+        "y": 1140,
+        "wires": [
+            [
+                "sd_Gp8Lcn9QdmeSc9PK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Gp8Lcn9QdmeSc9PK",
+        "type": "PageCallService",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_W0YjnaImoswbPIPG",
+            "type": "tab",
+            "createdDate": "2024-05-21T09:07:40.400Z",
+            "label": "landing",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_Tjyp90Lv9Wkwsih3",
+            "flowName": "updateApplicationToShow"
+        },
+        "inputVariables": [
+            {
+                "key": "itemsPerPage",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "ev.pageSize"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "updateApplicationToShow",
+        "inputParams": [
+            "bh.input.ev.pageSize"
+        ],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_Gp8Lcn9QdmeSc9PK",
+        "category": "General",
+        "x": 265,
+        "y": 1140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_S6Voa068vwzb1i5k",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.startIndex = page.currentPageIndex * bh.input.itemsPerPage;\nbh.endIndex = bh.startIndex + bh.input.itemsPerPage;\npage.applicationsDatasource = page.backupapplicationsDatasource.slice(bh.startIndex, bh.endIndex);",
+        "functionName": "sd_S6Voa068vwzb1i5k",
+        "category": "Function",
+        "x": 185,
+        "y": 1260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Tjyp90Lv9Wkwsih3",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "updateApplicationToShow",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "itemsPerPage",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "updateApplicationToShow",
+        "category": "General",
+        "x": 80,
+        "y": 1260,
+        "wires": [
+            [
+                "sd_S6Voa068vwzb1i5k"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_FAMRNEmdq7fYH5WV",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "sessionStorage.clear();",
+        "functionName": "sd_FAMRNEmdq7fYH5WV",
+        "category": "Function",
+        "x": 200,
+        "y": 1380,
+        "wires": [
+            [
+                "sd_ZsBs1B88XMhDOeFB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_D9c4lYik9ITVZrVw",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Log out",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "logOut",
+        "category": "General",
+        "x": 85,
+        "y": 1380,
+        "wires": [
+            [
+                "sd_FAMRNEmdq7fYH5WV"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_ZsBs1B88XMhDOeFB",
+        "type": "Navigation",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/login",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "sd_ZsBs1B88XMhDOeFB",
+        "category": "Navigation",
+        "x": 305,
+        "y": 1380,
+        "wires": [
+            [
+                "sd_nmbbkfhW43svj0pJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_nmbbkfhW43svj0pJ",
+        "type": "SnackBar",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Logged out successfully!"
+        },
+        "action": {
+            "type": "str",
+            "value": "Ok"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "horizontalPositionMap": "",
+        "verticalPosition": "bottom",
+        "verticalPositionMap": "",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_nmbbkfhW43svj0pJ",
+        "category": "General",
+        "x": 405,
+        "y": 1380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_BN7VaNvftR1KW90X",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "View documents",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "row",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "viewDocuments",
+        "category": "General",
+        "x": 85,
+        "y": 1500,
+        "wires": [
+            [
+                "sd_JoFb2Fos9tpQJqdy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_JoFb2Fos9tpQJqdy",
+        "type": "OpenDialog",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_kAy5Bsm5JnaFapnP",
+            "label": "documents"
+        },
+        "relativePath": "app/components/documents",
+        "data": "bh.input.row",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "this.page",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "this.page",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_JoFb2Fos9tpQJqdy",
+        "category": "Dialog",
+        "x": 185,
+        "y": 1500,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.input",
+                "value": "row",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    }
+]

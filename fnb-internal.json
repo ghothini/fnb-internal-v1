@@ -1,0 +1,13 @@
+{
+    "displayName": "fnb-internal",
+    "appName": "fnb-internal",
+    "description": "Version 1 of FNB internal website for accounts management",
+    "lastModified": "2024-05-21T09:01:48.164Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "uiOnly",
+    "templateName": "blank",
+    "createDate": "2024-05-21T09:01:47.658Z",
+    "analyticsId": "356144bd-b995-edc8-62a0-ec8fa40ea753",
+    "createdStudioVersion": "9.2.1"
+}
