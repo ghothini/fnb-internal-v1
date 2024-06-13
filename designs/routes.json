@@ -17,6 +17,14 @@
             "component": "page_not_foundComponent"
         },
         {
+            "path": "home",
+            "component": "home_screenComponent"
+        },
+        {
+            "path": "email_verification",
+            "component": "email_verificationComponent"
+        },
+        {
             "path": "''",
             "redirectTo": "/login",
             "pathMatch": "full",

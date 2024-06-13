@@ -16,6 +16,12 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-email_verificationComponent
+import { email_verificationComponent } from '../components/email_verification.component';
+//CORE_REFERENCE_IMPORT-home_screenComponent
+import { home_screenComponent } from '../components/home_screen.component';
+//CORE_REFERENCE_IMPORT-binComponent
+import { binComponent } from '../components/bin.component';
 //CORE_REFERENCE_IMPORT-page_not_foundComponent
 import { page_not_foundComponent } from '../components/page_not_found.component';
 //CORE_REFERENCE_IMPORT-auth
@@ -64,6 +70,12 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-email_verificationComponent
+  email_verificationComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-home_screenComponent
+  home_screenComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-binComponent
+  binComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-page_not_foundComponent
   page_not_foundComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-loginComponent
@@ -109,6 +121,8 @@ export const appRoutes = [
   { path: 'notifications', component: notificationsComponent },
   { path: 'login', component: loginComponent },
   { path: 'page-not-found', component: page_not_foundComponent },
+  { path: 'home', component: home_screenComponent },
+  { path: 'email_verification', component: email_verificationComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: 'page-not-found' },
 ];
