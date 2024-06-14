@@ -17,6 +17,18 @@
             "component": "page_not_foundComponent"
         },
         {
+            "path": "home",
+            "component": "home_screenComponent"
+        },
+        {
+            "path": "email_verification",
+            "component": "email_verificationComponent"
+        },
+        {
+            "path": "reset_password",
+            "component": "reset_passwordComponent"
+        },
+        {
             "path": "''",
             "redirectTo": "/login",
             "pathMatch": "full",

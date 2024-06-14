@@ -4,7 +4,7 @@
   </div><mat-toolbar class="tool-bar"><img imgSrc="Web/Images/fnb-logo.webp" class="fnb-logo-img"></mat-toolbar>
   <h1 class="no-margin f-weight-400">
     Login</h1><img imgSrc="Web/Images/fnb-icon.png">
-  <div fxLayout="column wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [formGroup]="page.loginFormGroup">
+  <div fxLayout="column wrap" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [formGroup]="page.loginFormGroup">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><label class="f-weight-100">
         Email Address</label>
       <div class="relative">
@@ -14,9 +14,12 @@
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><label class="f-weight-100">
         Password</label>
       <div class="relative">
-        <input class="input-field" required formControlName="password" type="password"><small *ngIf="page.loginFormGroup.get(&apos;password&apos;)?.hasError(&apos;required&apos;) &amp;&amp; page.loginFormGroup.get(&apos;password&apos;)?.touched" class="err-msg color-red absolute">This field is <strong>required</strong></small>
+        <input class="input-field" required formControlName="password" type="password"> <br>
+
+        <label>
+          <small class="flex justify-end color-green f-w-700 pointer" routerLink="/email_verification">Forgot Password</small></label><small *ngIf="page.loginFormGroup.get(&apos;password&apos;)?.hasError(&apos;required&apos;) &amp;&amp; page.loginFormGroup.get(&apos;password&apos;)?.touched" class="err-msg color-red absolute">This field is <strong>required</strong></small>
       </div>
     </div>
-    <div fxLayout="row wrap" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="login-btn" (click)="submit()">continue</button></div>
+    <div fxLayout="row wrap" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="login-btn" (click)="submit()">Continue</button></div>
   </div>
 </div>

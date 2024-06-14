@@ -15,6 +15,7 @@ $light-brown: #7d7d7d;
 $light-red: #4fc581;
 $light-pink: #c3c3d7;
 $gray: gray;
+$fnb-green: #00aaab;
 
 // Colors
 
@@ -38,8 +39,16 @@ $gray: gray;
     color: $light-brown;
 }
 
+.bg-fnb-green{
+    background-color: $fnb-green !important;
+}
+
 .bg-light-green {
     background-color: $light-green;
+}
+
+.color-green{
+    color: $fnb-green;
 }
 
 .bg-lighter-green {
@@ -71,12 +80,21 @@ $gray: gray;
     align-items: center;
 }
 
+.justify-end{
+    justify-content: end;
+}
+
+.width-40{
+    width: 45%;
+}
 
 // Spaces
 
 .full-dvh {
     height: 100dvh;
 }
+
+
 
 .no-wrap {
     flex-wrap: nowrap !important;
@@ -154,6 +172,25 @@ $gray: gray;
     font-weight: 400;
 }
 
+.f-w-700{
+    font-weight: 700;
+}
+
+.margin-bottom-1{
+    margin-bottom: 0.5em;
+}
+
+.margin-bottom-two{
+    margin-bottom: 5em;
+}
+
+.email_verifi_buttom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
 // Uncommon
 
 .bin-img {
@@ -174,7 +211,7 @@ $gray: gray;
 
 .tool-bar {
     background-color: white !important;
-    height: 64px;
+    height: 45px;
     border-bottom: 1px solid $gray;
     border-top: 1px solid $gray;
 }
@@ -316,7 +353,29 @@ th.mat-header-cell {
 }
 
 .mat-icon {
-    color: $orange;
+    color: $fnb-green;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.image-size{
+    height: 80% !important;
+    width: 28% !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in;
 }
 
 // Material 
