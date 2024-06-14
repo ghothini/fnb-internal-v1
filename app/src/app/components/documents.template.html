@@ -2,22 +2,22 @@
   <h2 class="no-margin text-center">
     Supporting Documents</h2>
   <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
-    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer" (click)="viewDocument(page.idDocument)">visibility</mat-icon>
+    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer" (click)="viewDocument(page.idDocument.documentLink)">visibility</mat-icon>
       <h3 class="no-margin">
         Identity Document</h3>
     </div>
     <mat-form-field class="outline-none" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-      <input matInput placeholder="Chosen File" value="{{page.idDocument}}" [required]="false" [disabled]="false">
+      <input matInput placeholder="Chosen File" value="{{page.idDocument.name}}" [required]="false" [disabled]="false">
       <mat-icon matSuffix>attach_file</mat-icon>
     </mat-form-field>
   </div>
   <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
-    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer" (click)="viewDocument(page.paySlipDocument)">visibility</mat-icon>
+    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer" (click)="viewDocument(page.paySlipDocument.documentLink)">visibility</mat-icon>
       <h3 class="no-margin">
         Payslip Document</h3>
     </div>
     <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-      <input matInput placeholder="Chosen File" value="{{page.paySlipDocument}}" [required]="false" [disabled]="false">
+      <input matInput placeholder="Chosen File" value="{{page.paySlipDocument.name}}" [required]="false" [disabled]="false">
       <mat-icon matSuffix>attach_file</mat-icon>
     </mat-form-field>
   </div>
