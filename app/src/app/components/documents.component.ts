@@ -126,23 +126,18 @@ export class documentsComponent {
   sd_z8qo1z1rTcAqivnB(bh) {
     try {
       const page = this.page;
-      page.idDocument = page.result.idDocument;
-      page.paySlipDocument = page.result.paySlipDocument;
-      this.sd_Er0v7AchoqEYqvNM(bh);
+      page.idDocument = {
+        name: page.result.idFileName,
+        documentLink: page.result.idDocument,
+      };
+      page.paySlipDocument = {
+        name: page.result.paySlipFileName,
+        documentLink: page.result.paySlipDocument,
+      };
       //appendnew_next_sd_z8qo1z1rTcAqivnB
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_z8qo1z1rTcAqivnB');
-    }
-  }
-
-  sd_Er0v7AchoqEYqvNM(bh) {
-    try {
-      console.log(new Date().toLocaleTimeString(), this.page.idDocument);
-      //appendnew_next_sd_Er0v7AchoqEYqvNM
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Er0v7AchoqEYqvNM');
     }
   }
 
@@ -173,40 +168,11 @@ export class documentsComponent {
     try {
       const page = this.page;
       bh.url = page.ssdUrl + `/download-file/${bh.input.file}`;
-      bh = this.fetchFile(bh);
+      window.open(bh.url, '_blank');
       //appendnew_next_sd_BPzjTy9FApg7wHXv
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_BPzjTy9FApg7wHXv');
-    }
-  }
-
-  async fetchFile(bh) {
-    try {
-      let requestOptions = {
-        url: bh.url,
-        method: 'get',
-        responseType: 'json',
-        headers: {},
-        params: {},
-        body: undefined,
-      };
-      this.page.result = await this.sdService.nHttpRequest(requestOptions);
-      this.sd_5M6PniZ7a68EiluA(bh);
-      //appendnew_next_fetchFile
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_KO6iwAlwjsbqDz7A');
-    }
-  }
-
-  sd_5M6PniZ7a68EiluA(bh) {
-    try {
-      console.log(new Date().toLocaleTimeString(), this.page.result);
-      //appendnew_next_sd_5M6PniZ7a68EiluA
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_5M6PniZ7a68EiluA');
     }
   }
 
