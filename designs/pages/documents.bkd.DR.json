@@ -502,7 +502,7 @@
                         },
                         {
                             "_key": "(click)",
-                            "_value": "viewDocument(page.idDocument)",
+                            "_value": "viewDocument(page.idDocument.documentLink)",
                             "_type": "kv",
                             "_attrDef": "c",
                             "objValue": {
@@ -511,7 +511,7 @@
                                 "activeTree": "pages",
                                 "z": "sd_kAy5Bsm5JnaFapnP",
                                 "input": [
-                                    "page.idDocument"
+                                    "page.idDocument.documentLink"
                                 ]
                             }
                         }
@@ -763,7 +763,7 @@
                     },
                     {
                         "_key": "value",
-                        "_value": "{{page.idDocument}}",
+                        "_value": "{{page.idDocument.name}}",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -1068,7 +1068,7 @@
                         },
                         {
                             "_key": "(click)",
-                            "_value": "viewDocument(page.paySlipDocument)",
+                            "_value": "viewDocument(page.paySlipDocument.documentLink)",
                             "_type": "kv",
                             "_attrDef": "c",
                             "objValue": {
@@ -1077,7 +1077,7 @@
                                 "activeTree": "pages",
                                 "z": "sd_kAy5Bsm5JnaFapnP",
                                 "input": [
-                                    "page.paySlipDocument"
+                                    "page.paySlipDocument.documentLink"
                                 ]
                             }
                         }
@@ -1327,7 +1327,7 @@
                     },
                     {
                         "_key": "value",
-                        "_value": "{{page.paySlipDocument}}",
+                        "_value": "{{page.paySlipDocument.name}}",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
