@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
 import { binComponent } from 'app/components/bin.component'; //_splitter_
 import { confirmationComponent } from 'app/components/confirmation.component'; //_splitter_
+import { documentsComponent } from 'app/components/documents.component'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { NeuServiceInvokerService } from 'app/n-services/service-caller.service'; //_splitter_
@@ -247,6 +248,21 @@ export class landingComponent {
       //appendnew_next_logOut
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_D9c4lYik9ITVZrVw');
+    }
+  }
+
+  viewDocuments(row: any = undefined, ...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { row };
+      bh.local = {};
+      bh = this.sd_nqlkfLoKWQObzL3I(bh);
+      //appendnew_next_viewDocuments
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_NVxCAr1blnxREVmW');
     }
   }
   //appendnew_flow_landingComponent_start
@@ -1138,6 +1154,19 @@ export class landingComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_nmbbkfhW43svj0pJ');
+    }
+  }
+
+  sd_nqlkfLoKWQObzL3I(bh) {
+    try {
+      const documentsDialog = this.__page_injector__.get(MatDialog);
+      const documentsDialogRef = documentsDialog.open(documentsComponent, {
+        data: bh.input.row,
+      });
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nqlkfLoKWQObzL3I');
     }
   }
 
