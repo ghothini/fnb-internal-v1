@@ -25,6 +25,10 @@
             "component": "email_verificationComponent"
         },
         {
+            "path": "reset_password",
+            "component": "reset_passwordComponent"
+        },
+        {
             "path": "''",
             "redirectTo": "/login",
             "pathMatch": "full",

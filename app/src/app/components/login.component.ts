@@ -134,6 +134,8 @@ export class loginComponent {
         email: 'admin@gmail.com',
         password: '123',
       };
+
+      sessionStorage.clear();
       bh = this.sd_KAXopNbB1Yf1ZfJu(bh);
       //appendnew_next_sd_EfI2MVEk466TDqUC
       return bh;

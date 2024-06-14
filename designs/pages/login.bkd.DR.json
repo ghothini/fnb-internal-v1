@@ -2108,7 +2108,7 @@
                         },
                         {
                             "_key": "buttonname",
-                            "_value": "continue",
+                            "_value": "Continue",
                             "_type": "a",
                             "_attrDef": "p",
                             "_useAsLabel": true

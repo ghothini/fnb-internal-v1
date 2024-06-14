@@ -85,7 +85,7 @@ $fnb-green: #00aaab;
 }
 
 .width-40{
-    width: 41%;
+    width: 45%;
 }
 
 // Spaces
@@ -93,6 +93,8 @@ $fnb-green: #00aaab;
 .full-dvh {
     height: 100dvh;
 }
+
+
 
 .no-wrap {
     flex-wrap: nowrap !important;
@@ -176,6 +178,10 @@ $fnb-green: #00aaab;
 
 .margin-bottom-1{
     margin-bottom: 0.5em;
+}
+
+.margin-bottom-two{
+    margin-bottom: 5em;
 }
 
 .email_verifi_buttom{

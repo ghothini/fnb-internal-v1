@@ -6,6 +6,7 @@
 import { Component, Injector } from '@angular/core'; //_splitter_
 import { FormControl, FormGroup, Validators } from '@angular/forms'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
+import { Router } from '@angular/router'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { NeuServiceInvokerService } from 'app/n-services/service-caller.service'; //_splitter_
@@ -65,7 +66,7 @@ export class email_verificationComponent {
         .constructFlowObject(this);
       bh.input = { form };
       bh.local = {};
-      bh = this.sd_bKRz7pWdYtoGwkPu(bh);
+      bh = this.sd_dtYk2lMuH9w9LARI(bh);
       //appendnew_next_submitEmail
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_KpLAjvUN6EiML3gZ');
@@ -110,11 +111,23 @@ export class email_verificationComponent {
     }
   }
 
+  sd_dtYk2lMuH9w9LARI(bh) {
+    try {
+      const page = this.page;
+      sessionStorage.clear();
+      bh = this.sd_bKRz7pWdYtoGwkPu(bh);
+      //appendnew_next_sd_dtYk2lMuH9w9LARI
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_dtYk2lMuH9w9LARI');
+    }
+  }
+
   async sd_bKRz7pWdYtoGwkPu(bh) {
     try {
       if (
         this.sdService.operators['true'](
-          bh.input.form.invalid,
+          this.page.emailFormGroup.invalid,
           undefined,
           undefined,
           undefined
@@ -194,7 +207,7 @@ export class email_verificationComponent {
         body: this.page.emailFormGroup.value,
       };
       this.page.result = await this.sdService.nHttpRequest(requestOptions);
-      bh = this.sd_qtAlwOYGlkubwDrk(bh);
+      bh = this.sd_o7lpiAogNsi65ajX(bh);
       //appendnew_next_sd_J1klgcPg8ZZ3f1X9
       return bh;
     } catch (e) {
@@ -202,14 +215,97 @@ export class email_verificationComponent {
     }
   }
 
-  sd_qtAlwOYGlkubwDrk(bh) {
+  sd_o7lpiAogNsi65ajX(bh) {
     try {
-      const page = this.page;
-      console.log(page.result);
-      //appendnew_next_sd_qtAlwOYGlkubwDrk
+      if (
+        this.sdService.operators['neq'](
+          this.page.result[0].email,
+          this.page.emailFormGroup.controls['email'].value,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_XnnmALkJKjUgewac(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          this.page.result[0].email,
+          this.page.emailFormGroup.controls['email'].value,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_ffzBB4Z7b7TfyzZL(bh);
+      }
+
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_qtAlwOYGlkubwDrk');
+      return this.errorHandler(bh, e, 'sd_o7lpiAogNsi65ajX');
+    }
+  }
+
+  sd_XnnmALkJKjUgewac(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Invalid admin email', 'OK', {
+          duration: 3000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      bh = this.sd_oXzXQOR7CUsihGyD(bh);
+      //appendnew_next_sd_XnnmALkJKjUgewac
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_XnnmALkJKjUgewac');
+    }
+  }
+
+  sd_oXzXQOR7CUsihGyD(bh) {
+    try {
+      const page = this.page;
+      page.showSpinner = false;
+      //appendnew_next_sd_oXzXQOR7CUsihGyD
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_oXzXQOR7CUsihGyD');
+    }
+  }
+
+  sd_ffzBB4Z7b7TfyzZL(bh) {
+    try {
+      const page = this.page;
+      page.showSpinner = false;
+      bh = this.sd_nYIC0TCYyWoyXBEU(bh);
+      //appendnew_next_sd_ffzBB4Z7b7TfyzZL
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ffzBB4Z7b7TfyzZL');
+    }
+  }
+
+  sd_nYIC0TCYyWoyXBEU(bh) {
+    try {
+      sessionStorage.setItem('admin', JSON.stringify(this.page.result[0]));
+      bh = this.sd_9UPHeazoidL2Cypb(bh);
+      //appendnew_next_sd_nYIC0TCYyWoyXBEU
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nYIC0TCYyWoyXBEU');
+    }
+  }
+
+  async sd_9UPHeazoidL2Cypb(bh) {
+    try {
+      const { paramObj: qprm, path: path } =
+        this.sdService.getPathAndQParamsObj('/reset_password');
+      await this.__page_injector__
+        .get(Router)
+        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+      //appendnew_next_sd_9UPHeazoidL2Cypb
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9UPHeazoidL2Cypb');
     }
   }
 

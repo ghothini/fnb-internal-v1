@@ -16,6 +16,8 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-reset_passwordComponent
+import { reset_passwordComponent } from '../components/reset_password.component';
 //CORE_REFERENCE_IMPORT-email_verificationComponent
 import { email_verificationComponent } from '../components/email_verification.component';
 //CORE_REFERENCE_IMPORT-home_screenComponent
@@ -70,6 +72,8 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-reset_passwordComponent
+  reset_passwordComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-email_verificationComponent
   email_verificationComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-home_screenComponent
@@ -123,6 +127,7 @@ export const appRoutes = [
   { path: 'page-not-found', component: page_not_foundComponent },
   { path: 'home', component: home_screenComponent },
   { path: 'email_verification', component: email_verificationComponent },
+  { path: 'reset_password', component: reset_passwordComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: 'page-not-found' },
 ];
