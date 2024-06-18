@@ -220,6 +220,13 @@ export class reset_passwordComponent {
     try {
       const page = this.page;
       bh.url = page.ssdURL + '/reset-password';
+
+      bh.body = page.passwordFormGroup;
+      delete bh.body.value.confirmPassword;
+      bh.newAdmin = bh.body.value;
+      bh.newAdmin.email = page.user.email;
+
+      console.log('admin ==>', bh.newAdmin);
       bh = this.sd_HdUsIlq9pNpLGwEI(bh);
       //appendnew_next_sd_tcwnBWoe9fGcuh1H
       return bh;
@@ -236,7 +243,7 @@ export class reset_passwordComponent {
         responseType: 'json',
         headers: {},
         params: {},
-        body: this.page.passwordFormGroup.value,
+        body: bh.newAdmin,
       };
       this.page.result = await this.sdService.nHttpRequest(requestOptions);
       bh = this.sd_9n3g0GjyeAHca6Bb(bh);
@@ -263,16 +270,34 @@ export class reset_passwordComponent {
   async sd_DZp9QHGhYXF8ps92(bh) {
     try {
       const { paramObj: qprm, path: path } =
-        this.sdService.getPathAndQParamsObj('/reset_password');
+        this.sdService.getPathAndQParamsObj('/login');
       await this.__page_injector__
         .get(Router)
         .navigate([this.sdService.formatPathWithParams(path, undefined)], {
           queryParams: Object.assign(qprm, ''),
         });
+      bh = this.sd_REAnTJdSG88AbOAw(bh);
       //appendnew_next_sd_DZp9QHGhYXF8ps92
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_DZp9QHGhYXF8ps92');
+    }
+  }
+
+  sd_REAnTJdSG88AbOAw(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Password changed successfully', 'OK', {
+          duration: 3000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_REAnTJdSG88AbOAw
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_REAnTJdSG88AbOAw');
     }
   }
 

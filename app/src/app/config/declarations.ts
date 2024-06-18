@@ -16,6 +16,10 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-rejectedComponent
+import { rejectedComponent } from '../components/rejected.component';
+//CORE_REFERENCE_IMPORT-approvedComponent
+import { approvedComponent } from '../components/approved.component';
 //CORE_REFERENCE_IMPORT-reset_passwordComponent
 import { reset_passwordComponent } from '../components/reset_password.component';
 //CORE_REFERENCE_IMPORT-email_verificationComponent
@@ -72,6 +76,10 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-rejectedComponent
+  rejectedComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-approvedComponent
+  approvedComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-reset_passwordComponent
   reset_passwordComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-email_verificationComponent

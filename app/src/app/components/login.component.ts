@@ -133,6 +133,7 @@ export class loginComponent {
       bh.body = {
         email: 'admin@gmail.com',
         password: '123',
+        firstTime: 'True',
       };
 
       sessionStorage.clear();
@@ -402,7 +403,9 @@ export class loginComponent {
         this.sdService.getPathAndQParamsObj('/home');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
+          queryParams: Object.assign(qprm, ''),
+        });
       bh = this.sd_S74xH2ANvdGxxW9y(bh);
       //appendnew_next_sd_cfzcqunrH59twmRL
       return bh;

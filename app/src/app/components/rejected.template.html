@@ -1,12 +1,14 @@
 <div fxLayout="column wrap" class="full-width" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
-  <div *ngIf="page.showSpinner" class="z-index-top spinner-login absolute">
-    <mat-spinner></mat-spinner>
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
+    <h2 class="table-label">
+      Rejected applications</h2>
+    <div fxLayout="column wrap" fxLayoutAlign="end end" [fxShow]="true"><mat-icon class="pointer" (click)="close()" color="warn">close</mat-icon></div>
   </div>
   <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
     <mat-form-field class="applications-search" [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
       <input matInput [(ngModel)]="page.searchValue" placeholder="Search" [required]="false" (input)="searchTable()">
       <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field><mat-icon class="pointer" (click)="close()" color="warn">close</mat-icon>
+    </mat-form-field>
   </div>
   <div fxLayout="column" class="full-width">
     <table mat-table [dataSource]="page.applicationsDatasource" *ngIf="page.applicationsDatasource.length &gt; 0" class="table-width-fix">
@@ -34,9 +36,9 @@
       </ng-container>
 
       <ng-container matColumnDef="8197ff9d-2e5e-0b81-e10c-b40dd6fdf2d9">
-        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <th mat-header-cell *matHeaderCellDef>Documents</th>
         <td mat-cell *matCellDef="let table; let i = index;">
-          <div fxLayout="row wrap" class="pointer" fxLayoutGap=".5em" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer" title="Restore application" (click)="restoreApplication(table)">restore</mat-icon></div>
+          <div fxLayout="row wrap" class="pointer" fxLayoutGap=".5em" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer" title="View documets" (click)="viewDocuments(table)">description</mat-icon></div>
         </td>
       </ng-container>
     </table>

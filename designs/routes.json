@@ -26,7 +26,11 @@
         },
         {
             "path": "reset_password",
-            "component": "reset_passwordComponent"
+            "component": "reset_passwordComponent",
+            "canDeactivate": {
+                "edited": true,
+                "value": ""
+            }
         },
         {
             "path": "''",

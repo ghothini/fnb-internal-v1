@@ -61,21 +61,6 @@ export class binComponent {
     }
   }
 
-  sd_IZjtmmBWKM1zSBqr(...others) {
-    let bh: any = {};
-    try {
-      bh = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_KL0gpXHAnGd85kYJ(bh);
-      //appendnew_next_sd_IZjtmmBWKM1zSBqr
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_IZjtmmBWKM1zSBqr');
-    }
-  }
-
   searchTable(...others) {
     let bh: any = {};
     try {
@@ -197,25 +182,10 @@ export class binComponent {
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_4mlvZaOTTv0JglQj(bh);
+      bh = this.sd_PI2SP8KqLznSKene(bh);
       //appendnew_next_rereshBinApplications
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_CjucTRebSSzt5WrG');
-    }
-  }
-
-  openBin(...others) {
-    let bh: any = {};
-    try {
-      bh = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_yIB6tEruy2gDFcp9(bh);
-      //appendnew_next_openBin
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_x8JzywSEKSrKvLGb');
     }
   }
 
@@ -349,28 +319,6 @@ export class binComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_tzt7FALxgIpTqlwt');
-    }
-  }
-
-  sd_KL0gpXHAnGd85kYJ(bh) {
-    try {
-      this.page.ssdURL = bh.system.environment.properties.ssdURL;
-      bh = this.sd_d6jvPeIgIy6BJqGn(bh);
-      //appendnew_next_sd_KL0gpXHAnGd85kYJ
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_KL0gpXHAnGd85kYJ');
-    }
-  }
-
-  sd_d6jvPeIgIy6BJqGn(bh) {
-    try {
-      const page = this.page;
-      bh.url = page.ssdURL + '';
-      //appendnew_next_sd_d6jvPeIgIy6BJqGn
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_d6jvPeIgIy6BJqGn');
     }
   }
 
@@ -783,11 +731,41 @@ export class binComponent {
       const page = this.page;
       page.showSpinner = false;
 
-      bh = this.sd_lklnD1MxZsDm8Mqz(bh);
+      bh = this.sd_24fn4ONr9uKOPs0t(bh);
       //appendnew_next_sd_nxY8nnt0QsHLZmlP
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_nxY8nnt0QsHLZmlP');
+    }
+  }
+
+  async sd_24fn4ONr9uKOPs0t(bh) {
+    try {
+      const { paramObj: qprm, path: path } =
+        this.sdService.getPathAndQParamsObj('/login');
+      await this.__page_injector__
+        .get(Router)
+        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+      bh = this.sd_b1knZQpW4LxCb5JZ(bh);
+      //appendnew_next_sd_24fn4ONr9uKOPs0t
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_24fn4ONr9uKOPs0t');
+    }
+  }
+
+  async sd_b1knZQpW4LxCb5JZ(bh) {
+    try {
+      const { paramObj: qprm, path: path } =
+        this.sdService.getPathAndQParamsObj('/landing');
+      await this.__page_injector__
+        .get(Router)
+        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+      bh = this.sd_lklnD1MxZsDm8Mqz(bh);
+      //appendnew_next_sd_b1knZQpW4LxCb5JZ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_b1knZQpW4LxCb5JZ');
     }
   }
 
@@ -967,6 +945,17 @@ export class binComponent {
     }
   }
 
+  sd_PI2SP8KqLznSKene(bh) {
+    try {
+      this.page.ssdUrl = bh.system.environment.properties.ssdURL;
+      bh = this.sd_4mlvZaOTTv0JglQj(bh);
+      //appendnew_next_sd_PI2SP8KqLznSKene
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_PI2SP8KqLznSKene');
+    }
+  }
+
   sd_4mlvZaOTTv0JglQj(bh) {
     try {
       const page = this.page;
@@ -1018,45 +1007,6 @@ export class binComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_CXRpVoA9Y7tqxrrD');
-    }
-  }
-
-  sd_yIB6tEruy2gDFcp9(bh) {
-    try {
-      const page = this.page;
-      bh.message = `${page.binApplicationsCount} applications in bin`;
-      bh = this.sd_CxzDTc2be7vpPJ2F(bh);
-      //appendnew_next_sd_yIB6tEruy2gDFcp9
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_yIB6tEruy2gDFcp9');
-    }
-  }
-
-  sd_CxzDTc2be7vpPJ2F(bh) {
-    try {
-      this.__page_injector__.get(MatSnackBar).open(bh.message, 'Ok', {
-        duration: 3000,
-        direction: 'ltr',
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
-      bh = this.sd_733jszxJrodRYAzs(bh);
-      //appendnew_next_sd_CxzDTc2be7vpPJ2F
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_CxzDTc2be7vpPJ2F');
-    }
-  }
-
-  sd_733jszxJrodRYAzs(bh) {
-    try {
-      const binDialog = this.__page_injector__.get(MatDialog);
-      const binDialogRef = binDialog.open(binComponent, { data: bh.input.row });
-
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_733jszxJrodRYAzs');
     }
   }
 
