@@ -19,6 +19,7 @@
             {
                 "_key": "class",
                 "_value": [
+                    "relative",
                     "full-width"
                 ],
                 "_type": "dav",
@@ -71,7 +72,6 @@
             "paletteKey": "Html5",
             "parentEditorKey": "83e560c4-960f-95b1-e652-be321db99216",
             "isAdvancedComponent": true,
-            "isCommented": "false",
             "commentid": null,
             "designerReference": [
                 {
@@ -83,6 +83,7 @@
                 {
                     "_key": "class",
                     "_value": [
+                        "z-index-top",
                         "spinner-login",
                         "absolute"
                     ],
@@ -268,7 +269,6 @@
                 "paletteKey": "html-editor",
                 "parentEditorKey": "41fbc520-0656-47d9-ea69-ac9a53c4295c",
                 "isAdvancedChildComponent": true,
-                "isCommented": "false",
                 "commentid": null,
                 "designerReference": [
                     {

@@ -19,6 +19,7 @@
             {
                 "_key": "class",
                 "_value": [
+                    "bg-white",
                     "relative"
                 ],
                 "_type": "dav",

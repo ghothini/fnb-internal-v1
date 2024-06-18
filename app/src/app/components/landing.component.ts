@@ -8,9 +8,11 @@ import { FormBuilder } from '@angular/forms'; //_splitter_
 import { MatDialog } from '@angular/material/dialog'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
+import { approvedComponent } from 'app/components/approved.component'; //_splitter_
 import { binComponent } from 'app/components/bin.component'; //_splitter_
 import { confirmationComponent } from 'app/components/confirmation.component'; //_splitter_
 import { documentsComponent } from 'app/components/documents.component'; //_splitter_
+import { rejectedComponent } from 'app/components/rejected.component'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { NeuServiceInvokerService } from 'app/n-services/service-caller.service'; //_splitter_
@@ -265,6 +267,81 @@ export class landingComponent {
       return this.errorHandler(bh, e, 'sd_NVxCAr1blnxREVmW');
     }
   }
+
+  openApproved(...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_WcvE95k4pxExVwdL(bh);
+      //appendnew_next_openApproved
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_4LBDdA6zYNCcpQXo');
+    }
+  }
+
+  iconGuide(...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_7kx5aEVGXHIEcfRE(bh);
+      //appendnew_next_iconGuide
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_VqdOjxJfhRH0lzNl');
+    }
+  }
+
+  notificationsGuide(...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_zvycAb7USlTCtX2f(bh);
+      //appendnew_next_notificationsGuide
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_IPOiW2izUfr3jVXN');
+    }
+  }
+
+  infoGuide(...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_5VwDYevzMmxu8ITq(bh);
+      //appendnew_next_infoGuide
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_lcJMNagI8dKuq3Ct');
+    }
+  }
+
+  viewRejected(...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_RcWnJBMKX2cbvfsw(bh);
+      //appendnew_next_viewRejected
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ttOUAX9p9SuF5k1e');
+    }
+  }
   //appendnew_flow_landingComponent_start
 
   sd_XqeYPgbpYKVgKo5j(bh) {
@@ -289,6 +366,13 @@ export class landingComponent {
       this.page.binApplicationsCount = 0;
       this.page.totalApplications = 0;
       this.page.currentPageIndex = undefined;
+      this.page.approvedCount = undefined;
+      this.page.iconsGuide = false;
+      this.page.notificationsGuide = false;
+      this.page.infoGuide = false;
+      this.page.showIconGuide = false;
+      this.page.showNotif = false;
+      this.page.rejectedCount = 0;
       bh = this.sd_ZktKQLIVolBWuIqe(bh);
       //appendnew_next_sd_Ti7TFNc8x4TYLPgB
       return bh;
@@ -320,6 +404,7 @@ export class landingComponent {
           amt: '0',
         },
       ];
+
       bh = this.sd_uMOfoPWt0gcE0NfI(bh);
       //appendnew_next_sd_ZktKQLIVolBWuIqe
       return bh;
@@ -332,10 +417,38 @@ export class landingComponent {
     try {
       let outputVariables = this.refreshAllApplications();
 
+      bh = this.sd_quiRNgdUWyepHcTB(bh);
       //appendnew_next_sd_uMOfoPWt0gcE0NfI
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_uMOfoPWt0gcE0NfI');
+    }
+  }
+
+  sd_quiRNgdUWyepHcTB(bh) {
+    try {
+      this.page.user = JSON.parse(sessionStorage.getItem('currentUser'));
+      bh = this.sd_IexW9U3840UtACpz(bh);
+      //appendnew_next_sd_quiRNgdUWyepHcTB
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_quiRNgdUWyepHcTB');
+    }
+  }
+
+  sd_IexW9U3840UtACpz(bh) {
+    try {
+      const page = this.page;
+      if (page.user.firstTime == 'False') {
+        page.infoGuide = true;
+        page.iconsGuide = true;
+        page.iconsGuide = true;
+      }
+
+      //appendnew_next_sd_IexW9U3840UtACpz
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_IexW9U3840UtACpz');
     }
   }
 
@@ -881,7 +994,24 @@ export class landingComponent {
       page.result = page.result.filter(
         (account) => account.email !== 'admin@gmail.com'
       );
-      page.applicationsDatasource = page.result.reverse();
+
+      bh.newDataSource = page.result.reverse().filter((user: any) => {
+        return user.status == 'Pending';
+      });
+
+      bh.newApproved = page.result.reverse().filter((user: any) => {
+        return user.status == 'Approved';
+      });
+
+      bh.newDeclined = page.result.reverse().filter((user: any) => {
+        return user.status == 'Declined';
+      });
+
+      page.rejectedCount = bh.newDeclined.length;
+
+      page.approvedCount = bh.newApproved.length;
+
+      page.applicationsDatasource = bh.newDataSource;
       page.backupapplicationsDatasource = page.applicationsDatasource;
       page.totalApplications = page.applicationsDatasource.length;
       page.notificationsApplications = page.result.filter(
@@ -1115,11 +1245,59 @@ export class landingComponent {
     try {
       const page = this.page;
       sessionStorage.clear();
-      bh = this.sd_ZsBs1B88XMhDOeFB(bh);
+      bh = this.sd_AahKeiXE3FeANgXG(bh);
       //appendnew_next_sd_FAMRNEmdq7fYH5WV
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_FAMRNEmdq7fYH5WV');
+    }
+  }
+
+  sd_AahKeiXE3FeANgXG(bh) {
+    try {
+      this.page.ssdURL = bh.system.environment.properties.ssdURL;
+      bh = this.sd_Rhtz5HFDd8Ww6Jn6(bh);
+      //appendnew_next_sd_AahKeiXE3FeANgXG
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_AahKeiXE3FeANgXG');
+    }
+  }
+
+  sd_Rhtz5HFDd8Ww6Jn6(bh) {
+    try {
+      const page = this.page;
+      bh.url = page.ssdURL + '/update';
+
+      bh.body = {
+        email: page.user.email,
+        firstTime: 'False',
+        collection: 'users',
+      };
+      bh = this.sd_kwEZMMfuEaYkAR3b(bh);
+      //appendnew_next_sd_Rhtz5HFDd8Ww6Jn6
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Rhtz5HFDd8Ww6Jn6');
+    }
+  }
+
+  async sd_kwEZMMfuEaYkAR3b(bh) {
+    try {
+      let requestOptions = {
+        url: bh.url,
+        method: 'put',
+        responseType: 'json',
+        headers: {},
+        params: {},
+        body: bh.body,
+      };
+      this.page.result = await this.sdService.nHttpRequest(requestOptions);
+      bh = this.sd_ZsBs1B88XMhDOeFB(bh);
+      //appendnew_next_sd_kwEZMMfuEaYkAR3b
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_kwEZMMfuEaYkAR3b');
     }
   }
 
@@ -1129,9 +1307,7 @@ export class landingComponent {
         this.sdService.getPathAndQParamsObj('/login');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
-          queryParams: Object.assign(qprm, ''),
-        });
+        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
       bh = this.sd_nmbbkfhW43svj0pJ(bh);
       //appendnew_next_sd_ZsBs1B88XMhDOeFB
       return bh;
@@ -1167,6 +1343,121 @@ export class landingComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_nqlkfLoKWQObzL3I');
+    }
+  }
+
+  sd_WcvE95k4pxExVwdL(bh) {
+    try {
+      const approvedDialog = this.__page_injector__.get(MatDialog);
+      const approvedDialogRef = approvedDialog.open(approvedComponent, {
+        width: '100%',
+      });
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_WcvE95k4pxExVwdL');
+    }
+  }
+
+  sd_7kx5aEVGXHIEcfRE(bh) {
+    try {
+      const page = this.page;
+      page.iconsGuide = true;
+      page.notificationsGuide = false;
+      page.showIconGuide = false;
+
+      bh = this.sd_fES7JTW3LznkSnQR(bh);
+      //appendnew_next_sd_7kx5aEVGXHIEcfRE
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_7kx5aEVGXHIEcfRE');
+    }
+  }
+
+  sd_fES7JTW3LznkSnQR(bh) {
+    try {
+      this.page.ssdURL = bh.system.environment.properties.ssdURL;
+      bh = this.sd_s0uxIiMOJDMkuzVj(bh);
+      //appendnew_next_sd_fES7JTW3LznkSnQR
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_fES7JTW3LznkSnQR');
+    }
+  }
+
+  sd_s0uxIiMOJDMkuzVj(bh) {
+    try {
+      const page = this.page;
+      bh.url = page.ssdURL + '/update';
+
+      bh.body = {
+        email: page.user.email,
+        firstTime: 'False',
+        collection: 'users',
+      };
+      bh = this.sd_RlY8IntfqO06x1Cp(bh);
+      //appendnew_next_sd_s0uxIiMOJDMkuzVj
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_s0uxIiMOJDMkuzVj');
+    }
+  }
+
+  async sd_RlY8IntfqO06x1Cp(bh) {
+    try {
+      let requestOptions = {
+        url: bh.url,
+        method: 'put',
+        responseType: 'json',
+        headers: {},
+        params: {},
+        body: bh.body,
+      };
+      this.page.result = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_RlY8IntfqO06x1Cp
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_RlY8IntfqO06x1Cp');
+    }
+  }
+
+  sd_zvycAb7USlTCtX2f(bh) {
+    try {
+      const page = this.page;
+      page.notificationsGuide = true;
+      page.showNotif = false;
+
+      page.showIconGuide = true;
+
+      //appendnew_next_sd_zvycAb7USlTCtX2f
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_zvycAb7USlTCtX2f');
+    }
+  }
+
+  sd_5VwDYevzMmxu8ITq(bh) {
+    try {
+      const page = this.page;
+      page.infoGuide = true;
+      page.showNotif = true;
+      //appendnew_next_sd_5VwDYevzMmxu8ITq
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_5VwDYevzMmxu8ITq');
+    }
+  }
+
+  sd_RcWnJBMKX2cbvfsw(bh) {
+    try {
+      const rejectedDialog = this.__page_injector__.get(MatDialog);
+      const rejectedDialogRef = rejectedDialog.open(rejectedComponent, {
+        width: '100%',
+      });
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_RcWnJBMKX2cbvfsw');
     }
   }
 

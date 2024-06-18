@@ -110,6 +110,55 @@
                     "type": "this.page",
                     "value": ""
                 }
+            },
+            {
+                "textIp": "approvedCount",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "iconsGuide",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "notificationsGuide",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "infoGuide",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showIconGuide",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showNotif",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "rejectedCount",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "0"
+                }
             }
         ],
         "functionName": "sd_Ti7TFNc8x4TYLPgB",
@@ -351,7 +400,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "// Exclude admin account\npage.result = page.result.filter((account) => account.email !== 'admin@gmail.com');\npage.applicationsDatasource = page.result.reverse();\npage.backupapplicationsDatasource = page.applicationsDatasource;\npage.totalApplications = page.applicationsDatasource.length;\npage.notificationsApplications = page.result.filter(application => application.status === 'Pending').length",
+        "script": "// Exclude admin account\npage.result = page.result.filter((account) => account.email !== 'admin@gmail.com');\n\nbh.newDataSource = page.result.reverse().filter((user:any) =>{\nreturn user.status == \"Pending\"\n})\n\nbh.newApproved = page.result.reverse().filter((user:any) =>{\nreturn user.status == \"Approved\"\n})\n\nbh.newDeclined = page.result.reverse().filter((user:any) =>{\nreturn user.status == \"Declined\"\n})\n\npage.rejectedCount = bh.newDeclined.length\n\npage.approvedCount = bh.newApproved.length\n\npage.applicationsDatasource = bh.newDataSource\npage.backupapplicationsDatasource = page.applicationsDatasource;\npage.totalApplications = page.applicationsDatasource.length;\npage.notificationsApplications = page.result.filter(application => application.status === 'Pending').length",
         "functionName": "sd_eYmRFoR6hl5KBA4C",
         "category": "Function",
         "x": 765,
@@ -984,7 +1033,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.overviewCards = [\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',\n        label: 'Easy PAYU',\n        amt: '0',\n    },\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',\n        label: 'Easy Smart',\n        amt: '0'\n    },\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDAQ1/card.png?v=3.14.0',\n        label: 'Aspire',\n        amt: '0'\n    }\n]",
+        "script": "page.overviewCards = [\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',\n        label: 'Easy PAYU',\n        amt: '0',\n    },\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',\n        label: 'Easy Smart',\n        amt: '0'\n    },\n    {\n        imgSrc: 'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDAQ1/card.png?v=3.14.0',\n        label: 'Aspire',\n        amt: '0'\n    }\n]\n\n\n",
         "functionName": "sd_ZktKQLIVolBWuIqe",
         "category": "Function",
         "x": 385,
@@ -1065,7 +1114,9 @@
         "x": 485,
         "y": 40,
         "wires": [
-            []
+            [
+                "sd_quiRNgdUWyepHcTB"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -2502,11 +2553,11 @@
         "script": "sessionStorage.clear();",
         "functionName": "sd_FAMRNEmdq7fYH5WV",
         "category": "Function",
-        "x": 200,
+        "x": 165,
         "y": 1380,
         "wires": [
             [
-                "sd_ZsBs1B88XMhDOeFB"
+                "sd_AahKeiXE3FeANgXG"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -2546,16 +2597,9 @@
         "nodeType": "flow",
         "name": "",
         "path": "/login",
-        "pathMap": "",
-        "pathparams": "",
-        "pathparamsMap": "",
-        "qparams": "",
-        "qparamsMap": "",
-        "qparamsArray": "",
-        "resultMapping": "",
         "functionName": "sd_ZsBs1B88XMhDOeFB",
         "category": "Navigation",
-        "x": 305,
+        "x": 485,
         "y": 1380,
         "wires": [
             [
@@ -2597,7 +2641,7 @@
         "direction": "ltr",
         "functionName": "sd_nmbbkfhW43svj0pJ",
         "category": "General",
-        "x": 405,
+        "x": 565,
         "y": 1380,
         "wires": [
             []
@@ -2785,8 +2829,8 @@
         "flow_type": "sync",
         "functionName": "viewDocuments",
         "category": "General",
-        "x": 100,
-        "y": 1520,
+        "x": 345,
+        "y": 1640,
         "wires": [
             [
                 "sd_nqlkfLoKWQObzL3I"
@@ -2832,8 +2876,8 @@
         "resultMapping": "this.page",
         "functionName": "sd_nqlkfLoKWQObzL3I",
         "category": "Dialog",
-        "x": 185,
-        "y": 1520,
+        "x": 430,
+        "y": 1640,
         "wires": [
             [],
             [],
@@ -2909,6 +2953,767 @@
             "width": {
                 "type": "this.page",
                 "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_4LBDdA6zYNCcpQXo",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open approved",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openApproved",
+        "category": "General",
+        "x": 120,
+        "y": 1640,
+        "wires": [
+            [
+                "sd_WcvE95k4pxExVwdL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_WcvE95k4pxExVwdL",
+        "type": "OpenDialog",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_ObY6teT8ZxXL0ikd",
+            "label": "approved"
+        },
+        "relativePath": "app/components/approved",
+        "data": "this.page",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "this.page",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"100%\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_WcvE95k4pxExVwdL",
+        "category": "Dialog",
+        "x": 225,
+        "y": 1640,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "100%",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_VqdOjxJfhRH0lzNl",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "IconGuide",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "iconGuide",
+        "category": "General",
+        "x": 85,
+        "y": 1500,
+        "wires": [
+            [
+                "sd_7kx5aEVGXHIEcfRE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_7kx5aEVGXHIEcfRE",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.iconsGuide = true\npage.notificationsGuide = false\npage.showIconGuide = false\n",
+        "functionName": "sd_7kx5aEVGXHIEcfRE",
+        "category": "Function",
+        "x": 190,
+        "y": 1500,
+        "wires": [
+            [
+                "sd_fES7JTW3LznkSnQR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_IPOiW2izUfr3jVXN",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "notificationsGuide",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "notificationsGuide",
+        "category": "General",
+        "x": 305,
+        "y": 1760,
+        "wires": [
+            [
+                "sd_zvycAb7USlTCtX2f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_zvycAb7USlTCtX2f",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.notificationsGuide = true\npage.showNotif = false\n\npage.showIconGuide = true\n\n",
+        "functionName": "sd_zvycAb7USlTCtX2f",
+        "category": "Function",
+        "x": 390,
+        "y": 1760,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_lcJMNagI8dKuq3Ct",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "infoGuide",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "infoGuide",
+        "category": "General",
+        "x": 505,
+        "y": 1760,
+        "wires": [
+            [
+                "sd_5VwDYevzMmxu8ITq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_5VwDYevzMmxu8ITq",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.infoGuide = true\npage.showNotif = true",
+        "functionName": "sd_5VwDYevzMmxu8ITq",
+        "category": "Function",
+        "x": 590,
+        "y": 1760,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_AahKeiXE3FeANgXG",
+        "type": "Environment",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdURL"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_AahKeiXE3FeANgXG",
+        "category": "General",
+        "x": 245,
+        "y": 1380,
+        "wires": [
+            [
+                "sd_Rhtz5HFDd8Ww6Jn6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Rhtz5HFDd8Ww6Jn6",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdURL + '/update'\n\nbh.body = {\n    \"email\":page.user.email,\n    \"firstTime\" : \"False\",\n    \"collection\" : \"users\"\n}",
+        "functionName": "sd_Rhtz5HFDd8Ww6Jn6",
+        "category": "Function",
+        "x": 325,
+        "y": 1380,
+        "wires": [
+            [
+                "sd_kwEZMMfuEaYkAR3b"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_kwEZMMfuEaYkAR3b",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "put",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_kwEZMMfuEaYkAR3b",
+        "category": "HTTP",
+        "x": 405,
+        "y": 1380,
+        "wires": [
+            [
+                "sd_ZsBs1B88XMhDOeFB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_quiRNgdUWyepHcTB",
+        "type": "Storage",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUser"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "user"
+        },
+        "functionName": "sd_quiRNgdUWyepHcTB",
+        "category": "Storage",
+        "x": 585,
+        "y": 40,
+        "wires": [
+            [
+                "sd_IexW9U3840UtACpz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_IexW9U3840UtACpz",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(page.user.firstTime == \"False\"){\n    page.infoGuide = true\n    page.iconsGuide = true\n    page.iconsGuide = true\n}\n",
+        "functionName": "sd_IexW9U3840UtACpz",
+        "category": "Function",
+        "x": 685,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_fES7JTW3LznkSnQR",
+        "type": "Environment",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdURL"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_fES7JTW3LznkSnQR",
+        "category": "General",
+        "x": 265,
+        "y": 1500,
+        "wires": [
+            [
+                "sd_s0uxIiMOJDMkuzVj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_s0uxIiMOJDMkuzVj",
+        "type": "Script",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdURL + '/update'\n\nbh.body = {\n    \"email\":page.user.email,\n    \"firstTime\" : \"False\",\n    \"collection\" : \"users\"\n}",
+        "functionName": "sd_s0uxIiMOJDMkuzVj",
+        "category": "Function",
+        "x": 360,
+        "y": 1500,
+        "wires": [
+            [
+                "sd_RlY8IntfqO06x1Cp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_RlY8IntfqO06x1Cp",
+        "type": "HttpRequest",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "put",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_RlY8IntfqO06x1Cp",
+        "category": "HTTP",
+        "x": 445,
+        "y": 1500,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "landingComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ttOUAX9p9SuF5k1e",
+        "type": "PageStart",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "viewRejected",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "viewRejected",
+        "category": "General",
+        "x": 620,
+        "y": 1640,
+        "wires": [
+            [
+                "sd_RcWnJBMKX2cbvfsw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "landingComponent"
+    },
+    {
+        "id": "sd_RcWnJBMKX2cbvfsw",
+        "type": "OpenDialog",
+        "z": "sd_W0YjnaImoswbPIPG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_BNzQZjSoa1iUKQ1R",
+            "label": "rejected"
+        },
+        "relativePath": "app/components/rejected",
+        "data": "this.page",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "this.page",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"100%\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_RcWnJBMKX2cbvfsw",
+        "category": "Dialog",
+        "x": 725,
+        "y": 1640,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "100%",
                 "constant": false
             },
             "maxWidth": {

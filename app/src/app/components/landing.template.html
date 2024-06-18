@@ -1,13 +1,14 @@
-<div fxLayout="column wrap" class="full-dvh relative no-wrap padding-right" fxLayoutAlign="start stretch" [fxShow]="true">
+<div fxLayout="column wrap" class="bg-white full-dvh relative no-wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" style="z-index:1" class="background full-width absolute" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.iconsGuide "></div>
   <div *ngIf="page.showSpinner" class="spinner absolute">
     <mat-spinner></mat-spinner>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
-    <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true"><img artImgSrc srcset="https://www.online.fnb.co.za/banking/00Assets/skins/00/images/header/logo.svg?v=u5e790818">
+  <div fxLayout="row wrap" class="relative" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div fxLayout="row wrap" class="margin-left-10px" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true"><img artImgSrc srcset="https://www.online.fnb.co.za/banking/00Assets/skins/00/images/header/logo.svg?v=u5e790818">
       <h3>
         Logout</h3><mat-icon class="color-black pointer" title="Log out" (click)="logOut()">logout</mat-icon>
     </div>
-    <div fxLayout="row wrap" class="relative" fxLayoutGap=".5em" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer font-xxl" routerLink="/notifications">notifications</mat-icon>
+    <div fxLayout="row wrap" class="margin-right-10px relative" fxLayoutGap=".5em" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer font-xxl" routerLink="/notifications">notifications</mat-icon>
       <div fxLayout="column wrap" class="pointer radius-round notification-count absolute" fxLayoutAlign="center center" [fxShow]="true" routerLink="/notifications">
         <p class="font-11px no-margin color-white absolute">
           {{page.notificationsCount}}
@@ -16,6 +17,14 @@
       <h3>
         ADMINISTRATOR</h3>
     </div>
+  </div>
+  <div fxLayout="row wrap" class="guide-info z-index-top absolute" fxLayoutAlign="center center" [fxShow]="true" *ngIf="!page.infoGuide">
+    <p class="padding-10px">
+      Welcome to the admin portal. <br>Follow the guide to learn about your role. <br> <span class="color-orange pointer" (click)="infoGuide()"> <b>OK! </b></span></p>
+  </div>
+  <div fxLayout="row wrap" class="guide-notification z-index-top absolute" fxLayoutAlign="center center" [fxShow]="true" *ngIf="page.showNotif">
+    <p class="padding-10px">
+      To view the notifications, click the bell icon above. <br> <span class="color-orange pointer" (click)="notificationsGuide()"> <b>OK! </b></span></p>
   </div>
   <div fxLayout="row wrap" class="cards-container" fxLayoutGap="1.5em" fxLayoutAlign="center center" [fxShow]="true">
     <div fxLayout="column wrap" class="overview-card" fxFlex="227px" fxLayoutAlign="start center" [fxShow]="true" *ngFor="let card of page.overviewCards">
@@ -91,18 +100,28 @@
       </ng-container>
 
       <ng-container matColumnDef="8197ff9d-2e5e-0b81-e10c-b40dd6fdf2d9">
-        <th mat-header-cell *matHeaderCellDef></th>
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let table; let i = index;">
           <div fxLayout="row wrap" class="pointer" fxLayoutGap=".5em" fxLayoutAlign="start center" [fxShow]="true"><mat-icon class="pointer" title="View documets" (click)="viewDocuments(table)">description</mat-icon><mat-icon class="pointer" title="Delete application" (click)="deleteApplication(table)">delete</mat-icon></div>
         </td>
       </ng-container>
     </table>
   </div>
-  <div fxLayout="row wrap" class="flex-1" fxLayoutAlign="space-between end" [fxShow]="true">
+  <div fxLayout="row wrap" class="relative flex-1" fxLayoutAlign="space-between end" [fxShow]="true">
+    <div fxLayout="row wrap" class="z-index-top guide absolute" fxLayoutAlign="center center" [fxShow]="true" *ngIf="page.showIconGuide">
+      <p class="full-width padding-10px">
+        To view the approved, rejected and deleted registrations, click on the icons below. <br> <span class="color-orange pointer" (click)="iconGuide()"> <b>OK! </b></span></p>
+    </div>
     <div fxLayout="row wrap" fxLayoutGap=".5em" fxLayoutAlign="center center" [fxShow]="true"><img title="Deleted applications" (click)="openBin()" class="pointer bin-img" srcset="https://freesvg.org/img/1443908522.png">
       <p class="color-red f-size-small">
         {{page.binApplicationsCount}} in bin
-      </p>
+      </p><img imgSrc="/Web/Images/approved.png" (click)="openApproved()" class="bin-img pointer">
+      <p class="color-red f-size-small">
+        {{page.approvedCount}} approved
+      </p><img imgSrc="/Web/Images/rejected.png" (click)="viewRejected()" class="pointer bin-img">
+      <div class="color-red f-size-small">
+        {{page.rejectedCount}} rejected
+      </div>
     </div>
     <div *ngIf="page.applicationsDatasource.length &gt; 0">
       <mat-paginator (page)="onPageChange($event)" [length]="page.totalApplications" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">

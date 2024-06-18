@@ -19,8 +19,8 @@
         "name": "",
         "functionName": "sd_rHt5lnX5d9AlwXpr",
         "category": "Lifecycle Events",
-        "x": 30,
-        "y": 30,
+        "x": 45,
+        "y": 40,
         "wires": [
             [
                 "sd_5OHZQGEf4Z32Rdne"
@@ -51,8 +51,8 @@
         ],
         "functionName": "sd_5OHZQGEf4Z32Rdne",
         "category": "Function",
-        "x": 180,
-        "y": 30,
+        "x": 165,
+        "y": 40,
         "wires": [
             [
                 "sd_qe9nrNFxo1lKheBU"
@@ -85,7 +85,7 @@
         "flow_type": "sync",
         "functionName": "submitEmail",
         "category": "General",
-        "x": 25,
+        "x": 45,
         "y": 180,
         "wires": [
             [
@@ -106,7 +106,7 @@
         "script": "page.showSpinner = true",
         "functionName": "sd_1pUa0oomgyBJNYR8",
         "category": "Function",
-        "x": 345,
+        "x": 305,
         "y": 240,
         "wires": [
             [
@@ -141,7 +141,7 @@
         "outputs": 2,
         "functionName": "sd_bKRz7pWdYtoGwkPu",
         "category": "Function",
-        "x": 245,
+        "x": 205,
         "y": 180,
         "wires": [
             [
@@ -252,7 +252,9 @@
             "value": "3000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -260,7 +262,7 @@
         "direction": "ltr",
         "functionName": "sd_vyy4BOkFGknLtfnw",
         "category": "General",
-        "x": 345,
+        "x": 305,
         "y": 140,
         "wires": [
             []
@@ -289,7 +291,7 @@
         ],
         "functionName": "sd_ZJkQ03iOysZf3qv0",
         "category": "General",
-        "x": 460,
+        "x": 420,
         "y": 240,
         "wires": [
             [
@@ -311,7 +313,7 @@
         "script": "bh.url = page.ssdURL + '/verification'",
         "functionName": "sd_SfSVTtBqnOKoepaQ",
         "category": "Function",
-        "x": 565,
+        "x": 525,
         "y": 240,
         "wires": [
             [
@@ -331,6 +333,7 @@
         "nodeType": "flow",
         "name": "",
         "method": "post",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.url",
         "urlMappingObj": {
@@ -338,8 +341,10 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -355,17 +360,20 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "sd_J1klgcPg8ZZ3f1X9",
         "category": "HTTP",
-        "x": 660,
+        "x": 620,
         "y": 240,
         "wires": [
             [
-                "sd_o7lpiAogNsi65ajX"
+                "sd_o7lpiAogNsi65ajX",
+                "sd_46YCZgz0EirBYWin"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -385,10 +393,7 @@
         "propertyGv": "this.page.result[0].email",
         "rules": [
             {
-                "t": "neq",
-                "v": "emailFormGroup.controls['email'].value",
-                "vt": "this.page",
-                "gv": "this.page.emailFormGroup.controls['email'].value"
+                "t": "else"
             },
             {
                 "t": "eq",
@@ -402,7 +407,7 @@
         "outputs": 2,
         "functionName": "sd_o7lpiAogNsi65ajX",
         "category": "Function",
-        "x": 745,
+        "x": 705,
         "y": 240,
         "wires": [
             [
@@ -437,7 +442,9 @@
             "value": "3000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -445,7 +452,7 @@
         "direction": "ltr",
         "functionName": "sd_XnnmALkJKjUgewac",
         "category": "General",
-        "x": 825,
+        "x": 785,
         "y": 180,
         "wires": [
             [
@@ -467,7 +474,7 @@
         "script": "page.showSpinner = false",
         "functionName": "sd_oXzXQOR7CUsihGyD",
         "category": "Function",
-        "x": 925,
+        "x": 885,
         "y": 180,
         "wires": [
             []
@@ -487,7 +494,7 @@
         "script": "page.showSpinner = false",
         "functionName": "sd_ffzBB4Z7b7TfyzZL",
         "category": "Function",
-        "x": 825,
+        "x": 785,
         "y": 280,
         "wires": [
             [
@@ -507,9 +514,16 @@
         "nodeType": "flow",
         "name": "",
         "path": "/reset_password",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_9UPHeazoidL2Cypb",
         "category": "Navigation",
-        "x": 985,
+        "x": 945,
         "y": 280,
         "wires": [
             []
@@ -540,7 +554,7 @@
         "resultMapping": {},
         "functionName": "sd_nYIC0TCYyWoyXBEU",
         "category": "Storage",
-        "x": 905,
+        "x": 865,
         "y": 280,
         "wires": [
             [
@@ -569,6 +583,32 @@
                 "sd_bKRz7pWdYtoGwkPu"
             ]
         ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "email_verificationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_46YCZgz0EirBYWin",
+        "type": "Log",
+        "z": "sd_qUz4RYFVkprCUXIs",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "this.page.result",
+        "functionName": "sd_46YCZgz0EirBYWin",
+        "category": "General",
+        "x": 680,
+        "y": 120,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "this.page",
+                "value": "result",
+                "constant": false
+            }
+        },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "serviceName": "email_verificationComponent",

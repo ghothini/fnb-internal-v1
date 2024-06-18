@@ -817,7 +817,7 @@
                     },
                     {
                         "_key": "[disabled]",
-                        "_value": "false",
+                        "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -1381,7 +1381,7 @@
                     },
                     {
                         "_key": "[disabled]",
-                        "_value": "false",
+                        "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
                     },

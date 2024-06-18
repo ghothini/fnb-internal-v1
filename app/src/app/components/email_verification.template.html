@@ -1,5 +1,5 @@
-<div fxLayout="column wrap" class="full-width" fxLayoutAlign="center center" [fxShow]="true" fxFill>
-  <div *ngIf="page.showSpinner" class="spinner-login absolute">
+<div fxLayout="column wrap" class="relative full-width" fxLayoutAlign="center center" [fxShow]="true" fxFill>
+  <div *ngIf="page.showSpinner" class="z-index-top spinner-login absolute">
     <mat-spinner></mat-spinner>
   </div><img imgSrc="/Web/Images/FNB.jpg" class="image-size">
   <div fxLayout="column wrap" class="margin-left-2em" fxLayoutGap="0.5em" fxLayoutAlign="start stretch" [fxShow]="true" [formGroup]="page.emailFormGroup">

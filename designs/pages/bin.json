@@ -31,79 +31,6 @@
         "serviceName": "binComponent"
     },
     {
-        "id": "sd_IZjtmmBWKM1zSBqr",
-        "type": "PageStart",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "",
-        "outputs": 1,
-        "flow_type": "sync",
-        "functionName": "sd_IZjtmmBWKM1zSBqr",
-        "category": "General",
-        "x": 45,
-        "y": 160,
-        "wires": [
-            [
-                "sd_KL0gpXHAnGd85kYJ"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "binComponent"
-    },
-    {
-        "id": "sd_KL0gpXHAnGd85kYJ",
-        "type": "Environment",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 1,
-        "envMaps": [
-            {
-                "flowVar": {
-                    "type": "this.page",
-                    "value": "ssdURL"
-                },
-                "envProperty": "ssdURL"
-            }
-        ],
-        "functionName": "sd_KL0gpXHAnGd85kYJ",
-        "category": "General",
-        "x": 140,
-        "y": 160,
-        "wires": [
-            [
-                "sd_d6jvPeIgIy6BJqGn"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "binComponent",
-        "generated": true
-    },
-    {
-        "id": "sd_d6jvPeIgIy6BJqGn",
-        "type": "Script",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "bh.url = page.ssdURL + \"\"",
-        "functionName": "sd_d6jvPeIgIy6BJqGn",
-        "category": "Function",
-        "x": 240,
-        "y": 160,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "binComponent",
-        "generated": true
-    },
-    {
         "id": "sd_uYX9Nk0lVRc6u8su",
         "type": "Script",
         "z": "sd_QJROEOAEa9jpn569",
@@ -113,8 +40,8 @@
         "script": "bh.url = page.ssdUrl + '/get-bin';",
         "functionName": "sd_uYX9Nk0lVRc6u8su",
         "category": "Function",
-        "x": 725,
-        "y": 420,
+        "x": 545,
+        "y": 180,
         "wires": [
             [
                 "sd_8OecDrFgFhQyms0S"
@@ -138,8 +65,8 @@
         "flow_type": "sync",
         "functionName": "searchTable",
         "category": "General",
-        "x": 265,
-        "y": 420,
+        "x": 85,
+        "y": 180,
         "wires": [
             [
                 "sd_LYyzDzjkK5yX2PEc"
@@ -159,8 +86,8 @@
         "script": "const searchResults = [];\npage.backupapplicationsDatasource.forEach(row => {\n    if (row.title.toLowerCase().includes(page.searchValue) || row.surname.toLowerCase().includes(page.searchValue)) {\n        searchResults.push(row)\n    } else if (row.email.toLowerCase().includes(page.searchValue.toString())) {\n        searchResults.push(row);\n    } else if (row.status.toLowerCase().includes(page.searchValue.toString())) {\n        searchResults.push(row);\n    }\n    // To add for date\n})\npage.applicationsDatasource = searchResults;",
         "functionName": "sd_LYyzDzjkK5yX2PEc",
         "category": "Function",
-        "x": 385,
-        "y": 420,
+        "x": 205,
+        "y": 180,
         "wires": [
             []
         ],
@@ -199,8 +126,8 @@
         "flow_type": "sync",
         "functionName": "declineApplication",
         "category": "General",
-        "x": 245,
-        "y": 540,
+        "x": 65,
+        "y": 300,
         "wires": [
             [
                 "sd_LCa1PC7l4xPwojFS"
@@ -218,6 +145,7 @@
         "nodeType": "flow",
         "name": "Get all applications",
         "method": "get",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.url",
         "urlMappingObj": {
@@ -225,11 +153,14 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
+        "reqBody": "",
         "reqBodyObj": {
             "mapVarType": "this.page",
             "mapVarValue": ""
@@ -241,14 +172,16 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "getAllApplications",
         "category": "HTTP",
-        "x": 840,
-        "y": 420,
+        "x": 660,
+        "y": 180,
         "wires": [
             [
                 "sd_VSyvbATDjLNiC3f0"
@@ -269,8 +202,8 @@
         "script": "// Exclude admin account\npage.result = page.result.filter((account) => account.email !== 'admin@gmail.com');\npage.applicationsDatasource = page.result.reverse();\npage.backupapplicationsDatasource = page.applicationsDatasource;\npage.totalApplications = page.applicationsDatasource.length;\npage.notificationsApplications = page.result.filter(application => application.status === 'Pending').length",
         "functionName": "sd_VSyvbATDjLNiC3f0",
         "category": "Function",
-        "x": 965,
-        "y": 420,
+        "x": 785,
+        "y": 180,
         "wires": [
             [
                 "sd_QZzMaK44FOlk3s7C"
@@ -311,8 +244,8 @@
         "flow_type": "sync",
         "functionName": "approveApplication",
         "category": "General",
-        "x": 285,
-        "y": 660,
+        "x": 105,
+        "y": 420,
         "wires": [
             [
                 "sd_bS1fv5V64fgeWDq5"
@@ -365,8 +298,8 @@
         "paramMappingObj": {},
         "functionName": "saveAndSendDeclinedEmail",
         "category": "HTTP",
-        "x": 805,
-        "y": 520,
+        "x": 625,
+        "y": 280,
         "wires": [
             [
                 "sd_UWVnOKwSxKwQWUcN"
@@ -407,8 +340,8 @@
         "direction": "ltr",
         "functionName": "sd_tCpk7EM7NItvd4bu",
         "category": "General",
-        "x": 1045,
-        "y": 520,
+        "x": 865,
+        "y": 280,
         "wires": [
             []
         ],
@@ -427,8 +360,8 @@
         "script": "page.showSpinner = false;",
         "functionName": "sd_UWVnOKwSxKwQWUcN",
         "category": "Function",
-        "x": 925,
-        "y": 520,
+        "x": 745,
+        "y": 280,
         "wires": [
             [
                 "sd_tCpk7EM7NItvd4bu"
@@ -458,8 +391,8 @@
         ],
         "functionName": "sd_bS1fv5V64fgeWDq5",
         "category": "General",
-        "x": 405,
-        "y": 660,
+        "x": 225,
+        "y": 420,
         "wires": [
             [
                 "sd_q7iETnjS3nD1PZox"
@@ -478,6 +411,7 @@
         "nodeType": "flow",
         "name": "Save and Send approved email",
         "method": "put",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.url",
         "urlMappingObj": {
@@ -485,8 +419,10 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -502,14 +438,16 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "saveAndSendApprovedEmail",
         "category": "HTTP",
-        "x": 725,
-        "y": 660,
+        "x": 545,
+        "y": 420,
         "wires": [
             [
                 "sd_1iCdTuvgCKsOhjgh"
@@ -550,8 +488,8 @@
         "direction": "ltr",
         "functionName": "sd_owdsdjr8KWZqhWDh",
         "category": "General",
-        "x": 1125,
-        "y": 660,
+        "x": 945,
+        "y": 420,
         "wires": [
             []
         ],
@@ -570,8 +508,8 @@
         "script": "page.showSpinner = false;",
         "functionName": "sd_owXT3CR5iey5WFA3",
         "category": "Function",
-        "x": 1045,
-        "y": 660,
+        "x": 865,
+        "y": 420,
         "wires": [
             [
                 "sd_owdsdjr8KWZqhWDh"
@@ -604,8 +542,8 @@
         "flow_type": "sync",
         "functionName": "restoreApplication",
         "category": "General",
-        "x": 265,
-        "y": 880,
+        "x": 85,
+        "y": 640,
         "wires": [
             [
                 "sd_eCeYbLqtTbMu8dSb"
@@ -634,8 +572,8 @@
         ],
         "functionName": "sd_Fg0YSXnN1R1CX4SP",
         "category": "General",
-        "x": 485,
-        "y": 880,
+        "x": 305,
+        "y": 640,
         "wires": [
             [
                 "sd_XXI8gfEE8szeTuq3"
@@ -656,8 +594,8 @@
         "script": "bh.url = page.ssdUrl + '/restore-from-bin';\npage.showSpinner = true;",
         "functionName": "sd_XXI8gfEE8szeTuq3",
         "category": "Function",
-        "x": 585,
-        "y": 880,
+        "x": 405,
+        "y": 640,
         "wires": [
             [
                 "sd_IHx8vxj4rGKEjy49"
@@ -688,7 +626,9 @@
             "value": "3000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -697,7 +637,7 @@
         "functionName": "sd_lklnD1MxZsDm8Mqz",
         "category": "General",
         "x": 1225,
-        "y": 880,
+        "y": 640,
         "wires": [
             []
         ],
@@ -719,8 +659,8 @@
         "flow_type": "sync",
         "functionName": "refreshAllApplications",
         "category": "General",
-        "x": 525,
-        "y": 420,
+        "x": 345,
+        "y": 180,
         "wires": [
             [
                 "sd_0WSmntFqt280OuZ9"
@@ -749,8 +689,8 @@
         ],
         "functionName": "sd_0WSmntFqt280OuZ9",
         "category": "General",
-        "x": 625,
-        "y": 420,
+        "x": 445,
+        "y": 180,
         "wires": [
             [
                 "sd_uYX9Nk0lVRc6u8su"
@@ -789,11 +729,12 @@
         "serviceImportPath": "./",
         "startName": "refreshAllApplications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_Y4r4IJ8LoW4sXDde",
         "category": "General",
-        "x": 965,
-        "y": 880,
+        "x": 785,
+        "y": 640,
         "wires": [
             [
                 "sd_tEWFbRlAw50uEV3z"
@@ -814,8 +755,8 @@
         "script": "bh.url = page.ssdUrl + '/decline';\nbh.input.application.status = bh.input.status;\nbh.input.application['reason'] = page.result;\nbh.input.application.collection = 'users';\npage.showSpinner = true;",
         "functionName": "sd_fk181zj6cHxjbw2O",
         "category": "Function",
-        "x": 685,
-        "y": 500,
+        "x": 505,
+        "y": 260,
         "wires": [
             [
                 "sd_jSCKB3Z5MtVectfn"
@@ -839,8 +780,8 @@
         "flow_type": "sync",
         "functionName": "generateTempPassword",
         "category": "General",
-        "x": 285,
-        "y": 780,
+        "x": 105,
+        "y": 540,
         "wires": [
             [
                 "sd_y9vd4wJPUvlub98v"
@@ -878,11 +819,12 @@
         "serviceImportPath": "./",
         "startName": "generateTempPassword",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_q7iETnjS3nD1PZox",
         "category": "General",
-        "x": 505,
-        "y": 660,
+        "x": 325,
+        "y": 420,
         "wires": [
             [
                 "sd_BLBQl61oosZX8udb"
@@ -903,8 +845,8 @@
         "script": "let unique:any = new Date().getTime().toString();\nunique = unique.split('');\npage.tempPassword = `${unique[unique.length - 1]}${unique[unique.length - 2]}${unique[unique.length - 3]}${unique[unique.length - 4]}`;\n",
         "functionName": "sd_y9vd4wJPUvlub98v",
         "category": "Function",
-        "x": 405,
-        "y": 780,
+        "x": 225,
+        "y": 540,
         "wires": [
             []
         ],
@@ -941,11 +883,12 @@
         "serviceImportPath": "./",
         "startName": "determineUnreadNotifications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_QZzMaK44FOlk3s7C",
         "category": "General",
-        "x": 1065,
-        "y": 420,
+        "x": 885,
+        "y": 180,
         "wires": [
             [
                 "sd_1oSUkAMaUhwFqp9a"
@@ -966,8 +909,8 @@
         "script": "bh.url = page.ssdUrl + '/get-notifications';",
         "functionName": "sd_uZ6AzBvjHS5KbSWS",
         "category": "Function",
-        "x": 485,
-        "y": 1040,
+        "x": 305,
+        "y": 800,
         "wires": [
             [
                 "sd_IRGXCgKXhn0sljfa"
@@ -1021,8 +964,8 @@
         "paramMappingObj": {},
         "functionName": "getAllNotifications",
         "category": "HTTP",
-        "x": 580,
-        "y": 1040,
+        "x": 400,
+        "y": 800,
         "wires": [
             [
                 "sd_5VKCyG2rWoqDv8Ga"
@@ -1043,8 +986,8 @@
         "script": "// Determine all unread\npage.notificationsCount = 0;\npage.result.forEach((notification) => {\n    if(!notification.read){\n        page.notificationsCount++;\n    }\n})",
         "functionName": "sd_5VKCyG2rWoqDv8Ga",
         "category": "Function",
-        "x": 685,
-        "y": 1040,
+        "x": 505,
+        "y": 800,
         "wires": [
             []
         ],
@@ -1066,8 +1009,8 @@
         "flow_type": "sync",
         "functionName": "determineUnreadNotifications",
         "category": "General",
-        "x": 285,
-        "y": 1040,
+        "x": 65,
+        "y": 800,
         "wires": [
             [
                 "sd_ESgNJZhZtlvs1uQ2"
@@ -1096,8 +1039,8 @@
         ],
         "functionName": "sd_ESgNJZhZtlvs1uQ2",
         "category": "General",
-        "x": 385,
-        "y": 1040,
+        "x": 205,
+        "y": 800,
         "wires": [
             [
                 "sd_uZ6AzBvjHS5KbSWS"
@@ -1118,8 +1061,8 @@
         "script": "bh.dialogData = {\n    ...bh.input.application,\n    isDeclingApplication: false\n}\n\npage.showSpinner = true;",
         "functionName": "sd_eCeYbLqtTbMu8dSb",
         "category": "Function",
-        "x": 365,
-        "y": 880,
+        "x": 185,
+        "y": 640,
         "wires": [
             [
                 "sd_Fg0YSXnN1R1CX4SP"
@@ -1166,8 +1109,8 @@
         "resultMapping": "this.page.result",
         "functionName": "sd_wPtlUphxK0aZMmgk",
         "category": "Dialog",
-        "x": 445,
-        "y": 540,
+        "x": 265,
+        "y": 300,
         "wires": [
             [],
             [
@@ -1298,8 +1241,8 @@
         "script": "bh.dialogData = {\n    ...bh.input.application,\n    isDeclingApplication: true\n}",
         "functionName": "sd_LCa1PC7l4xPwojFS",
         "category": "Function",
-        "x": 345,
-        "y": 540,
+        "x": 165,
+        "y": 300,
         "wires": [
             [
                 "sd_wPtlUphxK0aZMmgk"
@@ -1333,8 +1276,8 @@
         "outputs": 2,
         "functionName": "sd_H1yQDiEOKUwV5LNM",
         "category": "Function",
-        "x": 545,
-        "y": 540,
+        "x": 365,
+        "y": 300,
         "wires": [
             [
                 "sd_fk181zj6cHxjbw2O"
@@ -1378,8 +1321,8 @@
         "direction": "ltr",
         "functionName": "sd_1FRxXRbTTO20Xh98",
         "category": "General",
-        "x": 685,
-        "y": 580,
+        "x": 505,
+        "y": 340,
         "wires": [
             []
         ],
@@ -1398,8 +1341,8 @@
         "script": "bh.input.application['password'] = page.tempPassword;\n\nbh.url = page.ssdUrl + '/approve';\nbh.input.application.status = bh.input.status;\npage.showSpinner = true;",
         "functionName": "sd_BLBQl61oosZX8udb",
         "category": "Function",
-        "x": 605,
-        "y": 660,
+        "x": 425,
+        "y": 420,
         "wires": [
             [
                 "sd_zidVzSPGKqs4DHO0"
@@ -1453,8 +1396,8 @@
         "paramMappingObj": {},
         "functionName": "saveDefaultLimits",
         "category": "HTTP",
-        "x": 945,
-        "y": 660,
+        "x": 765,
+        "y": 420,
         "wires": [
             [
                 "sd_owXT3CR5iey5WFA3"
@@ -1475,8 +1418,8 @@
         "script": "bh.url = page.ssdUrl + '/add-limits';\nbh.body = {\n    \"_id\": new Date().getTime(),\n    \"email\": bh.input.application.email,\n    \"basicWithdrawal\": 3000\n}",
         "functionName": "sd_1iCdTuvgCKsOhjgh",
         "category": "Function",
-        "x": 845,
-        "y": 660,
+        "x": 665,
+        "y": 420,
         "wires": [
             [
                 "sd_Q5rUQHSu6gWhF1W1"
@@ -1495,6 +1438,7 @@
         "nodeType": "flow",
         "name": "Restore application back",
         "method": "post",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.url",
         "urlMappingObj": {
@@ -1502,8 +1446,10 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -1519,14 +1465,16 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "restoreApplicationBack",
         "category": "HTTP",
-        "x": 685,
-        "y": 880,
+        "x": 505,
+        "y": 640,
         "wires": [
             [
                 "sd_2pPxyEfkRZRenu9d"
@@ -1547,8 +1495,8 @@
         "script": "bh.url = page.ssdUrl + '/get-bin';",
         "functionName": "sd_4mlvZaOTTv0JglQj",
         "category": "Function",
-        "x": 365,
-        "y": 1160,
+        "x": 245,
+        "y": 940,
         "wires": [
             [
                 "sd_dD4tUbI03sSLpOoz"
@@ -1602,8 +1550,8 @@
         "paramMappingObj": {},
         "functionName": "getAllBinApplications",
         "category": "HTTP",
-        "x": 485,
-        "y": 1160,
+        "x": 365,
+        "y": 940,
         "wires": [
             [
                 "sd_qH60C55JZgyw8van"
@@ -1624,8 +1572,8 @@
         "script": "page.binApplicationsCount = page.result.length;",
         "functionName": "sd_qH60C55JZgyw8van",
         "category": "Function",
-        "x": 605,
-        "y": 1160,
+        "x": 485,
+        "y": 940,
         "wires": [
             [
                 "sd_CXRpVoA9Y7tqxrrD"
@@ -1649,11 +1597,11 @@
         "flow_type": "sync",
         "functionName": "rereshBinApplications",
         "category": "General",
-        "x": 265,
-        "y": 1160,
+        "x": 65,
+        "y": 940,
         "wires": [
             [
-                "sd_4mlvZaOTTv0JglQj"
+                "sd_PI2SP8KqLznSKene"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1688,11 +1636,12 @@
         "serviceImportPath": "./",
         "startName": "determineUnreadNotifications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_CXRpVoA9Y7tqxrrD",
         "category": "General",
-        "x": 705,
-        "y": 1160,
+        "x": 585,
+        "y": 940,
         "wires": [
             []
         ],
@@ -1729,11 +1678,12 @@
         "serviceImportPath": "./",
         "startName": "rereshBinApplications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_1oSUkAMaUhwFqp9a",
         "category": "General",
-        "x": 1205,
-        "y": 420,
+        "x": 1025,
+        "y": 180,
         "wires": [
             []
         ],
@@ -1773,99 +1723,11 @@
         "accept_csd": false,
         "functionName": "sd_tEWFbRlAw50uEV3z",
         "category": "General",
-        "x": 1045,
-        "y": 880,
+        "x": 865,
+        "y": 640,
         "wires": [
             [
                 "sd_nxY8nnt0QsHLZmlP"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "binComponent",
-        "generated": true
-    },
-    {
-        "id": "sd_x8JzywSEKSrKvLGb",
-        "type": "PageStart",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "Open Bin",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "openBin",
-        "category": "General",
-        "x": 265,
-        "y": 1280,
-        "wires": [
-            [
-                "sd_yIB6tEruy2gDFcp9"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "binComponent"
-    },
-    {
-        "id": "sd_CxzDTc2be7vpPJ2F",
-        "type": "SnackBar",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "message": {
-            "type": "bh",
-            "value": "message"
-        },
-        "action": {
-            "type": "str",
-            "value": "Ok"
-        },
-        "duration": {
-            "type": "num",
-            "value": "3000"
-        },
-        "horizontalPosition": "center",
-        "horizontalPositionMap": "",
-        "verticalPosition": "bottom",
-        "verticalPositionMap": "",
-        "panelClass": {
-            "type": "str",
-            "value": ""
-        },
-        "direction": "ltr",
-        "functionName": "sd_CxzDTc2be7vpPJ2F",
-        "category": "General",
-        "x": 465,
-        "y": 1280,
-        "wires": [
-            [
-                "sd_733jszxJrodRYAzs"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "binComponent",
-        "generated": true
-    },
-    {
-        "id": "sd_yIB6tEruy2gDFcp9",
-        "type": "Script",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "bh.message = `${page.binApplicationsCount} applications in bin`",
-        "functionName": "sd_yIB6tEruy2gDFcp9",
-        "category": "Function",
-        "x": 365,
-        "y": 1280,
-        "wires": [
-            [
-                "sd_CxzDTc2be7vpPJ2F"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1895,8 +1757,8 @@
         "flow_type": "sync",
         "functionName": "onPageChange",
         "category": "General",
-        "x": 265,
-        "y": 1400,
+        "x": 65,
+        "y": 1180,
         "wires": [
             [
                 "sd_zu0sZZ5uovqQvHkc"
@@ -1916,8 +1778,8 @@
         "script": "page.currentPageIndex = bh.input.ev.pageIndex;",
         "functionName": "sd_zu0sZZ5uovqQvHkc",
         "category": "Function",
-        "x": 365,
-        "y": 1400,
+        "x": 165,
+        "y": 1180,
         "wires": [
             [
                 "sd_Nu9R2HT6RwgrMqWZ"
@@ -1965,11 +1827,12 @@
         "inputParams": [
             null
         ],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_Nu9R2HT6RwgrMqWZ",
         "category": "General",
-        "x": 465,
-        "y": 1400,
+        "x": 265,
+        "y": 1180,
         "wires": [
             []
         ],
@@ -1988,8 +1851,8 @@
         "script": "bh.startIndex = page.currentPageIndex * bh.input.itemsPerPage;\nbh.endIndex = bh.startIndex + bh.input.itemsPerPage;\npage.applicationsDatasource = page.backupapplicationsDatasource.slice(bh.startIndex, bh.endIndex);",
         "functionName": "sd_qmOYVyNzIiSl4qN2",
         "category": "Function",
-        "x": 385,
-        "y": 1520,
+        "x": 185,
+        "y": 1300,
         "wires": [
             []
         ],
@@ -2020,8 +1883,8 @@
         "flow_type": "sync",
         "functionName": "updateApplicationToShow",
         "category": "General",
-        "x": 280,
-        "y": 1520,
+        "x": 80,
+        "y": 1300,
         "wires": [
             [
                 "sd_qmOYVyNzIiSl4qN2"
@@ -2141,162 +2004,6 @@
         "wires": [
             []
         ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "binComponent",
-        "generated": true
-    },
-    {
-        "id": "sd_733jszxJrodRYAzs",
-        "type": "OpenDialog",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 4,
-        "flow": {
-            "flowId": "sd_QJROEOAEa9jpn569",
-            "label": "bin"
-        },
-        "relativePath": "app/components/bin",
-        "data": "bh.input.row",
-        "ariaDescribedBy": "this.page",
-        "ariaLabel": "this.page",
-        "ariaLabelledBy": "this.page",
-        "autoFocus": "this.page",
-        "backdropClass": "this.page",
-        "closeOnNavigation": "this.page",
-        "direction": "this.page",
-        "disableClose": "this.page",
-        "hasBackdrop": "this.page",
-        "height": "this.page",
-        "maxHeight": "this.page",
-        "minHeight": "this.page",
-        "width": "this.page",
-        "maxWidth": "this.page",
-        "minWidth": "this.page",
-        "panelClass": "this.page",
-        "position": "this.page",
-        "restoreFocus": "this.page",
-        "role": "this.page",
-        "resultMapping": "this.page",
-        "functionName": "sd_733jszxJrodRYAzs",
-        "category": "Dialog",
-        "x": 565,
-        "y": 1280,
-        "wires": [
-            [],
-            [],
-            [],
-            []
-        ],
-        "__ssdTypeInputs__": {
-            "data": {
-                "type": "bh.input",
-                "value": "row",
-                "constant": false
-            },
-            "ariaDescribedBy": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "ariaLabel": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "ariaLabelledBy": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "autoFocus": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "backdropClass": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "closeOnNavigation": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "direction": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "disableClose": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "hasBackdrop": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "height": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "maxHeight": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "minHeight": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "width": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "maxWidth": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "minWidth": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "panelClass": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "position": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "restoreFocus": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "role": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            },
-            "resultMapping": {
-                "type": "this.page",
-                "value": "",
-                "constant": false
-            }
-        },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "serviceName": "binComponent",
@@ -2504,6 +2211,7 @@
         "serviceImportPath": "./",
         "startName": "refreshAllApplications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_tzt7FALxgIpTqlwt",
         "category": "General",
@@ -2590,7 +2298,9 @@
             "value": "3000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -2620,8 +2330,8 @@
         "script": "bh.input.application['collection'] = 'bin-applications';\n\nbh.del_URL = page.ssdUrl + '/delete'",
         "functionName": "sd_2pPxyEfkRZRenu9d",
         "category": "Function",
-        "x": 765,
-        "y": 880,
+        "x": 585,
+        "y": 640,
         "wires": [
             [
                 "sd_ZQbMqnSE8P65OIfN"
@@ -2640,6 +2350,7 @@
         "nodeType": "flow",
         "name": "Delete bin application",
         "method": "delete",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.del_URL",
         "urlMappingObj": {
@@ -2647,8 +2358,10 @@
             "mapVarValue": "del_URL"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -2664,14 +2377,16 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "deleteBinApplication",
         "category": "HTTP",
-        "x": 885,
-        "y": 880,
+        "x": 705,
+        "y": 640,
         "wires": [
             [
                 "sd_Y4r4IJ8LoW4sXDde"
@@ -2692,11 +2407,11 @@
         "script": "page.showSpinner = false;\n",
         "functionName": "sd_nxY8nnt0QsHLZmlP",
         "category": "Function",
-        "x": 1145,
-        "y": 880,
+        "x": 965,
+        "y": 640,
         "wires": [
             [
-                "sd_lklnD1MxZsDm8Mqz"
+                "sd_24fn4ONr9uKOPs0t"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -2732,6 +2447,7 @@
         "serviceImportPath": "./",
         "startName": "refreshAllApplications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_iIxUe6c6UZt3XfHV",
         "category": "General",
@@ -2775,6 +2491,7 @@
         "serviceImportPath": "./",
         "startName": "rereshBinApplications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_rzMKKFtDXxLbOgkK",
         "category": "General",
@@ -2782,6 +2499,81 @@
         "y": 1780,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "binComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_24fn4ONr9uKOPs0t",
+        "type": "Navigation",
+        "z": "sd_QJROEOAEa9jpn569",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/login",
+        "functionName": "sd_24fn4ONr9uKOPs0t",
+        "category": "Navigation",
+        "x": 1065,
+        "y": 640,
+        "wires": [
+            [
+                "sd_b1knZQpW4LxCb5JZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "binComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_PI2SP8KqLznSKene",
+        "type": "Environment",
+        "z": "sd_QJROEOAEa9jpn569",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_PI2SP8KqLznSKene",
+        "category": "General",
+        "x": 145,
+        "y": 940,
+        "wires": [
+            [
+                "sd_4mlvZaOTTv0JglQj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "binComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_b1knZQpW4LxCb5JZ",
+        "type": "Navigation",
+        "z": "sd_QJROEOAEa9jpn569",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/landing",
+        "functionName": "sd_b1knZQpW4LxCb5JZ",
+        "category": "Navigation",
+        "x": 1145,
+        "y": 640,
+        "wires": [
+            [
+                "sd_lklnD1MxZsDm8Mqz"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
