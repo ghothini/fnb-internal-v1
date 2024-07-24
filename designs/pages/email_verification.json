@@ -310,7 +310,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.url = page.ssdURL + '/verification'",
+        "script": "bh.url = page.ssdURL + '/get-users'",
         "functionName": "sd_SfSVTtBqnOKoepaQ",
         "category": "Function",
         "x": 525,
@@ -332,8 +332,7 @@
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
-        "method": "post",
-        "methodMapping": "",
+        "method": "get",
         "methodMappingObj": {},
         "urlMapping": "bh.url",
         "urlMappingObj": {
@@ -341,17 +340,14 @@
             "mapVarValue": "url"
         },
         "ret": "json",
-        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
-        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
-        "reqBody": "this.page.emailFormGroup.value",
         "reqBodyObj": {
             "mapVarType": "this.page",
-            "mapVarValue": "emailFormGroup.value"
+            "mapVarValue": ""
         },
         "resultMapping": "this.page.result",
         "resultMappingObj": {
@@ -360,11 +356,9 @@
         },
         "headers": {},
         "headersObj": [],
-        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
-        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "sd_J1klgcPg8ZZ3f1X9",
         "category": "HTTP",
@@ -372,8 +366,7 @@
         "y": 240,
         "wires": [
             [
-                "sd_o7lpiAogNsi65ajX",
-                "sd_46YCZgz0EirBYWin"
+                "sd_o7lpiAogNsi65ajX"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -514,13 +507,6 @@
         "nodeType": "flow",
         "name": "",
         "path": "/reset_password",
-        "pathMap": "",
-        "pathparams": "",
-        "pathparamsMap": "",
-        "qparams": "",
-        "qparamsMap": "",
-        "qparamsArray": "",
-        "resultMapping": "",
         "functionName": "sd_9UPHeazoidL2Cypb",
         "category": "Navigation",
         "x": 945,
@@ -583,32 +569,6 @@
                 "sd_bKRz7pWdYtoGwkPu"
             ]
         ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "email_verificationComponent",
-        "generated": true
-    },
-    {
-        "id": "sd_46YCZgz0EirBYWin",
-        "type": "Log",
-        "z": "sd_qUz4RYFVkprCUXIs",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 0,
-        "logObject": "this.page.result",
-        "functionName": "sd_46YCZgz0EirBYWin",
-        "category": "General",
-        "x": 680,
-        "y": 120,
-        "wires": [],
-        "__ssdTypeInputs__": {
-            "logObject": {
-                "type": "this.page",
-                "value": "result",
-                "constant": false
-            }
-        },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "serviceName": "email_verificationComponent",
