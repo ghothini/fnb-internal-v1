@@ -225,8 +225,6 @@ export class reset_passwordComponent {
       delete bh.body.value.confirmPassword;
       bh.newAdmin = bh.body.value;
       bh.newAdmin.email = page.user.email;
-
-      console.log('admin ==>', bh.newAdmin);
       bh = this.sd_HdUsIlq9pNpLGwEI(bh);
       //appendnew_next_sd_tcwnBWoe9fGcuh1H
       return bh;

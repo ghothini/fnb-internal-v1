@@ -731,41 +731,11 @@ export class binComponent {
       const page = this.page;
       page.showSpinner = false;
 
-      bh = this.sd_24fn4ONr9uKOPs0t(bh);
+      bh = this.sd_lklnD1MxZsDm8Mqz(bh);
       //appendnew_next_sd_nxY8nnt0QsHLZmlP
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_nxY8nnt0QsHLZmlP');
-    }
-  }
-
-  async sd_24fn4ONr9uKOPs0t(bh) {
-    try {
-      const { paramObj: qprm, path: path } =
-        this.sdService.getPathAndQParamsObj('/login');
-      await this.__page_injector__
-        .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
-      bh = this.sd_b1knZQpW4LxCb5JZ(bh);
-      //appendnew_next_sd_24fn4ONr9uKOPs0t
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_24fn4ONr9uKOPs0t');
-    }
-  }
-
-  async sd_b1knZQpW4LxCb5JZ(bh) {
-    try {
-      const { paramObj: qprm, path: path } =
-        this.sdService.getPathAndQParamsObj('/landing');
-      await this.__page_injector__
-        .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
-      bh = this.sd_lklnD1MxZsDm8Mqz(bh);
-      //appendnew_next_sd_b1knZQpW4LxCb5JZ
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_b1knZQpW4LxCb5JZ');
     }
   }
 

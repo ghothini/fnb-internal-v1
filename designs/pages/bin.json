@@ -636,7 +636,7 @@
         "direction": "ltr",
         "functionName": "sd_lklnD1MxZsDm8Mqz",
         "category": "General",
-        "x": 1225,
+        "x": 1045,
         "y": 640,
         "wires": [
             []
@@ -1720,6 +1720,7 @@
         "serviceImportPath": "./",
         "startName": "rereshBinApplications",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_tEWFbRlAw50uEV3z",
         "category": "General",
@@ -1757,8 +1758,8 @@
         "flow_type": "sync",
         "functionName": "onPageChange",
         "category": "General",
-        "x": 65,
-        "y": 1180,
+        "x": 45,
+        "y": 1060,
         "wires": [
             [
                 "sd_zu0sZZ5uovqQvHkc"
@@ -1778,8 +1779,8 @@
         "script": "page.currentPageIndex = bh.input.ev.pageIndex;",
         "functionName": "sd_zu0sZZ5uovqQvHkc",
         "category": "Function",
-        "x": 165,
-        "y": 1180,
+        "x": 145,
+        "y": 1060,
         "wires": [
             [
                 "sd_Nu9R2HT6RwgrMqWZ"
@@ -1832,7 +1833,7 @@
         "functionName": "sd_Nu9R2HT6RwgrMqWZ",
         "category": "General",
         "x": 265,
-        "y": 1180,
+        "y": 1060,
         "wires": [
             []
         ],
@@ -1851,8 +1852,8 @@
         "script": "bh.startIndex = page.currentPageIndex * bh.input.itemsPerPage;\nbh.endIndex = bh.startIndex + bh.input.itemsPerPage;\npage.applicationsDatasource = page.backupapplicationsDatasource.slice(bh.startIndex, bh.endIndex);",
         "functionName": "sd_qmOYVyNzIiSl4qN2",
         "category": "Function",
-        "x": 185,
-        "y": 1300,
+        "x": 165,
+        "y": 1180,
         "wires": [
             []
         ],
@@ -1883,8 +1884,8 @@
         "flow_type": "sync",
         "functionName": "updateApplicationToShow",
         "category": "General",
-        "x": 80,
-        "y": 1300,
+        "x": 60,
+        "y": 1180,
         "wires": [
             [
                 "sd_qmOYVyNzIiSl4qN2"
@@ -1904,8 +1905,8 @@
         "script": "sessionStorage.clear();",
         "functionName": "sd_m6hVv30fpugqDiFt",
         "category": "Function",
-        "x": 400,
-        "y": 1640,
+        "x": 165,
+        "y": 1320,
         "wires": [
             [
                 "sd_koX3bawnP0g68frd"
@@ -1929,8 +1930,8 @@
         "flow_type": "sync",
         "functionName": "logOut",
         "category": "General",
-        "x": 285,
-        "y": 1640,
+        "x": 50,
+        "y": 1320,
         "wires": [
             [
                 "sd_m6hVv30fpugqDiFt"
@@ -1957,8 +1958,8 @@
         "resultMapping": "",
         "functionName": "sd_koX3bawnP0g68frd",
         "category": "Navigation",
-        "x": 505,
-        "y": 1640,
+        "x": 270,
+        "y": 1320,
         "wires": [
             [
                 "sd_L3pSQ0hjUudWl6f1"
@@ -1999,8 +2000,8 @@
         "direction": "ltr",
         "functionName": "sd_L3pSQ0hjUudWl6f1",
         "category": "General",
-        "x": 605,
-        "y": 1640,
+        "x": 370,
+        "y": 1320,
         "wires": [
             []
         ],
@@ -2238,8 +2239,8 @@
         "flow_type": "sync",
         "functionName": "close",
         "category": "General",
-        "x": 300,
-        "y": 1780,
+        "x": 65,
+        "y": 1460,
         "wires": [
             [
                 "sd_DEgGq4dH8ruzsqIF"
@@ -2259,8 +2260,8 @@
         "data": "bh.system",
         "functionName": "sd_DEgGq4dH8ruzsqIF",
         "category": "Dialog",
-        "x": 385,
-        "y": 1780,
+        "x": 150,
+        "y": 1460,
         "wires": [
             [
                 "sd_UTCWWtOrd8SO8AgF"
@@ -2308,8 +2309,8 @@
         "direction": "ltr",
         "functionName": "sd_UTCWWtOrd8SO8AgF",
         "category": "General",
-        "x": 485,
-        "y": 1780,
+        "x": 250,
+        "y": 1460,
         "wires": [
             [
                 "sd_iIxUe6c6UZt3XfHV"
@@ -2407,11 +2408,11 @@
         "script": "page.showSpinner = false;\n",
         "functionName": "sd_nxY8nnt0QsHLZmlP",
         "category": "Function",
-        "x": 965,
+        "x": 945,
         "y": 640,
         "wires": [
             [
-                "sd_24fn4ONr9uKOPs0t"
+                "sd_lklnD1MxZsDm8Mqz"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -2451,8 +2452,8 @@
         "accept_csd": false,
         "functionName": "sd_iIxUe6c6UZt3XfHV",
         "category": "General",
-        "x": 585,
-        "y": 1780,
+        "x": 350,
+        "y": 1460,
         "wires": [
             [
                 "sd_rzMKKFtDXxLbOgkK"
@@ -2495,32 +2496,10 @@
         "accept_csd": false,
         "functionName": "sd_rzMKKFtDXxLbOgkK",
         "category": "General",
-        "x": 725,
-        "y": 1780,
+        "x": 490,
+        "y": 1460,
         "wires": [
             []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "binComponent",
-        "generated": true
-    },
-    {
-        "id": "sd_24fn4ONr9uKOPs0t",
-        "type": "Navigation",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "path": "/login",
-        "functionName": "sd_24fn4ONr9uKOPs0t",
-        "category": "Navigation",
-        "x": 1065,
-        "y": 640,
-        "wires": [
-            [
-                "sd_b1knZQpW4LxCb5JZ"
-            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -2551,28 +2530,6 @@
         "wires": [
             [
                 "sd_4mlvZaOTTv0JglQj"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "binComponent",
-        "generated": true
-    },
-    {
-        "id": "sd_b1knZQpW4LxCb5JZ",
-        "type": "Navigation",
-        "z": "sd_QJROEOAEa9jpn569",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "path": "/landing",
-        "functionName": "sd_b1knZQpW4LxCb5JZ",
-        "category": "Navigation",
-        "x": 1145,
-        "y": 640,
-        "wires": [
-            [
-                "sd_lklnD1MxZsDm8Mqz"
             ]
         ],
         "__n_excludedFromValidation__": {},

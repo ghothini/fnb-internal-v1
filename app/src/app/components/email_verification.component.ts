@@ -187,7 +187,7 @@ export class email_verificationComponent {
   sd_SfSVTtBqnOKoepaQ(bh) {
     try {
       const page = this.page;
-      bh.url = page.ssdURL + '/verification';
+      bh.url = page.ssdURL + '/get-users';
       bh = this.sd_J1klgcPg8ZZ3f1X9(bh);
       //appendnew_next_sd_SfSVTtBqnOKoepaQ
       return bh;
@@ -200,15 +200,14 @@ export class email_verificationComponent {
     try {
       let requestOptions = {
         url: bh.url,
-        method: 'post',
+        method: 'get',
         responseType: 'json',
         headers: {},
         params: {},
-        body: this.page.emailFormGroup.value,
+        body: undefined,
       };
       this.page.result = await this.sdService.nHttpRequest(requestOptions);
       bh = this.sd_o7lpiAogNsi65ajX(bh);
-      this.sd_46YCZgz0EirBYWin(bh);
       //appendnew_next_sd_J1klgcPg8ZZ3f1X9
       return bh;
     } catch (e) {
@@ -295,23 +294,11 @@ export class email_verificationComponent {
         this.sdService.getPathAndQParamsObj('/reset_password');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
-          queryParams: Object.assign(qprm, ''),
-        });
+        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
       //appendnew_next_sd_9UPHeazoidL2Cypb
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_9UPHeazoidL2Cypb');
-    }
-  }
-
-  sd_46YCZgz0EirBYWin(bh) {
-    try {
-      console.log(new Date().toLocaleTimeString(), this.page.result);
-      //appendnew_next_sd_46YCZgz0EirBYWin
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_46YCZgz0EirBYWin');
     }
   }
 
