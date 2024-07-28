@@ -17,6 +17,8 @@ declare const cordova: any;
   providedIn: 'root',
 })
 export class common {
+  public data: any;
+
   constructor(
     private sdService: SDBaseService,
     private router: Router,
@@ -54,6 +56,58 @@ export class common {
       return await this.errorHandler(bh, e, 'sd_Z5fkQddnj59gYtGb');
     }
   }
+
+  async setVariable(data: any = undefined, ...others) {
+    let bh: any = {
+      input: {
+        data,
+      },
+      local: {},
+    };
+    try {
+      bh = this.sdService.__constructDefault(bh);
+
+      bh = await this.sd_wqYJlenU6aOtUo9l(bh);
+      //appendnew_next_setVariable
+      return (
+        // formatting output variables
+        {
+          input: {
+            data: bh.input.data,
+          },
+          local: {},
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_ddUWlM1FFwamtgaQ');
+    }
+  }
+
+  async getVariable(...others) {
+    let bh: any = {
+      input: {},
+      local: {
+        data: undefined,
+      },
+    };
+    try {
+      bh = this.sdService.__constructDefault(bh);
+
+      bh = await this.sd_hMtyHgMJgLgUannO(bh);
+      //appendnew_next_getVariable
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {
+            data: bh.local.data,
+          },
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_7la9rmA713xPkODo');
+    }
+  }
   //appendnew_flow_common_start
 
   async sd_06KrLBLjKoDDinkp(bh) {
@@ -74,6 +128,26 @@ export class common {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_tAtwyOVd09bFBu4f');
+    }
+  }
+
+  async sd_wqYJlenU6aOtUo9l(bh) {
+    try {
+      this.data = bh.input.data;
+      //appendnew_next_sd_wqYJlenU6aOtUo9l
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_wqYJlenU6aOtUo9l');
+    }
+  }
+
+  async sd_hMtyHgMJgLgUannO(bh) {
+    try {
+      bh.local.data = this.data;
+      //appendnew_next_sd_hMtyHgMJgLgUannO
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_hMtyHgMJgLgUannO');
     }
   }
 
