@@ -342,6 +342,21 @@ export class landingComponent {
       return this.errorHandler(bh, e, 'sd_ttOUAX9p9SuF5k1e');
     }
   }
+
+  createCards(...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_xXuDPGgNNuFL59Wz(bh);
+      //appendnew_next_createCards
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_K2EzBy5bLMKTlEuy');
+    }
+  }
   //appendnew_flow_landingComponent_start
 
   sd_XqeYPgbpYKVgKo5j(bh) {
@@ -373,7 +388,7 @@ export class landingComponent {
       this.page.showIconGuide = false;
       this.page.showNotif = false;
       this.page.rejectedCount = 0;
-      bh = this.sd_ZktKQLIVolBWuIqe(bh);
+      bh = this.sd_0xcCB1r7f4TeLpnL(bh);
       //appendnew_next_sd_Ti7TFNc8x4TYLPgB
       return bh;
     } catch (e) {
@@ -381,35 +396,15 @@ export class landingComponent {
     }
   }
 
-  sd_ZktKQLIVolBWuIqe(bh) {
+  sd_0xcCB1r7f4TeLpnL(bh) {
     try {
-      const page = this.page;
-      page.overviewCards = [
-        {
-          imgSrc:
-            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
-          label: 'Easy PAYU',
-          amt: '0',
-        },
-        {
-          imgSrc:
-            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
-          label: 'Easy Smart',
-          amt: '0',
-        },
-        {
-          imgSrc:
-            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDAQ1/card.png?v=3.14.0',
-          label: 'Aspire',
-          amt: '0',
-        },
-      ];
+      let outputVariables = this.createCards();
 
       bh = this.sd_uMOfoPWt0gcE0NfI(bh);
-      //appendnew_next_sd_ZktKQLIVolBWuIqe
+      //appendnew_next_sd_0xcCB1r7f4TeLpnL
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ZktKQLIVolBWuIqe');
+      return this.errorHandler(bh, e, 'sd_0xcCB1r7f4TeLpnL');
     }
   }
 
@@ -594,10 +589,22 @@ export class landingComponent {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
+      bh = this.sd_3KkB9rjkLcozctG3(bh);
       //appendnew_next_sd_ybdb4P2kH06c5jot
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ybdb4P2kH06c5jot');
+    }
+  }
+
+  sd_3KkB9rjkLcozctG3(bh) {
+    try {
+      let outputVariables = this.refreshAllApplications();
+
+      //appendnew_next_sd_3KkB9rjkLcozctG3
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_3KkB9rjkLcozctG3');
     }
   }
 
@@ -738,10 +745,22 @@ export class landingComponent {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
+      bh = this.sd_Ktlr5gEdT5cvvfvW(bh);
       //appendnew_next_sd_Tv9eNsR7rNobQYNe
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Tv9eNsR7rNobQYNe');
+    }
+  }
+
+  sd_Ktlr5gEdT5cvvfvW(bh) {
+    try {
+      let outputVariables = this.refreshAllApplications();
+
+      //appendnew_next_sd_Ktlr5gEdT5cvvfvW
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Ktlr5gEdT5cvvfvW');
     }
   }
 
@@ -1047,10 +1066,22 @@ export class landingComponent {
     try {
       let outputVariables = this.rereshBinApplications();
 
+      bh = this.sd_LzOZ9R2w7MAgWU7h(bh);
       //appendnew_next_sd_F5zkDCn8LvkHqS0p
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_F5zkDCn8LvkHqS0p');
+    }
+  }
+
+  sd_LzOZ9R2w7MAgWU7h(bh) {
+    try {
+      let outputVariables = this.createCards();
+
+      //appendnew_next_sd_LzOZ9R2w7MAgWU7h
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LzOZ9R2w7MAgWU7h');
     }
   }
 
@@ -1201,10 +1232,44 @@ export class landingComponent {
         data: bh.input.row,
         width: '100%',
       });
+      binDialogRef.afterClosed().subscribe((event) => {
+        this.page = event;
+        this.sd_eVnCdFBFmgSB2GLC(bh);
+
+        //appendnew_next_sd_JoFb2Fos9tpQJqdy;
+      });
 
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_JoFb2Fos9tpQJqdy');
+    }
+  }
+
+  sd_eVnCdFBFmgSB2GLC(bh) {
+    try {
+      let outputVariables = this.refreshAllApplications();
+
+      bh = this.sd_ZLmInZURuWFEdbys(bh);
+      //appendnew_next_sd_eVnCdFBFmgSB2GLC
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eVnCdFBFmgSB2GLC');
+    }
+  }
+
+  sd_ZLmInZURuWFEdbys(bh) {
+    try {
+      const page = this.page;
+      page.infoGuide = true;
+      page.iconsGuide = true;
+      page.iconsGuide = true;
+
+      // window.location.reload()
+
+      //appendnew_next_sd_ZLmInZURuWFEdbys
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZLmInZURuWFEdbys');
     }
   }
 
@@ -1437,10 +1502,79 @@ export class landingComponent {
 
       page.showIconGuide = true;
 
+      bh = this.sd_o1mvLuYEHpy1FMyi(bh);
       //appendnew_next_sd_zvycAb7USlTCtX2f
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_zvycAb7USlTCtX2f');
+    }
+  }
+
+  sd_o1mvLuYEHpy1FMyi(bh) {
+    try {
+      this.page.ssdURL = bh.system.environment.properties.ssdURL;
+      bh = this.sd_6fIj6rNTiL7pwPz3(bh);
+      //appendnew_next_sd_o1mvLuYEHpy1FMyi
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_o1mvLuYEHpy1FMyi');
+    }
+  }
+
+  sd_6fIj6rNTiL7pwPz3(bh) {
+    try {
+      const page = this.page;
+      bh.url = page.ssdURL + '/get-users';
+      bh = this.sd_VkCohd8iMI3BF2Xe(bh);
+      //appendnew_next_sd_6fIj6rNTiL7pwPz3
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_6fIj6rNTiL7pwPz3');
+    }
+  }
+
+  async sd_VkCohd8iMI3BF2Xe(bh) {
+    try {
+      let requestOptions = {
+        url: bh.url,
+        method: 'get',
+        responseType: 'json',
+        headers: {},
+        params: {},
+        body: undefined,
+      };
+      this.page.result = await this.sdService.nHttpRequest(requestOptions);
+      bh = this.sd_3ma0AMCWb6Fkqaly(bh);
+      //appendnew_next_sd_VkCohd8iMI3BF2Xe
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_VkCohd8iMI3BF2Xe');
+    }
+  }
+
+  sd_3ma0AMCWb6Fkqaly(bh) {
+    try {
+      const page = this.page;
+      bh.admin = page.result.find((user: any) => {
+        return user.email == page.user.email;
+      });
+
+      console.log('new admin ==>', bh.admin);
+      bh = this.sd_VCqWmeQCJh1ult0H(bh);
+      //appendnew_next_sd_3ma0AMCWb6Fkqaly
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_3ma0AMCWb6Fkqaly');
+    }
+  }
+
+  sd_VCqWmeQCJh1ult0H(bh) {
+    try {
+      sessionStorage.setItem('currentUser', JSON.stringify(bh.admin));
+      //appendnew_next_sd_VCqWmeQCJh1ult0H
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_VCqWmeQCJh1ult0H');
     }
   }
 
@@ -1449,10 +1583,58 @@ export class landingComponent {
       const page = this.page;
       page.infoGuide = true;
       page.showNotif = true;
+      bh = this.sd_eaT0WVM2OdCEMlOm(bh);
       //appendnew_next_sd_5VwDYevzMmxu8ITq
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_5VwDYevzMmxu8ITq');
+    }
+  }
+
+  sd_eaT0WVM2OdCEMlOm(bh) {
+    try {
+      this.page.ssdURL = bh.system.environment.properties.ssdURL;
+      bh = this.sd_J4rPs5nDQcQbIPl7(bh);
+      //appendnew_next_sd_eaT0WVM2OdCEMlOm
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eaT0WVM2OdCEMlOm');
+    }
+  }
+
+  sd_J4rPs5nDQcQbIPl7(bh) {
+    try {
+      const page = this.page;
+      bh.url = page.ssdURL + '/update';
+
+      bh.body = {
+        email: page.user.email,
+        firstTime: 'False',
+        collection: 'users',
+      };
+      bh = this.sd_gIpLuffGSub0WiVZ(bh);
+      //appendnew_next_sd_J4rPs5nDQcQbIPl7
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_J4rPs5nDQcQbIPl7');
+    }
+  }
+
+  async sd_gIpLuffGSub0WiVZ(bh) {
+    try {
+      let requestOptions = {
+        url: bh.url,
+        method: 'put',
+        responseType: 'json',
+        headers: {},
+        params: {},
+        body: bh.body,
+      };
+      this.page.result = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_gIpLuffGSub0WiVZ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_gIpLuffGSub0WiVZ');
     }
   }
 
@@ -1466,6 +1648,37 @@ export class landingComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_RcWnJBMKX2cbvfsw');
+    }
+  }
+
+  sd_xXuDPGgNNuFL59Wz(bh) {
+    try {
+      const page = this.page;
+      page.overviewCards = [
+        {
+          imgSrc:
+            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
+          label: 'Easy PAYU',
+          amt: '0',
+        },
+        {
+          imgSrc:
+            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
+          label: 'Easy Smart',
+          amt: '0',
+        },
+        {
+          imgSrc:
+            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDAQ1/card.png?v=3.14.0',
+          label: 'Aspire',
+          amt: '0',
+        },
+      ];
+
+      //appendnew_next_sd_xXuDPGgNNuFL59Wz
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xXuDPGgNNuFL59Wz');
     }
   }
 
