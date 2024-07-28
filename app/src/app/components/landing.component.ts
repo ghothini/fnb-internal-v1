@@ -688,7 +688,13 @@ export class landingComponent {
       bh.body = {
         _id: new Date().getTime(),
         email: bh.input.application.email,
-        basicWithdrawal: 3000,
+        transfers: 5000,
+        payments: 10000,
+        payAndClear: 2000,
+        prepaid: 2000,
+        sendMoney: 2000,
+        vouchers: 500,
+        cardlessCashWithdrawal: 2500,
       };
       bh = this.saveDefaultLimits(bh);
       //appendnew_next_sd_zELNJANGTQK0MrII

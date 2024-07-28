@@ -1970,7 +1970,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.url = page.ssdUrl + '/add-limits';\nbh.body = {\n    \"_id\": new Date().getTime(),\n    \"email\": bh.input.application.email,\n    \"basicWithdrawal\": 3000\n}",
+        "script": "bh.url = page.ssdUrl + '/add-limits';\nbh.body = {\n    _id: new Date().getTime(),\n    email: bh.input.application.email,\n    transfers: 5000,\n    payments: 10000,\n    payAndClear: 2000,\n    prepaid: 2000,\n    sendMoney: 2000,\n    vouchers: 500,\n    cardlessCashWithdrawal: 2500,\n}",
         "functionName": "sd_zELNJANGTQK0MrII",
         "category": "Function",
         "x": 645,
