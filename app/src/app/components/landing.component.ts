@@ -681,7 +681,13 @@ export class landingComponent {
       bh.body = {
         _id: new Date().getTime(),
         email: bh.input.application.email,
-        basicWithdrawal: 3000,
+        transfers: 5000,
+        payments: 10000,
+        payAndClear: 2000,
+        prepaid: 2000,
+        sendMoney: 2000,
+        vouchers: 500,
+        cardlessCashWithdrawal: 2500,
       };
       bh = this.saveDefaultLimits(bh);
       //appendnew_next_sd_zELNJANGTQK0MrII
@@ -1307,7 +1313,9 @@ export class landingComponent {
         this.sdService.getPathAndQParamsObj('/login');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
+          queryParams: Object.assign(qprm, ''),
+        });
       bh = this.sd_nmbbkfhW43svj0pJ(bh);
       //appendnew_next_sd_ZsBs1B88XMhDOeFB
       return bh;
