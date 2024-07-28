@@ -5,10 +5,9 @@
 
 import { Component, Injector } from '@angular/core'; //_splitter_
 import { FormBuilder } from '@angular/forms'; //_splitter_
-import { MatDialog, MatDialogRef } from '@angular/material/dialog'; //_splitter_
+import { MatDialogRef } from '@angular/material/dialog'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
-import { confirmationComponent } from 'app/components/confirmation.component'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { NeuServiceInvokerService } from 'app/n-services/service-caller.service'; //_splitter_
@@ -73,44 +72,6 @@ export class binComponent {
       //appendnew_next_searchTable
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_7HqqK2ym3dPFJ2n8');
-    }
-  }
-
-  declineApplication(
-    status: any = undefined,
-    application: any = undefined,
-    ...others
-  ) {
-    let bh: any = {};
-    try {
-      bh = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { status, application };
-      bh.local = {};
-      bh = this.sd_LCa1PC7l4xPwojFS(bh);
-      //appendnew_next_declineApplication
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_IE6UZeNgRbDOJ7YN');
-    }
-  }
-
-  approveApplication(
-    status: any = undefined,
-    application: any = undefined,
-    ...others
-  ) {
-    let bh: any = {};
-    try {
-      bh = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { status, application };
-      bh.local = {};
-      bh = this.sd_bS1fv5V64fgeWDq5(bh);
-      //appendnew_next_approveApplication
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_q4KCst8Kh6P2Kuf9');
     }
   }
 
@@ -242,7 +203,7 @@ export class binComponent {
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_DEgGq4dH8ruzsqIF(bh);
+      bh = this.sd_UTCWWtOrd8SO8AgF(bh);
       //appendnew_next_close
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_UAHsTRvUmu7QzkEi');
@@ -348,264 +309,6 @@ export class binComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_LYyzDzjkK5yX2PEc');
-    }
-  }
-
-  sd_LCa1PC7l4xPwojFS(bh) {
-    try {
-      const page = this.page;
-      bh.dialogData = {
-        ...bh.input.application,
-        isDeclingApplication: true,
-      };
-      bh = this.sd_wPtlUphxK0aZMmgk(bh);
-      //appendnew_next_sd_LCa1PC7l4xPwojFS
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_LCa1PC7l4xPwojFS');
-    }
-  }
-
-  sd_wPtlUphxK0aZMmgk(bh) {
-    try {
-      const confirmationDialog = this.__page_injector__.get(MatDialog);
-      const confirmationDialogRef = confirmationDialog.open(
-        confirmationComponent,
-        { data: bh.dialogData, hasBackdrop: false, width: '400px' }
-      );
-      confirmationDialogRef.afterClosed().subscribe((event) => {
-        this.page.result = event;
-        this.sd_H1yQDiEOKUwV5LNM(bh);
-
-        //appendnew_next_sd_wPtlUphxK0aZMmgk;
-      });
-
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_wPtlUphxK0aZMmgk');
-    }
-  }
-
-  async sd_H1yQDiEOKUwV5LNM(bh) {
-    try {
-      if (
-        this.sdService.operators['false'](
-          this.page.result,
-          undefined,
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_1FRxXRbTTO20Xh98(bh);
-      } else {
-        bh = await this.sd_fk181zj6cHxjbw2O(bh);
-      }
-
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_H1yQDiEOKUwV5LNM');
-    }
-  }
-
-  sd_fk181zj6cHxjbw2O(bh) {
-    try {
-      const page = this.page;
-      bh.url = page.ssdUrl + '/decline';
-      bh.input.application.status = bh.input.status;
-      bh.input.application['reason'] = page.result;
-      bh.input.application.collection = 'users';
-      page.showSpinner = true;
-      bh = this.saveAndSendDeclinedEmail(bh);
-      //appendnew_next_sd_fk181zj6cHxjbw2O
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_fk181zj6cHxjbw2O');
-    }
-  }
-
-  async saveAndSendDeclinedEmail(bh) {
-    try {
-      let requestOptions = {
-        url: bh.url,
-        method: 'put',
-        responseType: 'json',
-        headers: {},
-        params: {},
-        body: bh.input.application,
-      };
-      this.page.result = await this.sdService.nHttpRequest(requestOptions);
-      bh = this.sd_UWVnOKwSxKwQWUcN(bh);
-      //appendnew_next_saveAndSendDeclinedEmail
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_jSCKB3Z5MtVectfn');
-    }
-  }
-
-  sd_UWVnOKwSxKwQWUcN(bh) {
-    try {
-      const page = this.page;
-      page.showSpinner = false;
-      bh = this.sd_tCpk7EM7NItvd4bu(bh);
-      //appendnew_next_sd_UWVnOKwSxKwQWUcN
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_UWVnOKwSxKwQWUcN');
-    }
-  }
-
-  sd_tCpk7EM7NItvd4bu(bh) {
-    try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Application declined successfully!', 'OK', {
-          duration: 3000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      //appendnew_next_sd_tCpk7EM7NItvd4bu
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_tCpk7EM7NItvd4bu');
-    }
-  }
-
-  sd_1FRxXRbTTO20Xh98(bh) {
-    try {
-      this.__page_injector__.get(MatSnackBar).open('Action cancelled.', 'Ok', {
-        duration: 3000,
-        direction: 'ltr',
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
-      //appendnew_next_sd_1FRxXRbTTO20Xh98
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_1FRxXRbTTO20Xh98');
-    }
-  }
-
-  sd_bS1fv5V64fgeWDq5(bh) {
-    try {
-      this.page.ssdUrl = bh.system.environment.properties.ssdURL;
-      bh = this.sd_q7iETnjS3nD1PZox(bh);
-      //appendnew_next_sd_bS1fv5V64fgeWDq5
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_bS1fv5V64fgeWDq5');
-    }
-  }
-
-  sd_q7iETnjS3nD1PZox(bh) {
-    try {
-      let outputVariables = this.generateTempPassword();
-
-      bh = this.sd_BLBQl61oosZX8udb(bh);
-      //appendnew_next_sd_q7iETnjS3nD1PZox
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_q7iETnjS3nD1PZox');
-    }
-  }
-
-  sd_BLBQl61oosZX8udb(bh) {
-    try {
-      const page = this.page;
-      bh.input.application['password'] = page.tempPassword;
-
-      bh.url = page.ssdUrl + '/approve';
-      bh.input.application.status = bh.input.status;
-      page.showSpinner = true;
-      bh = this.saveAndSendApprovedEmail(bh);
-      //appendnew_next_sd_BLBQl61oosZX8udb
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_BLBQl61oosZX8udb');
-    }
-  }
-
-  async saveAndSendApprovedEmail(bh) {
-    try {
-      let requestOptions = {
-        url: bh.url,
-        method: 'put',
-        responseType: 'json',
-        headers: {},
-        params: {},
-        body: bh.input.application,
-      };
-      this.page.result = await this.sdService.nHttpRequest(requestOptions);
-      bh = this.sd_1iCdTuvgCKsOhjgh(bh);
-      //appendnew_next_saveAndSendApprovedEmail
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_zidVzSPGKqs4DHO0');
-    }
-  }
-
-  sd_1iCdTuvgCKsOhjgh(bh) {
-    try {
-      const page = this.page;
-      bh.url = page.ssdUrl + '/add-limits';
-      bh.body = {
-        _id: new Date().getTime(),
-        email: bh.input.application.email,
-        basicWithdrawal: 3000,
-      };
-      bh = this.saveDefaultLimits(bh);
-      //appendnew_next_sd_1iCdTuvgCKsOhjgh
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_1iCdTuvgCKsOhjgh');
-    }
-  }
-
-  async saveDefaultLimits(bh) {
-    try {
-      let requestOptions = {
-        url: bh.url,
-        method: 'post',
-        responseType: 'json',
-        headers: {},
-        params: {},
-        body: bh.body,
-      };
-      this.page.result = await this.sdService.nHttpRequest(requestOptions);
-      bh = this.sd_owXT3CR5iey5WFA3(bh);
-      //appendnew_next_saveDefaultLimits
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Q5rUQHSu6gWhF1W1');
-    }
-  }
-
-  sd_owXT3CR5iey5WFA3(bh) {
-    try {
-      const page = this.page;
-      page.showSpinner = false;
-      bh = this.sd_owdsdjr8KWZqhWDh(bh);
-      //appendnew_next_sd_owXT3CR5iey5WFA3
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_owXT3CR5iey5WFA3');
-    }
-  }
-
-  sd_owdsdjr8KWZqhWDh(bh) {
-    try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Application approved successfully!', 'OK', {
-          duration: 3000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      //appendnew_next_sd_owdsdjr8KWZqhWDh
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_owdsdjr8KWZqhWDh');
     }
   }
 
@@ -1065,19 +768,6 @@ export class binComponent {
     }
   }
 
-  sd_DEgGq4dH8ruzsqIF(bh) {
-    try {
-      const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(bh.system);
-
-      bh = this.sd_UTCWWtOrd8SO8AgF(bh);
-      //appendnew_next_sd_DEgGq4dH8ruzsqIF
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_DEgGq4dH8ruzsqIF');
-    }
-  }
-
   sd_UTCWWtOrd8SO8AgF(bh) {
     try {
       this.__page_injector__.get(MatSnackBar).open('Bin closed', 'Ok', {
@@ -1110,10 +800,23 @@ export class binComponent {
     try {
       let outputVariables = this.rereshBinApplications();
 
+      bh = this.sd_DEgGq4dH8ruzsqIF(bh);
       //appendnew_next_sd_rzMKKFtDXxLbOgkK
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_rzMKKFtDXxLbOgkK');
+    }
+  }
+
+  sd_DEgGq4dH8ruzsqIF(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(bh.system);
+
+      //appendnew_next_sd_DEgGq4dH8ruzsqIF
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_DEgGq4dH8ruzsqIF');
     }
   }
 

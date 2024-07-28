@@ -342,6 +342,21 @@ export class landingComponent {
       return this.errorHandler(bh, e, 'sd_ttOUAX9p9SuF5k1e');
     }
   }
+
+  createCards(...others) {
+    let bh: any = {};
+    try {
+      bh = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_xXuDPGgNNuFL59Wz(bh);
+      //appendnew_next_createCards
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_K2EzBy5bLMKTlEuy');
+    }
+  }
   //appendnew_flow_landingComponent_start
 
   sd_XqeYPgbpYKVgKo5j(bh) {
@@ -373,7 +388,7 @@ export class landingComponent {
       this.page.showIconGuide = false;
       this.page.showNotif = false;
       this.page.rejectedCount = 0;
-      bh = this.sd_ZktKQLIVolBWuIqe(bh);
+      bh = this.sd_0xcCB1r7f4TeLpnL(bh);
       //appendnew_next_sd_Ti7TFNc8x4TYLPgB
       return bh;
     } catch (e) {
@@ -381,35 +396,15 @@ export class landingComponent {
     }
   }
 
-  sd_ZktKQLIVolBWuIqe(bh) {
+  sd_0xcCB1r7f4TeLpnL(bh) {
     try {
-      const page = this.page;
-      page.overviewCards = [
-        {
-          imgSrc:
-            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
-          label: 'Easy PAYU',
-          amt: '0',
-        },
-        {
-          imgSrc:
-            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
-          label: 'Easy Smart',
-          amt: '0',
-        },
-        {
-          imgSrc:
-            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDAQ1/card.png?v=3.14.0',
-          label: 'Aspire',
-          amt: '0',
-        },
-      ];
+      let outputVariables = this.createCards();
 
       bh = this.sd_uMOfoPWt0gcE0NfI(bh);
-      //appendnew_next_sd_ZktKQLIVolBWuIqe
+      //appendnew_next_sd_0xcCB1r7f4TeLpnL
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ZktKQLIVolBWuIqe');
+      return this.errorHandler(bh, e, 'sd_0xcCB1r7f4TeLpnL');
     }
   }
 
@@ -594,10 +589,22 @@ export class landingComponent {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
+      bh = this.sd_3KkB9rjkLcozctG3(bh);
       //appendnew_next_sd_ybdb4P2kH06c5jot
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ybdb4P2kH06c5jot');
+    }
+  }
+
+  sd_3KkB9rjkLcozctG3(bh) {
+    try {
+      let outputVariables = this.refreshAllApplications();
+
+      //appendnew_next_sd_3KkB9rjkLcozctG3
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_3KkB9rjkLcozctG3');
     }
   }
 
@@ -1053,10 +1060,22 @@ export class landingComponent {
     try {
       let outputVariables = this.rereshBinApplications();
 
+      bh = this.sd_LzOZ9R2w7MAgWU7h(bh);
       //appendnew_next_sd_F5zkDCn8LvkHqS0p
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_F5zkDCn8LvkHqS0p');
+    }
+  }
+
+  sd_LzOZ9R2w7MAgWU7h(bh) {
+    try {
+      let outputVariables = this.createCards();
+
+      //appendnew_next_sd_LzOZ9R2w7MAgWU7h
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LzOZ9R2w7MAgWU7h');
     }
   }
 
@@ -1207,10 +1226,44 @@ export class landingComponent {
         data: bh.input.row,
         width: '100%',
       });
+      binDialogRef.afterClosed().subscribe((event) => {
+        this.page = event;
+        this.sd_eVnCdFBFmgSB2GLC(bh);
+
+        //appendnew_next_sd_JoFb2Fos9tpQJqdy;
+      });
 
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_JoFb2Fos9tpQJqdy');
+    }
+  }
+
+  sd_eVnCdFBFmgSB2GLC(bh) {
+    try {
+      let outputVariables = this.refreshAllApplications();
+
+      bh = this.sd_ZLmInZURuWFEdbys(bh);
+      //appendnew_next_sd_eVnCdFBFmgSB2GLC
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eVnCdFBFmgSB2GLC');
+    }
+  }
+
+  sd_ZLmInZURuWFEdbys(bh) {
+    try {
+      const page = this.page;
+      page.infoGuide = true;
+      page.iconsGuide = true;
+      page.iconsGuide = true;
+
+      // window.location.reload()
+
+      //appendnew_next_sd_ZLmInZURuWFEdbys
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZLmInZURuWFEdbys');
     }
   }
 
@@ -1589,6 +1642,37 @@ export class landingComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_RcWnJBMKX2cbvfsw');
+    }
+  }
+
+  sd_xXuDPGgNNuFL59Wz(bh) {
+    try {
+      const page = this.page;
+      page.overviewCards = [
+        {
+          imgSrc:
+            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
+          label: 'Easy PAYU',
+          amt: '0',
+        },
+        {
+          imgSrc:
+            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDA13/card.png?v=3.14.0',
+          label: 'Easy Smart',
+          amt: '0',
+        },
+        {
+          imgSrc:
+            'https://www.fnb.co.za/_assets/images/mm/fnb/pc/products/15/DDAQ1/card.png?v=3.14.0',
+          label: 'Aspire',
+          amt: '0',
+        },
+      ];
+
+      //appendnew_next_sd_xXuDPGgNNuFL59Wz
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xXuDPGgNNuFL59Wz');
     }
   }
 

@@ -10,6 +10,7 @@ import { Router } from '@angular/router'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { NeuServiceInvokerService } from 'app/n-services/service-caller.service'; //_splitter_
+import { common } from 'app/sd-services/common'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -98,7 +99,7 @@ export class reset_passwordComponent {
   sd_lfn2kKUEs82rCBFn(bh) {
     try {
       this.page.user = JSON.parse(sessionStorage.getItem('admin'));
-      bh = this.sd_bpXOUFJGFEyN9Ub9(bh);
+      bh = this.sd_X0jjGMdhOBvBByBp(bh);
       //appendnew_next_sd_lfn2kKUEs82rCBFn
       return bh;
     } catch (e) {
@@ -106,19 +107,33 @@ export class reset_passwordComponent {
     }
   }
 
-  sd_bpXOUFJGFEyN9Ub9(bh) {
+  async sd_X0jjGMdhOBvBByBp(bh) {
+    try {
+      const commonInstance: common = this.__page_injector__.get(common);
+
+      let outputVariables = await commonInstance.getVariable();
+      bh.result = outputVariables.local.data;
+
+      bh = this.sd_5G8j7UJA7FaAVEgO(bh);
+      //appendnew_next_sd_X0jjGMdhOBvBByBp
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_X0jjGMdhOBvBByBp');
+    }
+  }
+
+  sd_5G8j7UJA7FaAVEgO(bh) {
     try {
       const page = this.page;
       page.passwordFormGroup = new FormGroup({
         password: new FormControl('', [Validators.required]),
         confirmPassword: new FormControl('', [Validators.required]),
-        email: new FormControl(page.user.email),
+        email: new FormControl(bh.result[0].email),
       });
-
-      //appendnew_next_sd_bpXOUFJGFEyN9Ub9
+      //appendnew_next_sd_5G8j7UJA7FaAVEgO
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_bpXOUFJGFEyN9Ub9');
+      return this.errorHandler(bh, e, 'sd_5G8j7UJA7FaAVEgO');
     }
   }
 
@@ -126,6 +141,8 @@ export class reset_passwordComponent {
     try {
       const page = this.page;
       page.showSpinner = true;
+
+      console.log('first script ==>', page.passwordFormGroup.value);
       bh = this.sd_CoDm9SlVxY7t1dZD(bh);
       //appendnew_next_sd_13PXKzAUpcvfDT3y
       return bh;
@@ -224,7 +241,7 @@ export class reset_passwordComponent {
       bh.body = page.passwordFormGroup;
       delete bh.body.value.confirmPassword;
       bh.newAdmin = bh.body.value;
-      bh.newAdmin.email = page.user.email;
+
       bh = this.sd_HdUsIlq9pNpLGwEI(bh);
       //appendnew_next_sd_tcwnBWoe9fGcuh1H
       return bh;
@@ -241,7 +258,7 @@ export class reset_passwordComponent {
         responseType: 'json',
         headers: {},
         params: {},
-        body: bh.newAdmin,
+        body: this.page.passwordFormGroup.value,
       };
       this.page.result = await this.sdService.nHttpRequest(requestOptions);
       bh = this.sd_9n3g0GjyeAHca6Bb(bh);
@@ -256,7 +273,7 @@ export class reset_passwordComponent {
     try {
       const page = this.page;
       page.showSpinner = false;
-      sessionStorage.clear();
+
       bh = this.sd_DZp9QHGhYXF8ps92(bh);
       //appendnew_next_sd_9n3g0GjyeAHca6Bb
       return bh;

@@ -135,8 +135,6 @@ export class loginComponent {
         password: '123',
         firstTime: 'True',
       };
-
-      sessionStorage.clear();
       bh = this.sd_KAXopNbB1Yf1ZfJu(bh);
       //appendnew_next_sd_EfI2MVEk466TDqUC
       return bh;
