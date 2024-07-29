@@ -10,6 +10,7 @@ import { Router } from '@angular/router'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { NeuServiceInvokerService } from 'app/n-services/service-caller.service'; //_splitter_
+import { auth } from 'app/sd-services/auth'; //_splitter_
 import { common } from 'app/sd-services/common'; //_splitter_
 //append_imports_end
 
@@ -222,8 +223,6 @@ export class email_verificationComponent {
       bh.admin = page.result.filter((user: any) => {
         return page.emailFormGroup.controls['email'].value == user.email;
       });
-
-      console.log('admin ==>', bh.admin);
       bh = this.sd_h47Jvhq4eG70MMF4(bh);
       //appendnew_next_sd_YEpKwdNwPrsO2iJF
       return bh;
@@ -242,7 +241,7 @@ export class email_verificationComponent {
           undefined
         )
       ) {
-        bh = this.sd_Ch53GQHoEpGcHpsJ(bh);
+        bh = this.sd_xtwpqkIb8LlhAtSP(bh);
       } else {
         bh = await this.sd_Rq12yjClVJlNc5e1(bh);
       }
@@ -253,27 +252,78 @@ export class email_verificationComponent {
     }
   }
 
-  sd_Ch53GQHoEpGcHpsJ(bh) {
+  async sd_xtwpqkIb8LlhAtSP(bh) {
+    try {
+      const authInstance: auth = this.__page_injector__.get(auth);
+
+      let outputVariables = await authInstance.generateRandomNumber(
+        this.page.emailFormGroup.email
+      );
+      bh.result = outputVariables.local.random;
+
+      bh = this.sd_9W2naYgDjrVpyfbp(bh);
+      //appendnew_next_sd_xtwpqkIb8LlhAtSP
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xtwpqkIb8LlhAtSP');
+    }
+  }
+
+  sd_9W2naYgDjrVpyfbp(bh) {
+    try {
+      const page = this.page;
+      bh.url = page.ssdURL + '/forgot-password';
+
+      bh.body = {
+        otp: bh.result,
+        email: bh.admin[0].email,
+      };
+      bh = this.sd_FCWbu5aIJXF3Qeyr(bh);
+      //appendnew_next_sd_9W2naYgDjrVpyfbp
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9W2naYgDjrVpyfbp');
+    }
+  }
+
+  async sd_FCWbu5aIJXF3Qeyr(bh) {
+    try {
+      let requestOptions = {
+        url: bh.url,
+        method: 'put',
+        responseType: 'json',
+        headers: {},
+        params: {},
+        body: bh.body,
+      };
+      this.page.result = await this.sdService.nHttpRequest(requestOptions);
+      bh = this.sd_diNCSOWFKooReRgq(bh);
+      //appendnew_next_sd_FCWbu5aIJXF3Qeyr
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_FCWbu5aIJXF3Qeyr');
+    }
+  }
+
+  sd_diNCSOWFKooReRgq(bh) {
     try {
       const page = this.page;
       page.showSpinner = false;
       bh = this.sd_nZhLih6Y46jDbpPU(bh);
-      //appendnew_next_sd_Ch53GQHoEpGcHpsJ
+      //appendnew_next_sd_diNCSOWFKooReRgq
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Ch53GQHoEpGcHpsJ');
+      return this.errorHandler(bh, e, 'sd_diNCSOWFKooReRgq');
     }
   }
 
   async sd_nZhLih6Y46jDbpPU(bh) {
     try {
       const { paramObj: qprm, path: path } =
-        this.sdService.getPathAndQParamsObj('/reset_password');
+        this.sdService.getPathAndQParamsObj('/OTP');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
-          queryParams: Object.assign(qprm, ''),
-        });
+        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
       bh = this.sd_hizoZ86s31Ddxj8W(bh);
       //appendnew_next_sd_nZhLih6Y46jDbpPU
       return bh;

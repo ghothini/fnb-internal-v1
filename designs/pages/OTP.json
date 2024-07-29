@@ -1,0 +1,649 @@
+[
+    {
+        "id": "sd_Xp5yY4n2doJOq6LF",
+        "type": "tab",
+        "createdDate": "2024-07-29T12:55:48.595Z",
+        "label": "OTP",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "OTPComponent"
+    },
+    {
+        "id": "sd_quHLvlWZfFvNdzfu",
+        "type": "OnInit",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_quHLvlWZfFvNdzfu",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 40,
+        "wires": [
+            [
+                "sd_RN5JWwPlrOAgK2Ng"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "OTPComponent"
+    },
+    {
+        "id": "sd_RN5JWwPlrOAgK2Ng",
+        "type": "PageVariables",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "showSpinner",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            }
+        ],
+        "functionName": "sd_RN5JWwPlrOAgK2Ng",
+        "category": "Function",
+        "x": 145,
+        "y": 40,
+        "wires": [
+            [
+                "sd_c8SYRbibVHSmE0dW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Z4L9T439uVOSyY9M",
+        "type": "PageCallService",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_taxbwnmVnLmX0xn8",
+            "type": "tab",
+            "createdDate": "2024-06-01T15:55:59.764Z",
+            "label": "common",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_7la9rmA713xPkODo",
+            "flowName": "getVariable"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "data",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "data",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/common",
+        "startName": "getVariable",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_Z4L9T439uVOSyY9M",
+        "category": "General",
+        "x": 325,
+        "y": 40,
+        "wires": [
+            [
+                "sd_a3KGKKYtSYvjXyv9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_J5y7P2mtH2gy3OKO",
+        "type": "PageStart",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 105,
+        "y": 200,
+        "wires": [
+            [
+                "sd_KdAzCHwtQZbvh8pa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "OTPComponent"
+    },
+    {
+        "id": "sd_a3KGKKYtSYvjXyv9",
+        "type": "Script",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.otpForm = new FormGroup({\n    otp: new FormControl('',[Validators.required])\n})",
+        "functionName": "sd_a3KGKKYtSYvjXyv9",
+        "category": "Function",
+        "x": 405,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_c8SYRbibVHSmE0dW",
+        "type": "UseDependency",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_c8SYRbibVHSmE0dW",
+        "category": "Function",
+        "x": 245,
+        "y": 40,
+        "wires": [
+            [
+                "sd_Z4L9T439uVOSyY9M"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_KdAzCHwtQZbvh8pa",
+        "type": "PageSwitch",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "otpForm.valid",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.otpForm.valid",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_KdAzCHwtQZbvh8pa",
+        "category": "Function",
+        "x": 205,
+        "y": 200,
+        "wires": [
+            [
+                "sd_5GhiiQomFkl7hn6V"
+            ],
+            [
+                "sd_AfqdzF3f8fUMkVjY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_AfqdzF3f8fUMkVjY",
+        "type": "SnackBar",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Please fill in OTP"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_AfqdzF3f8fUMkVjY",
+        "category": "General",
+        "x": 285,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_5GhiiQomFkl7hn6V",
+        "type": "Script",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = true;",
+        "functionName": "sd_5GhiiQomFkl7hn6V",
+        "category": "Function",
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "sd_ze8PoxDv8DNiw45p"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ze8PoxDv8DNiw45p",
+        "type": "Environment",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "this.page",
+                    "value": "ssdURL"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_ze8PoxDv8DNiw45p",
+        "category": "General",
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "sd_YlDvWl1HnjZ7TTNW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_YlDvWl1HnjZ7TTNW",
+        "type": "Script",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdURL + '/get-users'",
+        "functionName": "sd_YlDvWl1HnjZ7TTNW",
+        "category": "Function",
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "sd_qKa0nFfmah9auusX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_qKa0nFfmah9auusX",
+        "type": "HttpRequest",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "this.page.otpForm.value",
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "otpForm.value"
+        },
+        "resultMapping": "this.page.resultOTP",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "resultOTP"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_qKa0nFfmah9auusX",
+        "category": "HTTP",
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "sd_s9WS9JMQM9Ze9aDv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_kSZxwrYYZKi3TKmy",
+        "type": "Script",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.found = page.resultOTP.filter((user:any) => {\n  return  bh.result[0].email == user.email\n})\nbh.foundUser = bh.found[0]",
+        "functionName": "sd_kSZxwrYYZKi3TKmy",
+        "category": "Function",
+        "x": 685,
+        "y": 160,
+        "wires": [
+            [
+                "sd_xIvGD4xg1IuTQEBV"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_s9WS9JMQM9Ze9aDv",
+        "type": "PageCallService",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_taxbwnmVnLmX0xn8",
+            "type": "tab",
+            "createdDate": "2024-06-01T15:55:59.764Z",
+            "label": "common",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_7la9rmA713xPkODo",
+            "flowName": "getVariable"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "data",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "data",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/common",
+        "startName": "getVariable",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_s9WS9JMQM9Ze9aDv",
+        "category": "General",
+        "x": 605,
+        "y": 160,
+        "wires": [
+            [
+                "sd_kSZxwrYYZKi3TKmy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xIvGD4xg1IuTQEBV",
+        "type": "PageSwitch",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "foundUser.OTP",
+        "propertyType": "bh",
+        "propertyGv": "bh.foundUser.OTP",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "otpForm.controls[\"otp\"].value",
+                "vt": "this.page",
+                "gv": "this.page.otpForm.controls[\"otp\"].value"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_xIvGD4xg1IuTQEBV",
+        "category": "Function",
+        "x": 765,
+        "y": 160,
+        "wires": [
+            [
+                "sd_qAYDDpkkA68uczrY"
+            ],
+            [
+                "sd_CxDaK6XPaaNyqOKg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_CxDaK6XPaaNyqOKg",
+        "type": "SnackBar",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Invalid OTP"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "3000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_CxDaK6XPaaNyqOKg",
+        "category": "General",
+        "x": 845,
+        "y": 220,
+        "wires": [
+            [
+                "sd_0dlxJZS9Brb3KW0p"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_0dlxJZS9Brb3KW0p",
+        "type": "Script",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;",
+        "functionName": "sd_0dlxJZS9Brb3KW0p",
+        "category": "Function",
+        "x": 925,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_faXGHburPcnthRol",
+        "type": "Navigation",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/reset_password",
+        "functionName": "sd_faXGHburPcnthRol",
+        "category": "Navigation",
+        "x": 925,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_qAYDDpkkA68uczrY",
+        "type": "Script",
+        "z": "sd_Xp5yY4n2doJOq6LF",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;",
+        "functionName": "sd_qAYDDpkkA68uczrY",
+        "category": "Function",
+        "x": 845,
+        "y": 100,
+        "wires": [
+            [
+                "sd_faXGHburPcnthRol"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "OTPComponent",
+        "generated": true
+    }
+]
