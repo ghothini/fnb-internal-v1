@@ -57,6 +57,7 @@
         "tool-bar",
         "mat-button",
         "input-field",
+        "input-field-OTP",
         "err-msg",
         "spinner",
         "spinner-login",
@@ -81,7 +82,10 @@
         "mat-header-cell",
         "mat-icon",
         "full-width",
+        "half-width",
+        "full-height",
         "image-size",
+        "size",
         "fade-in",
         "table-width-fix",
         "error-applications-message",
@@ -98,6 +102,6 @@
         "btm-right",
         "right-in",
         "right-top",
-        "talktext"
+        "OTP-input"
     ]
 }

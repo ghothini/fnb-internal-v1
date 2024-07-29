@@ -33,6 +33,10 @@
             }
         },
         {
+            "path": "OTP",
+            "component": "OTPComponent"
+        },
+        {
             "path": "''",
             "redirectTo": "/login",
             "pathMatch": "full",

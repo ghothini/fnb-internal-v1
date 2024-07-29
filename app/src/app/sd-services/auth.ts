@@ -18,6 +18,8 @@ declare const cordova: any;
 export class auth {
   public tokenSubject: any;
   public refreshInProgress: any;
+  public random: any;
+  public email: any;
 
   constructor(
     private sdService: SDBaseService,
@@ -179,6 +181,34 @@ export class auth {
       return await this.errorHandler(bh, e, 'sd_djlNlJjpC2fmIXGB');
     }
   }
+
+  async generateRandomNumber(email: any = undefined, ...others) {
+    let bh: any = {
+      input: {
+        email,
+      },
+      local: {
+        random: 0,
+      },
+    };
+    try {
+      bh = this.sdService.__constructDefault(bh);
+
+      bh = await this.sd_DioG8OzSZDSyVlbY(bh);
+      //appendnew_next_generateRandomNumber
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {
+            random: bh.local.random,
+          },
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Cv0bipm3m4K0Z1dC');
+    }
+  }
   //appendnew_flow_auth_start
 
   async sd_9pIEKdAkvVPKstpC(bh) {
@@ -289,6 +319,29 @@ export class auth {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_fT9Pg2P0uidxRHc4');
+    }
+  }
+
+  async sd_DioG8OzSZDSyVlbY(bh) {
+    try {
+      // Generates a random number between 1000 (inclusive) and 10000 (exclusive)
+      bh.local.random = Math.floor(1000 + Math.random() * 9000);
+      bh = await this.sd_SjkOZq0XXvhCLYe4(bh);
+      //appendnew_next_sd_DioG8OzSZDSyVlbY
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_DioG8OzSZDSyVlbY');
+    }
+  }
+
+  async sd_SjkOZq0XXvhCLYe4(bh) {
+    try {
+      this.random = bh.local.random;
+      this.email = bh.input.email;
+      //appendnew_next_sd_SjkOZq0XXvhCLYe4
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_SjkOZq0XXvhCLYe4');
     }
   }
 

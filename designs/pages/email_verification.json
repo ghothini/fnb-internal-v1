@@ -358,7 +358,7 @@
         "y": 240,
         "wires": [
             [
-                "sd_Ch53GQHoEpGcHpsJ"
+                "sd_xtwpqkIb8LlhAtSP"
             ],
             [
                 "sd_Rq12yjClVJlNc5e1"
@@ -430,45 +430,16 @@
         "generated": true
     },
     {
-        "id": "sd_Ch53GQHoEpGcHpsJ",
-        "type": "Script",
-        "z": "sd_qUz4RYFVkprCUXIs",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.showSpinner = false;",
-        "functionName": "sd_Ch53GQHoEpGcHpsJ",
-        "category": "Function",
-        "x": 885,
-        "y": 180,
-        "wires": [
-            [
-                "sd_nZhLih6Y46jDbpPU"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "serviceName": "email_verificationComponent",
-        "generated": true
-    },
-    {
         "id": "sd_nZhLih6Y46jDbpPU",
         "type": "Navigation",
         "z": "sd_qUz4RYFVkprCUXIs",
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
-        "path": "/reset_password",
-        "pathMap": "",
-        "pathparams": "",
-        "pathparamsMap": "",
-        "qparams": "",
-        "qparamsMap": "",
-        "qparamsArray": "",
-        "resultMapping": "",
+        "path": "/OTP",
         "functionName": "sd_nZhLih6Y46jDbpPU",
         "category": "Navigation",
-        "x": 985,
+        "x": 1205,
         "y": 180,
         "wires": [
             [
@@ -487,7 +458,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.admin = page.result.filter((user:any) => {\n   return page.emailFormGroup.controls['email'].value == user.email\n})\n\nconsole.log(\"admin ==>\", bh.admin)",
+        "script": "bh.admin = page.result.filter((user:any) => {\n   return page.emailFormGroup.controls['email'].value == user.email\n})",
         "functionName": "sd_YEpKwdNwPrsO2iJF",
         "category": "Function",
         "x": 705,
@@ -553,7 +524,7 @@
         "accept_csd": true,
         "functionName": "sd_hizoZ86s31Ddxj8W",
         "category": "General",
-        "x": 1080,
+        "x": 1285,
         "y": 180,
         "wires": [
             []
@@ -612,6 +583,163 @@
         "wires": [
             [
                 "sd_EDCIjVXT2fHf7emi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "email_verificationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xtwpqkIb8LlhAtSP",
+        "type": "PageCallService",
+        "z": "sd_qUz4RYFVkprCUXIs",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_ojOOkGOzPuNgge52",
+            "type": "tab",
+            "createdDate": "2024-06-03T10:47:04.502Z",
+            "label": "auth",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_Cv0bipm3m4K0Z1dC",
+            "flowName": "generateRandomNumber"
+        },
+        "inputVariables": [
+            {
+                "key": "email",
+                "map": true,
+                "valueType": "this.page",
+                "value": "emailFormGroup.email"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "random",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "random",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/auth",
+        "startName": "generateRandomNumber",
+        "inputParams": [
+            "this.page.emailFormGroup.email"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_xtwpqkIb8LlhAtSP",
+        "category": "General",
+        "x": 885,
+        "y": 180,
+        "wires": [
+            [
+                "sd_9W2naYgDjrVpyfbp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "email_verificationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_FCWbu5aIJXF3Qeyr",
+        "type": "HttpRequest",
+        "z": "sd_qUz4RYFVkprCUXIs",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "put",
+        "methodMappingObj": {},
+        "urlMapping": "bh.url",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.body",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "this.page.result",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_FCWbu5aIJXF3Qeyr",
+        "category": "HTTP",
+        "x": 1045,
+        "y": 180,
+        "wires": [
+            [
+                "sd_diNCSOWFKooReRgq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "email_verificationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_9W2naYgDjrVpyfbp",
+        "type": "Script",
+        "z": "sd_qUz4RYFVkprCUXIs",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.url = page.ssdURL + '/forgot-password'\n\nbh.body = {\n    otp : bh.result,\n    email: bh.admin[0].email\n}",
+        "functionName": "sd_9W2naYgDjrVpyfbp",
+        "category": "Function",
+        "x": 965,
+        "y": 180,
+        "wires": [
+            [
+                "sd_FCWbu5aIJXF3Qeyr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "email_verificationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_diNCSOWFKooReRgq",
+        "type": "Script",
+        "z": "sd_qUz4RYFVkprCUXIs",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showSpinner = false;",
+        "functionName": "sd_diNCSOWFKooReRgq",
+        "category": "Function",
+        "x": 1125,
+        "y": 180,
+        "wires": [
+            [
+                "sd_nZhLih6Y46jDbpPU"
             ]
         ],
         "__n_excludedFromValidation__": {},

@@ -230,7 +230,9 @@
             "value": "3000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -286,7 +288,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.url = page.ssdUrl + '/add-admin';\nbh.body = {\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"123\",\n    \"firstTime\": \"True\"\n}",
+        "script": "bh.url = page.ssdUrl + '/add-admin';",
         "functionName": "sd_EfI2MVEk466TDqUC",
         "category": "Function",
         "x": 545,
@@ -308,7 +310,7 @@
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
-        "method": "post",
+        "method": "get",
         "methodMappingObj": {},
         "urlMapping": "bh.url",
         "urlMappingObj": {
@@ -321,10 +323,9 @@
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
-        "reqBody": "bh.body",
         "reqBodyObj": {
             "mapVarType": "bh",
-            "mapVarValue": "body"
+            "mapVarValue": ""
         },
         "resultMapping": "this.page.result",
         "resultMappingObj": {
@@ -695,6 +696,7 @@
         "nodeType": "flow",
         "name": "",
         "method": "post",
+        "methodMapping": "",
         "methodMappingObj": {},
         "urlMapping": "bh.url",
         "urlMappingObj": {
@@ -702,8 +704,10 @@
             "mapVarValue": "url"
         },
         "ret": "json",
+        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
+        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -719,9 +723,11 @@
         },
         "headers": {},
         "headersObj": [],
+        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
+        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "sd_VlcmZhae8kiUq4TB",
         "category": "HTTP",

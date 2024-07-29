@@ -130,11 +130,6 @@ export class loginComponent {
     try {
       const page = this.page;
       bh.url = page.ssdUrl + '/add-admin';
-      bh.body = {
-        email: 'admin@gmail.com',
-        password: '123',
-        firstTime: 'True',
-      };
       bh = this.sd_KAXopNbB1Yf1ZfJu(bh);
       //appendnew_next_sd_EfI2MVEk466TDqUC
       return bh;
@@ -147,11 +142,11 @@ export class loginComponent {
     try {
       let requestOptions = {
         url: bh.url,
-        method: 'post',
+        method: 'get',
         responseType: 'json',
         headers: {},
         params: {},
-        body: bh.body,
+        body: undefined,
       };
       this.page.result = await this.sdService.nHttpRequest(requestOptions);
       //appendnew_next_sd_KAXopNbB1Yf1ZfJu

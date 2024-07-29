@@ -16,6 +16,8 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-OTPComponent
+import { OTPComponent } from '../components/OTP.component';
 //CORE_REFERENCE_IMPORT-rejectedComponent
 import { rejectedComponent } from '../components/rejected.component';
 //CORE_REFERENCE_IMPORT-approvedComponent
@@ -76,6 +78,8 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-OTPComponent
+  OTPComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-rejectedComponent
   rejectedComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-approvedComponent
@@ -136,6 +140,7 @@ export const appRoutes = [
   { path: 'home', component: home_screenComponent },
   { path: 'email_verification', component: email_verificationComponent },
   { path: 'reset_password', component: reset_passwordComponent },
+  { path: 'OTP', component: OTPComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: 'page-not-found' },
 ];
