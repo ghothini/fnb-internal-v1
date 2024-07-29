@@ -19,6 +19,7 @@
             {
                 "_key": "class",
                 "_value": [
+                    "padding",
                     "bg-white",
                     "full-dvh",
                     "relative",
